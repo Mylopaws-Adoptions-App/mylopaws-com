@@ -1,0 +1,79 @@
+import Link from 'next/link';
+import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
+import { Arrow } from '@/components/Icons';
+import { appLink } from '@/lib/site';
+import { breadcrumbSchema, meta, serviceSchema } from '@/lib/seo';
+
+export const metadata = meta({
+  title: 'Mylopaws Homes: Home-Style Cat Boarding in Bangalore',
+  description: 'Home-style cat boarding in Bangalore. Calm spaces, familiar routines and daily updates while you are away. Book Mylopaws Homes.',
+  path: '/homes/',
+});
+
+const FAQ = [
+  { q: 'Do you board dogs?', a: 'Mylopaws Homes is focused on cats right now. Tell us about your dog on the app and we will let you know when dog stays open.' },
+  { q: 'What should I pack?', a: 'Your cat’s usual food, litter preference, any medication, and something that smells of home, like a blanket or toy.' },
+  { q: 'Will I get updates?', a: 'Yes. You get photo and message updates on WhatsApp during the stay.' },
+  { q: 'What does my cat need before a stay?', a: 'Up-to-date vaccinations and deworming, and a quick chat with us about temperament, diet and health.' },
+  { q: 'Can you pick my cat up?', a: 'Yes. Mylopaws Travel can collect and drop your cat in a carrier.' },
+];
+
+export default function HomesPage() {
+  return (
+    <>
+      <PageHero
+        crumbs={[{ label: 'Homes' }]}
+        eyebrow="Mylopaws Homes · Cat boarding"
+        title={<>A home, <em>not</em> a kennel.</>}
+        lead="Home-style boarding for cats in Bangalore. Quiet spaces, the routine your cat already knows, and updates that let you actually enjoy your trip."
+      >
+        <div className="btn-row">
+          <a className="btn btn-primary" href={appLink('homes')}>Book a stay <Arrow /></a>
+          <Link className="btn btn-ghost" href="/travel/">Add a pick-up</Link>
+        </div>
+      </PageHero>
+      <section className="section">
+        <div className="wrap split">
+          <Slot caption="Cats don’t like change. So we change as little as possible." tone="y" />
+          <div>
+            <div className="eyebrow">Why cats first</div>
+            <h2>Built for the most <em>particular</em> guests.</h2>
+            <p className="lead">Cats find cages, noise and strange routines stressful. Homes is designed around what keeps them calm.</p>
+            <ul className="ticks" style={{ marginTop: 20 }}>
+              <li>Calm, home-style spaces, never rows of cages</li>
+              <li>Your cat&rsquo;s own food, schedule and litter habits</li>
+              <li>Quiet, cat-only surroundings</li>
+              <li>Photo and message updates on WhatsApp</li>
+              <li>Pick-up and drop with Mylopaws Travel</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section className="section ink pattern">
+        <div className="wrap split" style={{ alignItems: 'start' }}>
+          <div>
+            <div className="eyebrow">How a stay works</div>
+            <h2>From booking to <em>homecoming.</em></h2>
+          </div>
+          <div className="steps">
+            <div className="step"><div><h3>Book on the app</h3><p>Dates, your cat&rsquo;s details and any special needs.</p></div></div>
+            <div className="step"><div><h3>A quick chat</h3><p>We confirm on WhatsApp and go over food, health and temperament.</p></div></div>
+            <div className="step"><div><h3>Settle in</h3><p>Drop off, or we pick up. We keep your cat&rsquo;s routine as close to home as we can.</p></div></div>
+            <div className="step"><div><h3>Stay in touch</h3><p>Updates through the stay, then a calm ride home.</p></div></div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="wrap split" style={{ alignItems: 'start' }}>
+          <div>
+            <div className="eyebrow">Questions</div>
+            <h2>Homes, <em>answered.</em></h2>
+          </div>
+          <Faq items={FAQ} />
+        </div>
+      </section>
+      <CtaBand title={<>Going away? <em>We&rsquo;ve</em> got them.</>} text="Book a stay on the Mylopaws app and we will confirm everything on WhatsApp." href={appLink('homes')} label="Book Homes" />
+      <JsonLd data={[serviceSchema('Mylopaws Homes: home-style cat boarding', '/homes/', 'Home-style cat boarding in Bangalore.'), faqSchema(FAQ), breadcrumbSchema([{ name: 'Homes', path: '/homes/' }])]} />
+    </>
+  );
+}
