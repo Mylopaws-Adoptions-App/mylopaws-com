@@ -3,7 +3,7 @@ import { Arrow, Bag, Car, Home, Leaf, Paw } from '@/components/Icons';
 import { CtaBand, Faq, JsonLd, Photo, faqSchema, photo } from '@/components/Blocks';
 import { CountUp, Reveal, TiltLink } from '@/components/Motion';
 import { VideoHero } from '@/components/VideoHero';
-import { heroClips } from '@/lib/media';
+import { HERO_CLIPS } from '@/lib/media';
 import { appLink } from '@/lib/site';
 import { meta } from '@/lib/seo';
 import { allPosts, CATEGORIES } from '@/lib/posts';
@@ -28,7 +28,6 @@ const FAQ = [
 
 export default async function HomePage() {
   const posts = allPosts().slice(0, 3);
-  const clips = await heroClips();
   const products = (await catalogue()).length;
   const productStat = products >= 50 ? Math.floor(products / 50) * 50 : 0;
 
@@ -42,8 +41,7 @@ export default async function HomePage() {
   return (
     <>
       <VideoHero
-        clips={clips}
-        poster={photo('/images/pawfamily.webp') ?? photo('/images/travel-hiker.webp')}
+        clips={HERO_CLIPS}
         eyebrow="Mylopaws: A Solution Driven Platform"
         title="Create strong & tightly bonded"
         accent="pawfamilies."

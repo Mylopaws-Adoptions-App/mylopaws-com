@@ -1,35 +1,16 @@
-import { SUPABASE } from './site';
-
 /**
- * Hero clips, one per solution, served from the public Supabase "Video Assets" bucket.
- * To add or swap a clip: upload a short (6-12 s), muted, landscape MP4 (720p, under ~5 MB)
- * to that bucket and put its file name here. Missing files are skipped automatically.
+ * Hero clips, served from /public/video (Vercel's CDN). Each clip has a wide (16:9, desktop)
+ * and a tall (9:16, phones) cut, in MP4 and WebM, plus a poster frame.
+ * `sol` links a clip to a solution tab (hovering that tab plays it); null = brand clip.
+ *
+ * To add a clip: send the source video; it is trimmed, cropped and compressed to
+ * public/video/<name>-wide|tall.(mp4|webm|jpg), then listed here.
  */
-export const HERO_CLIPS = [
-  { sol: 'travel', file: 'hero-travel.mp4' },
-  { sol: 'dermacare', file: 'MDC Facility Video (Facebook Video).mp4' },
-  { sol: 'homes', file: 'hero-homes.mp4' },
-  { sol: 'shopping', file: 'hero-shopping.mp4' },
-] as const;
+export type Clip = { name: string; sol: string | null; alt: string };
 
-export type Clip = { sol: string; src: string };
+export const HERO_CLIPS: Clip[] = [
+  { name: 'bond', sol: null, alt: 'A pet parent cuddling her fluffy white dog' },
+  { name: 'travel', sol: 'travel', alt: 'A happy dog looking out of a car window at sunset' },
+];
 
-const videoUrl = (file: string) => `${SUPABASE.url}/storage/v1/object/public/Video%20Assets/${encodeURIComponent(file)}`;
-
-/** Returns only the clips that actually exist in the bucket (checked hourly). */
-export async function heroClips(): Promise<Clip[]> {
-  // Local testing only: HERO_FIXTURE="travel:/x.mp4,dermacare:/y.mp4" when Supabase isn't reachable.
-  if (process.env.HERO_FIXTURE) return process.env.HERO_FIXTURE.split(',').map((p) => { const [sol, src] = p.split(':'); return { sol, src }; });
-  const checks = await Promise.all(
-    HERO_CLIPS.map(async (c) => {
-      const src = videoUrl(c.file);
-      try {
-        const r = await fetch(src, { method: 'HEAD', next: { revalidate: 3600 } });
-        return r.ok ? ({ sol: c.sol as string, src } as Clip) : null;
-      } catch {
-        return null;
-      }
-    }),
-  );
-  return checks.filter((c): c is Clip => c !== null);
-}
+export const clipSrc = (name: string, cut: 'wide' | 'tall', ext: 'mp4' | 'webm' | 'jpg') => `/video/${name}-${cut}.${ext}`;

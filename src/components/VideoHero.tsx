@@ -3,17 +3,18 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { animated, useReducedMotion, useSpring, useSprings, useTrail } from '@react-spring/web';
-import type { Clip } from '@/lib/media';
+import { clipSrc, type Clip } from '@/lib/media';
 
 type Tab = { sol: string; href: string; name: string; short: string; icon: ReactNode };
 
 /**
  * Full-bleed video hero (after Watermelon UI hero-26): cinematic reveal, left-aligned copy,
- * frosted solution strip. Each solution can have its own clip; hovering a tab plays it.
+ * frosted solution strip. Clips play in turn; hovering a solution plays its own clip.
+ * Phones get a 9:16 cut, desktops a 16:9 cut; sources attach only after mount, so the
+ * server HTML carries just the poster (fast first paint, no double download).
  */
-export function VideoHero({ clips, poster, tabs, eyebrow, title, accent, lead, actions }: {
+export function VideoHero({ clips, tabs, eyebrow, title, accent, lead, actions }: {
   clips: Clip[];
-  poster?: string;
   tabs: Tab[];
   eyebrow: string;
   title: string;
@@ -22,16 +23,24 @@ export function VideoHero({ clips, poster, tabs, eyebrow, title, accent, lead, a
   actions: ReactNode;
 }) {
   const reduce = useReducedMotion();
+  const [cut, setCut] = useState<'wide' | 'tall' | null>(null);
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
   const vids = useRef<(HTMLVideoElement | null)[]>([]);
   const multi = clips.length > 1;
 
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 760px)');
+    const pick = () => setCut(mq.matches ? 'tall' : 'wide');
+    pick();
+    mq.addEventListener('change', pick);
+    return () => mq.removeEventListener('change', pick);
+  }, []);
+
   const go = useCallback((i: number) => setActive(((i % clips.length) + clips.length) % clips.length), [clips.length]);
 
-  // Play the active clip, pause the rest.
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || !cut) return;
     vids.current.forEach((v, i) => {
       if (!v) return;
       if (i === active) {
@@ -40,41 +49,48 @@ export function VideoHero({ clips, poster, tabs, eyebrow, title, accent, lead, a
       } else v.pause();
     });
     setProgress(0);
-  }, [active, reduce]);
+  }, [active, reduce, cut]);
 
   const [fades] = useSprings(clips.length, (i) => ({ opacity: i === active ? 1 : 0, config: { duration: 900 } }), [active]);
   const reveal = useSpring({ from: { r: reduce ? 0 : 100 }, to: { r: 0 }, config: { tension: 120, friction: 30 }, delay: 100 });
-  const words = [...title.split(' '), ...accent.split(' ')];
+  const titleWords = title.split(' ');
+  const words = [...titleWords, ...accent.split(' ')];
   const trail = useTrail(words.length + 4, { from: { o: reduce ? 1 : 0, y: reduce ? 0 : 28 }, to: { o: 1, y: 0 }, delay: 350, config: { tension: 240, friction: 24 } });
   const t = (i: number) => ({ opacity: trail[i].o, transform: trail[i].y.to((v) => `translateY(${v}px)`) });
 
   const activeSol = clips[active]?.sol;
+  const posterCut = cut ?? 'wide';
 
   return (
     <section className="vhero" aria-label="Mylopaws">
       <animated.div className="vhero-media" style={{ clipPath: reveal.r.to((r) => `inset(0 0 0 ${r}%)`) }}>
-        {poster && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img className="vhero-poster" src={poster} alt="" draggable={false} />
+        {clips[0] && (
+          <picture>
+            <source media="(max-width: 760px)" srcSet={clipSrc(clips[0].name, 'tall', 'jpg')} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="vhero-poster" src={clipSrc(clips[0].name, 'wide', 'jpg')} alt={clips[0].alt} draggable={false} fetchPriority="high" />
+          </picture>
         )}
-        {!reduce &&
+        {!reduce && cut &&
           clips.map((c, i) => (
             <animated.video
-              key={c.src}
+              key={`${c.name}-${cut}`}
               ref={(el: HTMLVideoElement | null) => { vids.current[i] = el; }}
               className="vhero-video"
               style={fades[i]}
-              src={c.src}
-              poster={poster}
+              poster={clipSrc(c.name, posterCut, 'jpg')}
               muted
               playsInline
-              autoPlay={i === 0}
+              autoPlay={i === active}
               loop={!multi}
               preload={i === 0 ? 'auto' : 'metadata'}
               onTimeUpdate={(e) => { if (i === active) { const v = e.currentTarget; if (v.duration) setProgress(v.currentTime / v.duration); } }}
-              onEnded={() => multi && go(active + 1)}
+              onEnded={() => multi && go(i + 1)}
               aria-hidden="true"
-            />
+            >
+              <source src={clipSrc(c.name, cut, 'webm')} type="video/webm" />
+              <source src={clipSrc(c.name, cut, 'mp4')} type="video/mp4" />
+            </animated.video>
           ))}
         <div className="vhero-shade" />
       </animated.div>
@@ -85,7 +101,7 @@ export function VideoHero({ clips, poster, tabs, eyebrow, title, accent, lead, a
           {words.map((w, i) => (
             <span key={i} aria-hidden="true" className="vhero-word">
               <animated.span style={{ display: 'inline-block', ...t(Math.min(i + 1, words.length)) }}>
-                {i >= title.split(' ').length ? <em>{w}</em> : w}
+                {i >= titleWords.length ? <em>{w}</em> : w}
               </animated.span>
             </span>
           ))}
