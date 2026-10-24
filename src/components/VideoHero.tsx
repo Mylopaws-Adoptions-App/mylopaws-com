@@ -31,6 +31,9 @@ export function VideoHero({ clips, tabs, eyebrow, title, accent, lead, actions }
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 760px)');
+    // Respect Data Saver: keep the poster, skip the video.
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    if (saveData) return;
     const pick = () => setCut(mq.matches ? 'tall' : 'wide');
     pick();
     mq.addEventListener('change', pick);
