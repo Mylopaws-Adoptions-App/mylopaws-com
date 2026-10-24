@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { Arrow, Bag, Car, Home, Leaf, Paw } from '@/components/Icons';
 import { CtaBand, Faq, JsonLd, Photo, faqSchema, photo } from '@/components/Blocks';
-import { BondHub, CountUp, Reveal, SpringWords, TiltLink } from '@/components/Motion';
-import { PawMark } from '@/components/Logo';
+import { CountUp, Reveal, TiltLink } from '@/components/Motion';
+import { VideoHero } from '@/components/VideoHero';
+import { heroClips } from '@/lib/media';
 import { appLink } from '@/lib/site';
 import { meta } from '@/lib/seo';
 import { allPosts, CATEGORIES } from '@/lib/posts';
@@ -27,6 +28,7 @@ const FAQ = [
 
 export default async function HomePage() {
   const posts = allPosts().slice(0, 3);
+  const clips = await heroClips();
   const products = (await catalogue()).length;
   const productStat = products >= 50 ? Math.floor(products / 50) * 50 : 0;
 
@@ -39,36 +41,21 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="hero">
-        <div className="wrap">
-          <div className="hero-copy">
-            <div className="eyebrow rise">Bangalore&rsquo;s pawfamily platform</div>
-            <SpringWords text="Create strong & tightly bonded" accent="pawfamilies." />
-            <p className="lead rise d2">
-              Everything that keeps you and your pet close, solved in one place: a cab that welcomes your dog, therapies that heal the skin, a calm home when you travel, and the right medicines at your door.
-            </p>
-            <div className="btn-row rise d3">
-              <a className="btn btn-primary" href={appLink('general')}>Book on the Mylopaws app <Arrow /></a>
-              <a className="btn btn-ghost" href="#solutions">Explore the solutions</a>
-            </div>
-            <div className="hero-note rise d4">
-              <span data-sol="travel">Pet cabs 6 am to midnight</span>
-              <span data-sol="dermacare">{THERAPIES.length} skin &amp; fur therapies</span>
-              <span data-sol="homes">Cats welcome everywhere</span>
-            </div>
-          </div>
-          <BondHub
-            nodes={nodes}
-            core={
-              <span className="hub-core-in">
-                <PawMark />
-                <b>Your pawfamily</b>
-                <small>at the centre</small>
-              </span>
-            }
-          />
-        </div>
-      </section>
+      <VideoHero
+        clips={clips}
+        poster={photo('/images/pawfamily.webp') ?? photo('/images/travel-hiker.webp')}
+        eyebrow="Mylopaws: A Solution Driven Platform"
+        title="Create strong & tightly bonded"
+        accent="pawfamilies."
+        lead="Everything that keeps you and your pet close, solved in one place: a cab that welcomes your dog, therapies that heal the skin, a calm home when you travel, and the right medicines at your door."
+        actions={
+          <>
+            <a className="btn btn-yellow" href={appLink('general')}>Book on the Mylopaws app <Arrow /></a>
+            <a className="btn btn-light" href="#solutions">Explore the solutions</a>
+          </>
+        }
+        tabs={nodes.map((n) => ({ sol: n.sol, href: n.href, name: n.title, short: n.sub, icon: n.icon }))}
+      />
 
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
