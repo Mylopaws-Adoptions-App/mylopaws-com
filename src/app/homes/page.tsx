@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
-import { appLink } from '@/lib/site';
+import { bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta, serviceSchema } from '@/lib/seo';
 
 export const metadata = meta({
@@ -11,7 +11,7 @@ export const metadata = meta({
 });
 
 const FAQ = [
-  { q: 'Do you board dogs?', a: 'Mylopaws Homes is focused on cats right now. Tell us about your dog on the app and we will let you know when dog stays open.' },
+  { q: 'Do you board dogs?', a: 'Mylopaws Homes is focused on cats right now. Tell us about your dog on WhatsApp and we will let you know when dog stays open.' },
   { q: 'What should I pack?', a: 'Your cat’s usual food, litter preference, any medication, and something that smells of home, like a blanket or toy.' },
   { q: 'Will I get updates?', a: 'Yes. You get photo and message updates on WhatsApp during the stay.' },
   { q: 'What does my cat need before a stay?', a: 'Up-to-date vaccinations and deworming, and a quick chat with us about temperament, diet and health.' },
@@ -21,14 +21,14 @@ const FAQ = [
 export default function HomesPage() {
   return (
     <>
-      <PageHero
+      <PageHero sol="homes"
         crumbs={[{ label: 'Homes' }]}
         eyebrow="Mylopaws Homes · Cat boarding"
         title={<>A home, <em>not</em> a kennel.</>}
         lead="Home-style boarding for cats in Bangalore. Quiet spaces, the routine your cat already knows, and updates that let you actually enjoy your trip."
       >
         <div className="btn-row">
-          <a className="btn btn-primary" href={appLink('homes')}>Book a stay <Arrow /></a>
+          <a className="btn btn-primary" href={bookLink('homes')}>Book a stay <Arrow /></a>
           <Link className="btn btn-ghost" href="/travel/">Add a pick-up</Link>
         </div>
       </PageHero>
@@ -56,7 +56,7 @@ export default function HomesPage() {
             <h2>From booking to <em>homecoming.</em></h2>
           </div>
           <div className="steps">
-            <div className="step"><div><h3>Book on the app</h3><p>Dates, your cat&rsquo;s details and any special needs.</p></div></div>
+            <div className="step"><div><h3>Message us on WhatsApp</h3><p>Dates, your cat&rsquo;s details and any special needs.</p></div></div>
             <div className="step"><div><h3>A quick chat</h3><p>We confirm on WhatsApp and go over food, health and temperament.</p></div></div>
             <div className="step"><div><h3>Settle in</h3><p>Drop off, or we pick up. We keep your cat&rsquo;s routine as close to home as we can.</p></div></div>
             <div className="step"><div><h3>Stay in touch</h3><p>Updates through the stay, then a calm ride home.</p></div></div>
@@ -72,7 +72,7 @@ export default function HomesPage() {
           <Faq items={FAQ} />
         </div>
       </section>
-      <CtaBand title={<>Going away? <em>We&rsquo;ve</em> got them.</>} text="Book a stay on the Mylopaws app and we will confirm everything on WhatsApp." href={appLink('homes')} label="Book Homes" />
+      <CtaBand title={<>Going away? <em>We&rsquo;ve</em> got them.</>} text="Message us on WhatsApp and we will confirm everything with you." href={bookLink('homes')} label="Book Homes" />
       <JsonLd data={[serviceSchema('Mylopaws Homes: home-style cat boarding', '/homes/', 'Home-style cat boarding in Bangalore.'), faqSchema(FAQ), breadcrumbSchema([{ name: 'Homes', path: '/homes/' }])]} />
     </>
   );

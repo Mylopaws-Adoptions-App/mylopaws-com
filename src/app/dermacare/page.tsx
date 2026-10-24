@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
 import { Arrow, Clock, Pin } from '@/components/Icons';
 import { THERAPIES } from '@/lib/therapies';
-import { CONTACT, appLink } from '@/lib/site';
+import { CONTACT, bookLink } from '@/lib/site';
 import { breadcrumbSchema, dermacareSchema, meta } from '@/lib/seo';
+import { SocialHub } from '@/components/Social';
 
 export const metadata = meta({
   title: 'Mylopaws Dermacare: Skin & Fur Specialists for Pets',
@@ -30,14 +31,14 @@ export default function DermacarePage() {
   const by = Object.fromEntries(THERAPIES.map((t) => [t.slug, t]));
   return (
     <>
-      <PageHero
+      <PageHero sol="dermacare"
         crumbs={[{ label: 'Dermacare' }]}
         eyebrow="Mylopaws Dermacare · HSR Layout"
         title={<>Skin &amp; fur, <em>treated together.</em></>}
         lead="Twelve specialist therapies for the problems regular baths don’t fix: ticks, infections, allergies, dandruff, shedding and dull fur. For dogs and cats, at our salon or at your door."
       >
         <div className="btn-row">
-          <a className="btn btn-primary" href={appLink('dermacare')}>Book a therapy <Arrow /></a>
+          <a className="btn btn-primary" href={bookLink('dermacare')}>Book a therapy <Arrow /></a>
           <a className="btn btn-ghost" href="#therapies">See all 12 therapies</a>
         </div>
       </PageHero>
@@ -92,7 +93,7 @@ export default function DermacarePage() {
             <p style={{ display: 'flex', gap: 10 }}><Pin /> {CONTACT.address.street}, {CONTACT.address.locality} {CONTACT.address.postalCode}</p>
             <p style={{ display: 'flex', gap: 10 }}><Clock /> {CONTACT.dermacare.hours}</p>
             <div className="btn-row" style={{ marginTop: 22 }}>
-              <a className="btn btn-yellow" href={appLink('dermacare')}>Book a slot <Arrow /></a>
+              <a className="btn btn-yellow" href={bookLink('dermacare')}>Book a slot <Arrow /></a>
               <a className="btn btn-light" href={`https://www.google.com/maps/search/?api=1&query=${CONTACT.address.lat},${CONTACT.address.lng}`} rel="noopener" target="_blank">Get directions</a>
             </div>
           </div>
@@ -115,7 +116,8 @@ export default function DermacarePage() {
         </div>
       </section>
 
-      <CtaBand title={<>Your pet&rsquo;s skin is <em>talking.</em></>} text="Book a Dermacare session and our specialist will tell you what it is saying." href={appLink('dermacare')} label="Book Dermacare" />
+      <SocialHub title={<>See what pet parents <em>say.</em></>} lead="Read reviews of the Mylopaws Dermacare Centre on Google, get directions to HSR Layout, or follow our before-and-afters on Instagram." />
+      <CtaBand title={<>Your pet&rsquo;s skin is <em>talking.</em></>} text="Book a Dermacare session and our specialist will tell you what it is saying." href={bookLink('dermacare')} label="Book Dermacare" />
       <JsonLd data={[dermacareSchema(THERAPIES.map((t) => ({ name: t.name, slug: t.slug }))), faqSchema(FAQ), breadcrumbSchema([{ name: 'Dermacare', path: '/dermacare/' }])]} />
     </>
   );

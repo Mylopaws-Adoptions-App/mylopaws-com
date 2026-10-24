@@ -22,9 +22,9 @@ export function Crumbs({ items }: { items: { href?: string; label: string }[] })
   );
 }
 
-export function PageHero(props: { eyebrow?: string; title: ReactNode; lead?: ReactNode; crumbs?: { href?: string; label: string }[]; children?: ReactNode; long?: boolean }) {
+export function PageHero(props: { eyebrow?: string; title: ReactNode; lead?: ReactNode; crumbs?: { href?: string; label: string }[]; children?: ReactNode; long?: boolean; sol?: 'travel' | 'dermacare' | 'homes' | 'shopping' }) {
   return (
-    <section className="page-hero pattern">
+    <section className="page-hero" data-sol={props.sol}>
       <div className="wrap">
         {props.crumbs && <Crumbs items={props.crumbs} />}
         {props.eyebrow && <div className="eyebrow rise">{props.eyebrow}</div>}
@@ -83,9 +83,21 @@ export function Slot({ caption, tone, src, alt }: { caption: string; tone?: 'y';
     <div className={`slot${tone ? ` ${tone}` : ''}`} role={src ? undefined : 'presentation'}>
       {src && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={alt ?? caption} loading="lazy" />
+        <img src={src} alt={alt ?? caption} loading="lazy" draggable={false} />
       )}
       {!src && <div className="slot-cap">{caption}</div>}
     </div>
   );
+}
+
+/** Returns the path if the brand photo exists in /public (fetched at build), else undefined. */
+export function photo(src: string) {
+  return fs.existsSync(path.join(process.cwd(), 'public', src)) ? src : undefined;
+}
+
+/** Protected brand photo (no drag, no long-press save). */
+export function Photo({ src, alt, eager }: { src?: string; alt: string; eager?: boolean }) {
+  if (!src) return null;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} draggable={false} />;
 }

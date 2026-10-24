@@ -6,7 +6,7 @@ import { Arrow, Clock, Leaf, Car } from '@/components/Icons';
 import { THERAPIES, therapyBySlug, type Therapy } from '@/lib/therapies';
 import { TRAVEL, travelBySlug, type TravelService } from '@/lib/travel';
 import { allPosts, postBySlug, CATEGORIES, fmtDate, type Post } from '@/lib/posts';
-import { SITE, appLink } from '@/lib/site';
+import { SITE, bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta, serviceSchema } from '@/lib/seo';
 
 // Old WordPress pages and posts all lived at the site root: /<slug>/. One route serves them all.
@@ -65,14 +65,14 @@ function TherapyPage({ t }: { t: Therapy }) {
   const others = (t.suitsWith ?? []).map(therapyBySlug).filter(Boolean) as Therapy[];
   return (
     <>
-      <PageHero
+      <PageHero sol="dermacare"
         crumbs={[{ href: '/dermacare/', label: 'Dermacare' }, { label: t.name }]}
         eyebrow="Mylopaws Dermacare therapy"
         title={t.name}
         lead={t.intro}
       >
         <div className="btn-row">
-          <a className="btn btn-primary" href={appLink('dermacare')}>Book this therapy <Arrow /></a>
+          <a className="btn btn-primary" href={bookLink('dermacare', `Hi Mylopaws, I'd like to book ${t.name} for my pet.`)}>Book this therapy <Arrow /></a>
           <Link className="btn btn-ghost" href="/dermacare/">All therapies</Link>
         </div>
       </PageHero>
@@ -146,9 +146,9 @@ function TherapyPage({ t }: { t: Therapy }) {
       <RelatedPosts slugs={t.posts ?? []} />
       <CtaBand
         title={<>Book {t.name.split(' ').slice(0, 3).join(' ')} <em>today.</em></>}
-        text="Book on the Mylopaws app and our Dermacare team confirms the slot, and your quote, on WhatsApp."
-        href={appLink('dermacare')}
-        label="Book on the app"
+        text="Message our Dermacare team on WhatsApp and they will confirm the slot and your quote."
+        href={bookLink('dermacare')}
+        label="Book on WhatsApp"
         secondary={{ href: '/dermacare/', label: 'Compare therapies' }}
       />
       <JsonLd
@@ -166,9 +166,9 @@ function TravelPage({ t }: { t: TravelService }) {
   const siblings = TRAVEL.filter((x) => x.slug !== t.slug);
   return (
     <>
-      <PageHero crumbs={[{ href: '/travel/', label: 'Travel' }, { label: t.name }]} eyebrow="Mylopaws Travel" title={t.name} lead={t.intro}>
+      <PageHero sol="travel" crumbs={[{ href: '/travel/', label: 'Travel' }, { label: t.name }]} eyebrow="Mylopaws Travel" title={t.name} lead={t.intro}>
         <div className="btn-row">
-          <a className="btn btn-primary" href={appLink('travel')}>Book a pet cab <Arrow /></a>
+          <a className="btn btn-primary" href={bookLink('travel', `Hi Mylopaws, I'd like to book: ${t.name}.`)}>Book a pet cab <Arrow /></a>
           <Link className="btn btn-ghost" href="/travel/">All Travel services</Link>
         </div>
       </PageHero>
@@ -217,8 +217,8 @@ function TravelPage({ t }: { t: TravelService }) {
       <RelatedPosts slugs={t.posts} />
       <CtaBand
         title={<>Ready when <em>you</em> are.</>}
-        text="Book on the Mylopaws app. We confirm the route, timing and quote on WhatsApp."
-        href={appLink('travel')}
+        text="Message us on WhatsApp. We confirm the route, timing and quote with you."
+        href={bookLink('travel')}
         label="Book a pet cab"
       />
       <JsonLd data={[serviceSchema(t.name, `/${t.slug}/`, t.description, `${SITE.url}/travel/#service`), faqSchema(t.faq), breadcrumbSchema([{ name: 'Travel', path: '/travel/' }, { name: t.name, path: `/${t.slug}/` }])]} />
@@ -245,7 +245,7 @@ function PostPage({ p }: { p: Post }) {
   };
   return (
     <>
-      <PageHero crumbs={[{ href: '/pawprints/', label: 'Pawprints' }, { href: `/category/${p.category}/`, label: cat.name }]} eyebrow={cat.name} title={p.title} long>
+      <PageHero sol={vertical === 'general' ? undefined : vertical} crumbs={[{ href: '/pawprints/', label: 'Pawprints' }, { href: `/category/${p.category}/`, label: cat.name }]} eyebrow={cat.name} title={p.title} long>
         <div className="post-meta">
           <span>{fmtDate(p.updated ?? p.date)}</span><span aria-hidden="true">·</span><span>{p.readMins} min read</span><span aria-hidden="true">·</span><span>By the Mylopaws team</span>
         </div>
@@ -258,21 +258,21 @@ function PostPage({ p }: { p: Post }) {
               <div className="card mag">
                 <h3>Need a pet cab?</h3>
                 <p>Dedicated pet-friendly cabs across Bangalore and outstation, 6 am to midnight.</p>
-                <a className="btn btn-yellow" href={appLink('travel')}>Book Travel</a>
+                <a className="btn btn-yellow" href={bookLink('travel')}>Book Travel</a>
               </div>
             )}
             {vertical === 'dermacare' && (
               <div className="card mag">
                 <h3>Skin trouble?</h3>
                 <p>12 specialist skin and fur therapies at our HSR Layout salon or at your door.</p>
-                <a className="btn btn-yellow" href={appLink('dermacare')}>Book Dermacare</a>
+                <a className="btn btn-yellow" href={bookLink('dermacare')}>Book Dermacare</a>
               </div>
             )}
             {vertical === 'general' && (
               <div className="card mag">
                 <h3>New pet parent?</h3>
                 <p>Gentle puppy grooming, pet cabs to the vet, and a pet pharmacy that delivers.</p>
-                <a className="btn btn-yellow" href={appLink('general')}>Open the app</a>
+                <a className="btn btn-yellow" href={bookLink('general')}>Chat on WhatsApp</a>
               </div>
             )}
             {more.length > 0 && (

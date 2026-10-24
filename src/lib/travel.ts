@@ -53,7 +53,7 @@ export const TRAVEL: TravelService[] = [
     forWho: ['Weekend getaways to pet-friendly resorts', 'Relocating to a new city', 'Festival and family trips', 'Senior or anxious pets who cannot fly'],
     faq: [
       { q: 'How far can you go?', a: 'Anywhere in India by road. Tell us your route and dates and we will plan the trip.' },
-      { q: 'How do you quote for outstation trips?', a: 'Every trip is different, so we quote on WhatsApp or through the app once we know the route, dates and pet.' },
+      { q: 'How do you quote for outstation trips?', a: 'Every trip is different, so we quote on WhatsApp once we know the route, dates and pet.' },
       { q: 'Can you stay for a return trip?', a: 'Yes, multi-day and round trips can be arranged.' },
     ],
     posts: ['outstation-travel-pet-bangalore-checklist', 'dog-friendly-routes-bangalore-coorg-ooty-chikmagalur', 'travelling-senior-dog-bangalore-guide'],
