@@ -23,6 +23,7 @@ export default function ContactPage() {
         <a className="btn btn-primary" href={appLink('general')}>Book on the app</a>
       </PageHero>
       <section className="section">
+        <h2 className="sr-only">Ways to reach us</h2>
         <div className="wrap grid grid-3">
           <div className="card">
             <span className="tag">Travel</span>

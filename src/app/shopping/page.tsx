@@ -48,6 +48,7 @@ export default async function ShoppingPage() {
         </div>
       </PageHero>
       <section className="section tight alt">
+        <h2 className="sr-only">How ordering works</h2>
         <div className="wrap grid grid-3">
           <div className="card flat"><h3>Delivered across Bangalore</h3><p>Evening delivery runs, or free pickup from our HSR Layout store. See our <Link href="/shipping-delivery-policy/">delivery policy</Link>.</p></div>
           <div className="card flat"><h3>Prescription medicines</h3><p>Prescription-only products need a valid vet prescription, which you share on WhatsApp before payment.</p></div>

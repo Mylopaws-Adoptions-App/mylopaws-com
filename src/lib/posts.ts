@@ -4,9 +4,9 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 
 export const CATEGORIES = {
-  travel: { name: 'Travel', blurb: 'Pet cabs, outstation trips and road travel from Bangalore.', vertical: 'travel' as const },
-  'skin-fur-care': { name: 'Skin & Fur Care', blurb: 'Dermacare, tick season, neem therapy and skin health guides.', vertical: 'dermacare' as const },
-  'new-pet-parent': { name: 'Mylopaws Cares', blurb: 'Your first year with a puppy in Bangalore, step by step.', vertical: 'general' as const },
+  travel: { name: 'Travel', blurb: 'Pet cabs, airport runs, outstation road trips and pet-friendly getaways from Bangalore, with checklists to keep your dog or cat calm.', vertical: 'travel' as const },
+  'skin-fur-care': { name: 'Skin & Fur Care', blurb: 'Tick season, itching, hair fall, neem therapy and monsoon skin care: practical skin and fur guides for Bangalore dogs and cats.', vertical: 'dermacare' as const },
+  'new-pet-parent': { name: 'Mylopaws Cares', blurb: 'Your first year with a new puppy in Bangalore, step by step: the first day, vaccinations, potty training, bathing and socialising.', vertical: 'general' as const },
 } as const;
 export type CategorySlug = keyof typeof CATEGORIES;
 

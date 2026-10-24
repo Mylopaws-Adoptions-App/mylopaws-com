@@ -28,6 +28,7 @@ export default async function CategoryPage({ params }: Props) {
     <>
       <PageHero crumbs={[{ href: '/pawprints/', label: 'Pawprints' }, { label: c.name }]} eyebrow="Pawprints" title={c.name} lead={c.blurb} />
       <section className="section">
+        <h2 className="sr-only">Articles in {c.name}</h2>
         <div className="wrap grid grid-3">
           {list.map((p, i) => (
             <Link key={p.slug} className="card" href={`/${p.slug}/`}>

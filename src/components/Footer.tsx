@@ -8,14 +8,14 @@ export function Footer() {
       <div className="wrap">
         <div className="foot-grid">
           <div>
-            <h4>Mylopaws</h4>
+            <h2 className="foot-h">Mylopaws</h2>
             <p style={{ maxWidth: '34ch', margin: 0 }}>{SITE.tagline} {SITE.verticals} Made in Bengaluru, for Bengaluru&rsquo;s pawfamilies.</p>
             <p style={{ marginTop: 18 }}>
               <a className="btn btn-yellow" href={appLink('general')}>Book on the app</a>
             </p>
           </div>
           <div>
-            <h4>Services</h4>
+            <h2 className="foot-h">Services</h2>
             <ul>
               <li><Link href="/travel/">Travel: pet cabs</Link></li>
               <li><Link href="/dermacare/">Dermacare: skin &amp; fur</Link></li>
@@ -24,7 +24,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Read</h4>
+            <h2 className="foot-h">Read</h2>
             <ul>
               <li><Link href="/pawprints/">Pawprints blog</Link></li>
               <li><Link href="/pet-friendly-resorts-near-bangalore/">Pet-friendly resorts</Link></li>
@@ -34,7 +34,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Reach us</h4>
+            <h2 className="foot-h">Reach us</h2>
             <ul>
               <li><a href={`tel:${CONTACT.travel.phone.replace(/\s/g, '')}`}>Travel {CONTACT.travel.phone}</a></li>
               <li><a href={`tel:${CONTACT.dermacare.phone.replace(/\s/g, '')}`}>Dermacare {CONTACT.dermacare.phone}</a></li>

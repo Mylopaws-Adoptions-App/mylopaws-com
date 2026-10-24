@@ -39,6 +39,7 @@ export default function CareersPage() {
     <>
       <PageHero crumbs={[{ label: 'Careers' }]} eyebrow="Careers" title={<>Work with <em>pets,</em> every day.</>} lead="We are a small team building practical pet care for Bangalore. If you love animals and like getting things done, we would love to hear from you." />
       <section className="section">
+        <h2 className="sr-only">Open roles</h2>
         <div className="wrap grid grid-2">
           {ROLES.map((r) => (
             <article className="card" key={r.title}>

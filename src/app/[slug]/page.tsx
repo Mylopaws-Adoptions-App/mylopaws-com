@@ -174,6 +174,7 @@ function TravelPage({ t }: { t: TravelService }) {
       </PageHero>
       <section className="section">
         <div className="wrap">
+          <h2 className="sr-only">Why ride with Mylopaws Travel</h2>
           <div className="grid grid-2">
             {t.points.map((pt, i) => (
               <div className="card" key={pt.h}>
