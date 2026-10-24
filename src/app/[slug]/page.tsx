@@ -65,7 +65,7 @@ function TherapyPage({ t }: { t: Therapy }) {
   const others = (t.suitsWith ?? []).map(therapyBySlug).filter(Boolean) as Therapy[];
   return (
     <>
-      <PageHero
+      <PageHero sol="dermacare"
         crumbs={[{ href: '/dermacare/', label: 'Dermacare' }, { label: t.name }]}
         eyebrow="Mylopaws Dermacare therapy"
         title={t.name}
@@ -166,7 +166,7 @@ function TravelPage({ t }: { t: TravelService }) {
   const siblings = TRAVEL.filter((x) => x.slug !== t.slug);
   return (
     <>
-      <PageHero crumbs={[{ href: '/travel/', label: 'Travel' }, { label: t.name }]} eyebrow="Mylopaws Travel" title={t.name} lead={t.intro}>
+      <PageHero sol="travel" crumbs={[{ href: '/travel/', label: 'Travel' }, { label: t.name }]} eyebrow="Mylopaws Travel" title={t.name} lead={t.intro}>
         <div className="btn-row">
           <a className="btn btn-primary" href={appLink('travel')}>Book a pet cab <Arrow /></a>
           <Link className="btn btn-ghost" href="/travel/">All Travel services</Link>
@@ -245,7 +245,7 @@ function PostPage({ p }: { p: Post }) {
   };
   return (
     <>
-      <PageHero crumbs={[{ href: '/pawprints/', label: 'Pawprints' }, { href: `/category/${p.category}/`, label: cat.name }]} eyebrow={cat.name} title={p.title} long>
+      <PageHero sol={vertical === 'general' ? undefined : vertical} crumbs={[{ href: '/pawprints/', label: 'Pawprints' }, { href: `/category/${p.category}/`, label: cat.name }]} eyebrow={cat.name} title={p.title} long>
         <div className="post-meta">
           <span>{fmtDate(p.updated ?? p.date)}</span><span aria-hidden="true">·</span><span>{p.readMins} min read</span><span aria-hidden="true">·</span><span>By the Mylopaws team</span>
         </div>

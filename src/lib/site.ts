@@ -4,14 +4,15 @@ export const SITE = {
   name: 'Mylopaws',
   url: 'https://mylopaws.com',
   tagline: 'Bringing solutions for pawfamilies.',
-  verticals: 'Travel. Dermacare. Homes.',
+  vision: 'Create strong & tightly bonded pawfamilies.',
+  verticals: 'Travel. Dermacare. Homes. Shopping.',
   description:
     'Mylopaws is a Bangalore pet solutions platform: dedicated pet-friendly cabs, specialist skin and fur Dermacare therapies, and home-style pet Homes.',
   email: 'customercare@mylopaws.com',
   // Locked rule: every booking CTA goes to the Mylopaws app.
   app: 'https://www.mylopaws.app',
   locale: 'en_IN',
-  themeColor: '#691A47',
+  themeColor: '#681947',
 } as const;
 
 export const CONTACT = {
@@ -45,17 +46,27 @@ export const SUPABASE = {
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNiYWppeHloeXlqcGdreHJobHRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNzUzNjEsImV4cCI6MjA5ODY1MTM2MX0.rhGIYMQj4CM-1YvVZ26qCtBKz_C9mI-ERhbg6ISXyvg',
 } as const;
 
+export const VISION = 'Create strong & tightly bonded pawfamilies.';
+
+/** The four solutions, in the order the site presents them. */
+export const SOLUTIONS = [
+  { key: 'travel', href: '/travel/', name: 'Travel', short: 'Pet-friendly cabs, city & outstation' },
+  { key: 'dermacare', href: '/dermacare/', name: 'Dermacare', short: 'Skin & fur therapies' },
+  { key: 'homes', href: '/homes/', name: 'Homes', short: 'Home-style cat boarding' },
+  { key: 'shopping', href: '/shopping/', name: 'Shopping', short: 'Pet pharmacy, delivered' },
+] as const;
+
 export const NAV = [
-  { href: '/travel/', label: 'Travel' },
-  { href: '/dermacare/', label: 'Dermacare' },
-  { href: '/homes/', label: 'Homes' },
+  { href: '/travel/', label: 'Travel', sol: 'travel' },
+  { href: '/dermacare/', label: 'Dermacare', sol: 'dermacare' },
+  { href: '/homes/', label: 'Homes', sol: 'homes' },
+  { href: '/shopping/', label: 'Shopping', sol: 'shopping' },
   { href: '/pawprints/', label: 'Pawprints' },
   { href: '/about/', label: 'About' },
-  { href: '/careers/', label: 'Careers' },
   { href: '/contact/', label: 'Contact' },
 ] as const;
 
-export function appLink(intent: 'travel' | 'dermacare' | 'homes' | 'general' = 'general') {
+export function appLink(intent: 'travel' | 'dermacare' | 'homes' | 'shopping' | 'general' = 'general') {
   const u = new URL(SITE.app);
   u.searchParams.set('utm_source', 'mylopaws.com');
   u.searchParams.set('utm_medium', 'website');

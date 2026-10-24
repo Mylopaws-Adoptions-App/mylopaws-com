@@ -9,7 +9,9 @@ export function Header() {
         <Logo />
         <nav className="nav" aria-label="Main">
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href}>{n.label}</Link>
+            <Link key={n.href} href={n.href} className={'sol' in n ? 'nav-sol' : undefined} data-sol={'sol' in n ? n.sol : undefined}>
+              {n.label}
+            </Link>
           ))}
           <a className="btn btn-primary" href={appLink('general')}>Book now</a>
         </nav>
@@ -17,8 +19,11 @@ export function Header() {
           <summary aria-label="Open menu">Menu</summary>
           <div className="menu-panel">
             {NAV.map((n) => (
-              <Link key={n.href} href={n.href}>{n.label}</Link>
+              <Link key={n.href} href={n.href} className={'sol' in n ? 'nav-sol' : undefined} data-sol={'sol' in n ? n.sol : undefined}>
+                {n.label}
+              </Link>
             ))}
+            <Link href="/careers/">Careers</Link>
             <a className="btn btn-primary" href={appLink('general')}>Book on the Mylopaws app</a>
           </div>
         </details>

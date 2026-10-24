@@ -24,7 +24,7 @@ export default function TravelPage() {
   const posts = postsIn('travel').slice(0, 3);
   return (
     <>
-      <PageHero
+      <PageHero sol="travel"
         crumbs={[{ label: 'Travel' }]}
         eyebrow="Mylopaws Travel · Bangalore"
         title={<>Pet cabs that <em>never</em> refuse a dog.</>}

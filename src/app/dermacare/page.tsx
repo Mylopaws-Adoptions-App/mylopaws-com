@@ -30,7 +30,7 @@ export default function DermacarePage() {
   const by = Object.fromEntries(THERAPIES.map((t) => [t.slug, t]));
   return (
     <>
-      <PageHero
+      <PageHero sol="dermacare"
         crumbs={[{ label: 'Dermacare' }]}
         eyebrow="Mylopaws Dermacare · HSR Layout"
         title={<>Skin &amp; fur, <em>treated together.</em></>}

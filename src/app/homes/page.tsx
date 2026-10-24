@@ -21,7 +21,7 @@ const FAQ = [
 export default function HomesPage() {
   return (
     <>
-      <PageHero
+      <PageHero sol="homes"
         crumbs={[{ label: 'Homes' }]}
         eyebrow="Mylopaws Homes · Cat boarding"
         title={<>A home, <em>not</em> a kennel.</>}
