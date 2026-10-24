@@ -34,7 +34,7 @@ export default function HomesPage() {
       </PageHero>
       <section className="section">
         <div className="wrap split">
-          <Slot caption="Cats don’t like change. So we change as little as possible." tone="y" />
+          <Slot src="/images/cat-dog-sleeping.webp" alt="A cat and a dog sleeping close together" caption="Cats don’t like change. So we change as little as possible." tone="y" />
           <div>
             <div className="eyebrow">Why cats first</div>
             <h2>Built for the most <em>particular</em> guests.</h2>

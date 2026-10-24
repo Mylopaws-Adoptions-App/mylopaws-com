@@ -32,7 +32,7 @@ export default function AboutPage() {
               <li><strong>Stay reachable.</strong> Real people on WhatsApp, before and after every booking.</li>
             </ul>
           </div>
-          <Slot caption="Bringing solutions for pawfamilies." />
+          <Slot src="/images/pawfamily.webp" alt="A pawfamily" caption="Bringing solutions for pawfamilies." />
         </div>
       </section>
       <section className="section alt">

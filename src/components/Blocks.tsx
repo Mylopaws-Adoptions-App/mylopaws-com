@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import fs from 'node:fs';
+import path from 'node:path';
 import { Arrow } from './Icons';
 
 export function JsonLd({ data }: { data: object | object[] }) {
@@ -74,8 +76,9 @@ export function faqSchema(items: { q: string; a: string }[]) {
   };
 }
 
-/** Image slot: a branded panel now; drop a photo at /public/images/<name>.jpg and pass src to show it. */
+/** Image slot: shows the photo if it exists in /public (fetched at build from Supabase), otherwise a branded panel. */
 export function Slot({ caption, tone, src, alt }: { caption: string; tone?: 'y'; src?: string; alt?: string }) {
+  if (src && !fs.existsSync(path.join(process.cwd(), 'public', src))) src = undefined;
   return (
     <div className={`slot${tone ? ` ${tone}` : ''}`} role={src ? undefined : 'presentation'}>
       {src && (

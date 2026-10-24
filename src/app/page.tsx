@@ -97,7 +97,7 @@ export default function HomePage() {
 
       <section className="section">
         <div className="wrap split">
-          <Slot caption="Itching isn’t a grooming problem. It’s a skin problem." />
+          <Slot src="/images/vet-dog.webp" alt="A vet examining a dog" caption="Itching isn’t a grooming problem. It’s a skin problem." />
           <div>
             <div className="eyebrow">Mylopaws Dermacare</div>
             <h2>Most pet salons wash the fur. <em>We treat the skin.</em></h2>
@@ -117,7 +117,7 @@ export default function HomePage() {
 
       <section className="section ink pattern">
         <div className="wrap split reverse">
-          <Slot caption="No refusals. No cancellations at the gate." tone="y" />
+          <Slot src="/images/travel-hiker.webp" alt="A hiker with two dogs outdoors" caption="No refusals. No cancellations at the gate." tone="y" />
           <div>
             <div className="eyebrow">Mylopaws Travel</div>
             <h2>Every trip starts with a driver who <em>expected</em> a dog.</h2>

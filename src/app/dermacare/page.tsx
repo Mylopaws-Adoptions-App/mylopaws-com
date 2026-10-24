@@ -54,7 +54,7 @@ export default function DermacarePage() {
               <div className="step"><div><h3>Keep it that way</h3><p>Home-care advice and a sensible rhythm for follow-ups.</p></div></div>
             </div>
           </div>
-          <Slot caption="Twelve therapies. One question first: what is your pet’s skin telling us?" />
+          <Slot src="/images/vet-cat.webp" alt="A vet inspecting a cat" caption="Twelve therapies. One question first: what is your pet’s skin telling us?" />
         </div>
       </section>
 

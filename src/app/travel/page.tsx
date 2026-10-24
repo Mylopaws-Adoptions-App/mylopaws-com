@@ -60,7 +60,7 @@ export default function TravelPage() {
 
       <section className="section alt">
         <div className="wrap split">
-          <Slot caption="Seat covers, space for crates, and a driver who expected fur." />
+          <Slot src="/images/travel-air.webp" alt="Travelling with a pet" caption="Seat covers, space for crates, and a driver who expected fur." />
           <div>
             <div className="eyebrow">What makes it different</div>
             <h2>A cab built for the <em>passenger</em> with four legs.</h2>
