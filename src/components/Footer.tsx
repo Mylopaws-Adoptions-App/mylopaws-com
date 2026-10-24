@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { CONTACT, SITE, SOLUTIONS, appLink } from '@/lib/site';
+import { CONTACT, SITE, SOLUTIONS, bookLink } from '@/lib/site';
 import { Wordmark } from './Logo';
+import { BookMenu } from './BookMenu';
+import { SocialIcons } from './Social';
 
 export function Footer() {
   const y = new Date().getFullYear();
@@ -13,9 +15,10 @@ export function Footer() {
             <p style={{ maxWidth: '36ch', margin: 0, color: '#cdb8c5' }}>
               A solutions platform for Bangalore&rsquo;s pawfamilies: {SOLUTIONS.map((s) => s.name).join(', ').replace(/, ([^,]*)$/, ' and $1')}. Made in Bengaluru.
             </p>
-            <p style={{ marginTop: 20 }}>
-              <a className="btn btn-yellow" href={appLink('general')}>Book on the app</a>
-            </p>
+            <SocialIcons />
+            <div style={{ marginTop: 20 }}>
+              <BookMenu label="Book on WhatsApp" tone="yellow" up />
+            </div>
           </div>
           <div>
             <h2 className="foot-h">Solutions</h2>
@@ -41,6 +44,7 @@ export function Footer() {
             <ul>
               <li><a href={`tel:${CONTACT.travel.phone.replace(/\s/g, '')}`}>Travel {CONTACT.travel.phone}</a></li>
               <li><a href={`tel:${CONTACT.dermacare.phone.replace(/\s/g, '')}`}>Dermacare {CONTACT.dermacare.phone}</a></li>
+              <li><a href={`tel:${CONTACT.homes.phone.replace(/\s/g, '')}`}>Homes &amp; Shopping {CONTACT.homes.phone}</a></li>
               <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><Link href="/contact/">HSR Layout, Bengaluru</Link></li>
             </ul>

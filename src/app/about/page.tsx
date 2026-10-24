@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CtaBand, PageHero, Slot, JsonLd } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
-import { appLink } from '@/lib/site';
+import { bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 
 export const metadata = meta({
@@ -51,7 +51,7 @@ export default function AboutPage() {
           <p className="muted" style={{ marginTop: 24 }}>We also run a <Link href="/shopping/">pet pharmacy and shop</Link> that delivers across Bangalore, and publish free guides on <Link href="/pawprints/">Pawprints</Link>.</p>
         </div>
       </section>
-      <CtaBand title={<>Come say <em>hello.</em></>} text="Book a service on the app, or visit our Dermacare salon in HSR Layout." href={appLink('general')} label="Open the app" secondary={{ href: '/contact/', label: 'Contact us' }} />
+      <CtaBand title={<>Come say <em>hello.</em></>} text="Message us on WhatsApp, or visit our Dermacare salon in HSR Layout." href={bookLink('general')} label="Chat on WhatsApp" secondary={{ href: '/contact/', label: 'Contact us' }} />
       <JsonLd data={breadcrumbSchema([{ name: 'About', path: '/about/' }])} />
     </>
   );

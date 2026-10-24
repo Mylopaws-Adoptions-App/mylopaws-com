@@ -3,7 +3,7 @@ import { CtaBand, JsonLd, PageHero } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
 import { Reveal } from '@/components/Motion';
 import { ShopCatalogue } from '@/components/ShopCatalogue';
-import { SHOP_WHATSAPP, appLink, waLink } from '@/lib/site';
+import { SHOP_WHATSAPP, waLink } from '@/lib/site';
 import { catalogue, shopLink } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 
@@ -17,7 +17,7 @@ export const metadata = meta({
 
 export default async function ShoppingPage() {
   const items = await catalogue();
-  const orderBase = SHOP_WHATSAPP ? waLink(SHOP_WHATSAPP) : appLink('shopping');
+  const orderBase = waLink(SHOP_WHATSAPP);
   return (
     <>
       <PageHero
@@ -44,7 +44,7 @@ export default async function ShoppingPage() {
         {items.length === 0 ? (
           <div className="wrap"><div className="empty">Our catalogue is updating. Message us for what you need.</div></div>
         ) : (
-          <ShopCatalogue items={items} orderBase={orderBase} orderIsWhatsApp={Boolean(SHOP_WHATSAPP)} />
+          <ShopCatalogue items={items} orderBase={orderBase} orderIsWhatsApp />
         )}
       </section>
       <CtaBand title={<>Can&rsquo;t find it? <em>Ask us.</em></>} text="We can usually source what your vet prescribes within a day or two." href={shopLink('Hi Mylopaws, can you get this for my pet?')} label="Message the pharmacy" />

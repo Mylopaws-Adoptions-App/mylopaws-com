@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { SHOP_WHATSAPP, SUPABASE, appLink, waLink } from './site';
+import { SHOP_WHATSAPP, SUPABASE, waLink } from './site';
 
 export type Product = { handle: string; title: string; category: string | null; image_url: string | null; rx_required: boolean | null };
 
@@ -21,4 +21,4 @@ export async function catalogue(): Promise<Product[]> {
   }
 }
 
-export const shopLink = (text: string) => (SHOP_WHATSAPP ? waLink(SHOP_WHATSAPP, text) : appLink('shopping'));
+export const shopLink = (text: string) => waLink(SHOP_WHATSAPP, text);

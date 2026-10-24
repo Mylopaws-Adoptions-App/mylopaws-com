@@ -4,11 +4,13 @@ import { CtaBand, Faq, JsonLd, Photo, faqSchema, photo } from '@/components/Bloc
 import { CountUp, Reveal, TiltLink } from '@/components/Motion';
 import { VideoHero } from '@/components/VideoHero';
 import { HERO_CLIPS } from '@/lib/media';
-import { appLink } from '@/lib/site';
+import { bookLink } from '@/lib/site';
 import { meta } from '@/lib/seo';
 import { allPosts, CATEGORIES } from '@/lib/posts';
 import { THERAPIES } from '@/lib/therapies';
 import { catalogue } from '@/lib/shop';
+import { BookMenu } from '@/components/BookMenu';
+import { SocialHub } from '@/components/Social';
 
 export const revalidate = 3600;
 
@@ -21,7 +23,7 @@ export const metadata = meta({
 const FAQ = [
   { q: 'What is Mylopaws?', a: 'Mylopaws is a Bangalore pet solutions platform. Our vision is to create strong and tightly bonded pawfamilies, so we solve the moments that get in the way: getting your pet somewhere, keeping their skin and fur healthy, caring for them when you travel, and getting the right products to your door.' },
   { q: 'Which areas of Bangalore do you serve?', a: 'Mylopaws Travel covers all of Bangalore and outstation trips across India. Dermacare runs from our salon in HSR Layout, with doorstep sessions in many areas. Homes is in Bangalore, and the pet pharmacy delivers across the city.' },
-  { q: 'How do I book?', a: 'Book Travel, Dermacare or Homes on the Mylopaws app at mylopaws.app. Our team confirms every booking with you on WhatsApp.' },
+  { q: 'How do I book?', a: 'Message the right team on WhatsApp: Travel on +91 90366 08453, Dermacare on +91 91489 35441, and Homes or Shopping on +91 90710 91699. A real person replies and confirms everything with you.' },
   { q: 'Why don’t you show prices on the site?', a: 'Every pet, route, skin condition and prescription is different. We quote once we know what your pet needs, so there are no surprises later.' },
   { q: 'Do you work with cats too?', a: 'Yes. Cats ride in our cabs, get Dermacare therapies, shop from the pharmacy, and Mylopaws Homes is currently focused on cat boarding.' },
 ];
@@ -48,7 +50,7 @@ export default async function HomePage() {
         lead="Everything that keeps you and your pet close, solved in one place: a cab that welcomes your dog, therapies that heal the skin, a calm home when you travel, and the right medicines at your door."
         actions={
           <>
-            <a className="btn btn-yellow" href={appLink('general')}>Book on the Mylopaws app <Arrow /></a>
+            <BookMenu label="Book on WhatsApp" tone="yellow" up />
             <a className="btn btn-light" href="#solutions">Explore the solutions</a>
           </>
         }
@@ -164,7 +166,7 @@ export default async function HomePage() {
             <Reveal className="pillar" delay={240}>
               <b>03</b>
               <h3>One app, one team</h3>
-              <p>Book any solution on the Mylopaws app and a real person confirms it with you on WhatsApp. No call centres, no surprises.</p>
+              <p>Each solution has its own WhatsApp line, answered by the people who run it. No call centres, no bots, no surprises.</p>
             </Reveal>
           </div>
         </div>
@@ -182,12 +184,12 @@ export default async function HomePage() {
             <div className="eyebrow">How it works</div>
             <h2>Three steps to a <em>calmer</em> pet.</h2>
             <div className="steps" style={{ marginTop: 24 }}>
-              <div className="step"><div><h3>Pick a solution on the app</h3><p>Travel, Dermacare or Homes. Tell us about your pet and what you need.</p></div></div>
-              <div className="step"><div><h3>We confirm on WhatsApp</h3><p>A specialist checks the details, answers questions and shares a quote.</p></div></div>
+              <div className="step"><div><h3>Message the right team</h3><p>Travel, Dermacare, Homes or Shopping. Tell us about your pet and what you need.</p></div></div>
+              <div className="step"><div><h3>We confirm the details</h3><p>A specialist checks the details, answers questions and shares a quote.</p></div></div>
               <div className="step"><div><h3>Your pet is looked after</h3><p>The right person, the right vehicle or the right therapy, with updates along the way.</p></div></div>
             </div>
             <div className="btn-row" style={{ marginTop: 28 }}>
-              <a className="btn btn-primary" href={appLink('general')}>Open the Mylopaws app <Arrow /></a>
+              <BookMenu label="Book on WhatsApp" />
             </div>
           </Reveal>
         </div>
@@ -217,6 +219,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <SocialHub />
+
       <section className="section">
         <div className="wrap split" style={{ alignItems: 'start' }}>
           <div>
@@ -231,9 +235,9 @@ export default async function HomePage() {
 
       <CtaBand
         title={<>Your pawfamily, <em>sorted.</em></>}
-        text="Book Travel, Dermacare or Homes in a couple of taps. We confirm everything with you on WhatsApp."
-        href={appLink('general')}
-        label="Open the Mylopaws app"
+        text="Message the team you need on WhatsApp. A real person replies and confirms everything with you."
+        href={bookLink('general')}
+        label="Chat on WhatsApp"
         secondary={{ href: '/shopping/', label: 'Visit the pharmacy' }}
       />
       <JsonLd data={faqSchema(FAQ)} />

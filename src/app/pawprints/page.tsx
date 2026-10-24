@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { CtaBand, JsonLd, PageHero } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
 import { CATEGORIES, postsIn, type CategorySlug } from '@/lib/posts';
-import { appLink } from '@/lib/site';
+import { bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 
 export const metadata = meta({
@@ -55,7 +55,7 @@ export default function PawprintsPage() {
           </section>
         );
       })}
-      <CtaBand title={<>Reading is good. <em>Booking</em> is better.</>} text="Pet cabs, skin and fur therapies and cat boarding, all on the Mylopaws app." href={appLink('general')} label="Open the app" />
+      <CtaBand title={<>Reading is good. <em>Booking</em> is better.</>} text="Pet cabs, skin and fur therapies, cat stays and a pet pharmacy, a WhatsApp message away." href={bookLink('general')} label="Chat on WhatsApp" />
       <JsonLd data={breadcrumbSchema([{ name: 'Pawprints', path: '/pawprints/' }])} />
     </>
   );

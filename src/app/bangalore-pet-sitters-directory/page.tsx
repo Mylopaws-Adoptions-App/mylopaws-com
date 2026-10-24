@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Faq, JsonLd, PageHero, faqSchema } from '@/components/Blocks';
 import { LeadForm } from '@/components/LeadForm';
-import { appLink } from '@/lib/site';
+import { bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 
 export const metadata = meta({
@@ -54,7 +54,7 @@ export default function SittersPage() {
         <div className="wrap" style={{ maxWidth: 860 }}>
           <div className="eyebrow">Questions</div>
           <Faq items={FAQ} />
-          <p style={{ marginTop: 24 }}><a className="btn btn-primary" href={appLink('homes')}>Book Mylopaws Homes</a></p>
+          <p style={{ marginTop: 24 }}><a className="btn btn-primary" href={bookLink('homes')}>Book Mylopaws Homes</a></p>
         </div>
       </section>
       <JsonLd data={[faqSchema(FAQ), breadcrumbSchema([{ name: 'Pawprints', path: '/pawprints/' }, { name: 'Pet sitters directory', path: '/bangalore-pet-sitters-directory/' }])]} />

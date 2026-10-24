@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
-import { NAV, appLink } from '@/lib/site';
+import { NAV, bookLink } from '@/lib/site';
+import { BookMenu, BookList } from './BookMenu';
 
 export function Header() {
   return (
@@ -13,7 +14,7 @@ export function Header() {
               {n.label}
             </Link>
           ))}
-          <a className="btn btn-primary" href={appLink('general')}>Book now</a>
+          <BookMenu label="Book now" align="right" />
         </nav>
         <details className="menu">
           <summary aria-label="Open menu">Menu</summary>
@@ -24,7 +25,7 @@ export function Header() {
               </Link>
             ))}
             <Link href="/careers/">Careers</Link>
-            <a className="btn btn-primary" href={appLink('general')}>Book on the Mylopaws app</a>
+            <BookList />
           </div>
         </details>
       </div>

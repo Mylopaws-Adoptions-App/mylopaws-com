@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
 import { Arrow, Car, Clock } from '@/components/Icons';
 import { TRAVEL } from '@/lib/travel';
-import { CONTACT, appLink } from '@/lib/site';
+import { CONTACT, bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta, travelSchema } from '@/lib/seo';
 import { postsIn } from '@/lib/posts';
 
@@ -16,7 +16,7 @@ const FAQ = [
   { q: 'Why not just take a regular cab?', a: 'Many ride-hailing drivers refuse or cancel when they see a pet, and their cars are not prepared for one. Our cabs are booked for pets, every time.' },
   { q: 'What are your hours?', a: 'Every day from 6 am to midnight. For earlier or later trips, ask us and we will try to arrange it.' },
   { q: 'Can I travel with my pet?', a: 'Yes, most pet parents ride along. We can also take your pet alone to the salon, boarding or family.' },
-  { q: 'How much does it cost?', a: 'It depends on distance, timing and the pet. Book on the app and we confirm a quote on WhatsApp before the trip.' },
+  { q: 'How much does it cost?', a: 'It depends on distance, timing and the pet. Message us on WhatsApp and we confirm a quote before the trip.' },
   { q: 'Do you go outside Bangalore?', a: 'Yes, anywhere in India by road, from weekend getaways to full relocations.' },
 ];
 
@@ -31,7 +31,7 @@ export default function TravelPage() {
         lead="Dedicated pet-friendly cabs across Bangalore and to anywhere in India. Prepared vehicles, patient drivers, and a trip planned around your pet."
       >
         <div className="btn-row">
-          <a className="btn btn-primary" href={appLink('travel')}>Book a pet cab <Arrow /></a>
+          <a className="btn btn-primary" href={bookLink('travel')}>Book a pet cab <Arrow /></a>
           <a className="btn btn-ghost" href={`tel:${CONTACT.travel.phone.replace(/\s/g, '')}`}>Call {CONTACT.travel.phone}</a>
         </div>
       </PageHero>
@@ -83,7 +83,7 @@ export default function TravelPage() {
             <h2>Three steps, <em>no</em> surprises.</h2>
           </div>
           <div className="steps">
-            <div className="step"><div><h3>Book on the Mylopaws app</h3><p>Pick-up, drop, date and a few details about your pet.</p></div></div>
+            <div className="step"><div><h3>Message us on WhatsApp</h3><p>Pick-up, drop, date and a few details about your pet.</p></div></div>
             <div className="step"><div><h3>Confirm on WhatsApp</h3><p>Our Travel team confirms timing and your quote.</p></div></div>
             <div className="step"><div><h3>Ride</h3><p>Your driver arrives prepared. You track the trip and we stay reachable.</p></div></div>
           </div>
@@ -116,7 +116,7 @@ export default function TravelPage() {
         </div>
       </section>
 
-      <CtaBand title={<>Where are you <em>headed?</em></>} text="Book on the app and we will plan the ride around your pet." href={appLink('travel')} label="Book a pet cab" />
+      <CtaBand title={<>Where are you <em>headed?</em></>} text="Message us on WhatsApp and we will plan the ride around your pet." href={bookLink('travel')} label="Book a pet cab" />
       <JsonLd data={[travelSchema, faqSchema(FAQ), breadcrumbSchema([{ name: 'Travel', path: '/travel/' }])]} />
     </>
   );

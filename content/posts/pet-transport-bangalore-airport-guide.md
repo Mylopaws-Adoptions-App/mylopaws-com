@@ -7,7 +7,7 @@ date: 2026-07-20
 category: travel
 faq:
   - q: "Are there pet-friendly cabs to Bangalore airport?"
-    a: "Yes. Mylopaws Travel runs dedicated pet cabs across Bangalore, including coordinated airport drops to BLR with pet-loving drivers and no refusals. Booked on the Mylopaws app."
+    a: "Yes. Mylopaws Travel runs dedicated pet cabs across Bangalore, including coordinated airport drops to BLR with pet-loving drivers and no refusals. Booked on WhatsApp."
   - q: "What documents do I need to fly my pet from Bangalore?"
     a: "Typically up-to-date vaccination records (especially rabies), a veterinary health/fitness certificate dated per your airline's rules, and any airline-specific pet forms. Always confirm the exact requirements with your airline first."
   - q: "How early should I reach the airport with a pet?"
@@ -55,7 +55,7 @@ This is the gap Mylopaws Travel was built for:
 - **Pet-loving drivers, hand-picked** for how they handle animals, no refusals.
 - **Clean, spacious cabs** with AC adjusted for your pet's comfort.
 - **Airport drops coordinated around your airline's pet timing**, we plan the pickup so you arrive with room to spare.
-- **Booked on the Mylopaws app**, no app to install. You tell us where, when, and who's travelling.
+- **Booked on WhatsApp**, no app to install. You tell us where, when, and who's travelling.
 
 ## A simple airport-day checklist
 

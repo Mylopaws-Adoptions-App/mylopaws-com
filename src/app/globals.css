@@ -443,3 +443,46 @@ a.card:hover .more .arrow { transform: translateX(4px); }
   .vhero-eyebrow { letter-spacing: .1em; font-size: .68rem; }
   .vhero-shade { background: linear-gradient(0deg, rgba(30, 8, 20, .9) 0%, rgba(30, 8, 20, .55) 55%, rgba(30, 8, 20, .25) 100%); }
 }
+
+/* ── WhatsApp booking menu ── */
+.bookmenu { position: relative; display: inline-block; }
+.bookmenu > summary { list-style: none; }
+.bookmenu > summary::-webkit-details-marker { display: none; }
+.bookmenu-panel { position: absolute; left: 0; top: calc(100% + 10px); z-index: 60; width: min(340px, calc(100vw - 32px)); background: #fff; color: var(--ink); border-radius: 16px; padding: 10px; box-shadow: 0 30px 60px -20px rgba(30, 20, 32, .5), 0 0 0 1px var(--line); animation: drop .2s var(--ease); text-align: left; }
+.bookmenu.r .bookmenu-panel { left: auto; right: 0; }
+.bookmenu.up .bookmenu-panel { top: auto; bottom: calc(100% + 10px); }
+.bookmenu-h { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding: 6px 8px 8px; }
+.booklist { display: grid; gap: 4px; }
+.booklist-item { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 12px; color: var(--ink); background-image: none; transition: background .2s; }
+.booklist-item:hover { background: var(--acc-50, var(--bg-soft)); color: var(--ink); }
+.booklist-ico { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: #25d366; color: #fff; }
+.booklist-txt { display: grid; line-height: 1.25; }
+.booklist-txt b { font-size: .95rem; font-weight: 800; }
+.booklist-txt small { font-size: .78rem; color: var(--muted); font-weight: 500; }
+.menu-panel .booklist { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+.menu-panel .booklist-item { font-size: 1rem; }
+
+/* ── social hub ── */
+.social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 860px) { .social-grid { grid-template-columns: 1fr; } }
+.social-card { position: relative; display: grid; gap: 6px; align-content: start; min-height: 260px; padding: 28px; border-radius: 24px; overflow: hidden; color: #fff; background-image: none; isolation: isolate; transition: transform .3s var(--ease), box-shadow .3s ease; }
+.social-card:hover { transform: translateY(-6px); color: #fff; box-shadow: 0 30px 50px -28px rgba(30, 20, 32, .6); }
+.social-card::after { content: ''; position: absolute; width: 240px; height: 240px; border-radius: 50%; right: -80px; top: -90px; background: rgba(255, 255, 255, .14); z-index: -1; transition: transform .5s var(--ease); }
+.social-card:hover::after { transform: scale(1.25); }
+.social-card.ig { background: radial-gradient(circle at 20% 110%, #fdc468 0%, #f58529 22%, #dd2a7b 50%, #8134af 78%, #515bd4 100%); }
+.social-card.fb { background: linear-gradient(150deg, #1877f2 0%, #0b5bd3 100%); }
+.social-card.gg { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.social-card.gg:hover { color: var(--ink); }
+.social-card.gg::after { background: var(--mint-50); }
+.social-ico { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; background: rgba(255, 255, 255, .18); margin-bottom: 18px; }
+.social-card.gg .social-ico { background: #fff; box-shadow: var(--shadow); }
+.social-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+.social-handle { font-size: .86rem; font-weight: 600; opacity: .85; }
+.social-line { font-size: .94rem; opacity: .92; margin-top: 6px; max-width: 32ch; }
+.social-card.gg .social-line { color: var(--muted); opacity: 1; }
+.social-cta { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .9rem; }
+.social-card .arrow { transition: transform .25s var(--ease); }
+.social-card:hover .arrow { transform: translateX(5px); }
+.social-icons { display: flex; gap: 10px; margin-top: 20px; }
+.social-icons a { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: rgba(255, 255, 255, .08); color: #fff; border: 1px solid rgba(255, 255, 255, .14); background-image: none; transition: background .2s, transform .2s var(--ease); }
+.social-icons a:hover { background: #fff; color: var(--mag); transform: translateY(-2px); }
