@@ -21,7 +21,8 @@
     "marked": "^15.0.12",
     "next": "^15.5.28",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",
