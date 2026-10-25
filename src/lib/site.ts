@@ -7,7 +7,7 @@ export const SITE = {
   vision: 'Create strong & tightly bonded pawfamilies.',
   verticals: 'Travel. Dermacare. Homes. Shopping.',
   description:
-    'Mylopaws is a Bangalore pet solutions platform: dedicated pet-friendly cabs, specialist skin and fur Dermacare therapies, and home-style pet Homes.',
+    'Mylopaws is a Bangalore pet solutions platform: dedicated pet-friendly cabs, specialist skin and fur Dermacare therapies, home-style cat boarding (Homes) and a pet pharmacy that delivers (Shopping).',
   email: 'customercare@mylopaws.com',
   locale: 'en_IN',
   themeColor: '#681947',

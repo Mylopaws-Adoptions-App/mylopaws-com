@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
+import { QuickAnswer, CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
 import { Arrow, Clock, Pin } from '@/components/Icons';
 import { THERAPIES } from '@/lib/therapies';
 import { CONTACT, bookLink } from '@/lib/site';
@@ -42,6 +42,7 @@ export default function DermacarePage() {
           <a className="btn btn-ghost" href="#therapies">See all 12 therapies</a>
         </div>
       </PageHero>
+      <QuickAnswer q="Where can I get dog skin treatment in Bangalore?">Mylopaws Dermacare offers {THERAPIES.length} specialist skin and fur therapies for dogs and cats, for ticks and fleas, skin infections, allergies, hair fall and dull coats. Sessions run at the HSR Layout salon or at your home, Monday to Saturday, booked on WhatsApp at +91 91489 35441.</QuickAnswer>
 
       <section className="section">
         <div className="wrap split">

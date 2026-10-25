@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
+import { QuickAnswer, CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
 import { bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta, serviceSchema } from '@/lib/seo';
@@ -32,6 +32,7 @@ export default function HomesPage() {
           <Link className="btn btn-ghost" href="/travel/">Add a pick-up</Link>
         </div>
       </PageHero>
+      <QuickAnswer q="Where can I leave my cat when I travel from Bangalore?">Mylopaws Homes offers calm, home-style cat boarding in Bangalore: familiar food, quiet spaces and daily updates while you are away. Book on WhatsApp at +91 90710 91699.</QuickAnswer>
       <section className="section">
         <div className="wrap split">
           <Slot src="/images/cat-dog-sleeping.webp" alt="A cat and a dog sleeping close together" caption="Cats don’t like change. So we change as little as possible." tone="y" />

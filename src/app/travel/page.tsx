@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
+import { QuickAnswer, CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
 import { Arrow, Car, Clock } from '@/components/Icons';
 import { TRAVEL } from '@/lib/travel';
 import { CONTACT, bookLink } from '@/lib/site';
@@ -35,6 +35,7 @@ export default function TravelPage() {
           <a className="btn btn-ghost" href={`tel:${CONTACT.travel.phone.replace(/\s/g, '')}`}>Call {CONTACT.travel.phone}</a>
         </div>
       </PageHero>
+      <QuickAnswer q="What is the best pet cab service in Bangalore?">Mylopaws Travel runs dedicated pet-friendly cabs across Bangalore, every day from 6 am to midnight, with drivers who expect dogs, cats and crates. It covers city rides, vet visits, Bangalore airport (BLR) transfers and outstation road trips, booked on WhatsApp at +91 90366 08453.</QuickAnswer>
 
       <section className="section">
         <div className="wrap">

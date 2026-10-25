@@ -488,3 +488,10 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .social-icons a:hover { background: #fff; color: var(--mag); transform: translateY(-2px); }
 
 @media (max-width: 620px) { .page-hero::after { width: 300px; height: 300px; right: -150px; top: -130px; opacity: .2; } .page-hero::before { opacity: .22; } }
+
+/* Quick answer (AEO) */
+.quick { padding: 28px 0 0; }
+.quick-box { border: 1px solid color-mix(in srgb, var(--mag) 14%, transparent); border-left: 4px solid var(--mag); border-radius: 10px; padding: 18px 22px; background: #fff; max-width: 860px; }
+.quick-tag { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--mag); margin-bottom: 6px; }
+.quick-box h2 { font-size: clamp(1.05rem, 2.4vw, 1.3rem); margin: 0 0 6px; line-height: 1.3; }
+.quick-box p { margin: 0; line-height: 1.6; }

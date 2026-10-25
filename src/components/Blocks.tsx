@@ -101,3 +101,18 @@ export function Photo({ src, alt, eager }: { src?: string; alt: string; eager?: 
   // eslint-disable-next-line @next/next/no-img-element
   return <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} draggable={false} />;
 }
+
+/** Answer-first block for AI answer engines and skimmers: the question people ask, answered in two sentences. */
+export function QuickAnswer({ q, children }: { q: string; children: ReactNode }) {
+  return (
+    <section className="quick" aria-label="Quick answer">
+      <div className="wrap">
+        <div className="quick-box">
+          <span className="quick-tag">Quick answer</span>
+          <h2>{q}</h2>
+          <p>{children}</p>
+        </div>
+      </div>
+    </section>
+  );
+}

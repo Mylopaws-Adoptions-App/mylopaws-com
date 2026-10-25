@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { CONTACT, SITE } from './site';
+import { CONTACT, SITE, SOCIAL } from './site';
 
 /** Page metadata with canonical, Open Graph and Twitter. Titles 30–65 chars, descriptions ≤155 (Bing rules). */
 export function meta(opts: { title: string; description: string; path: string; type?: 'website' | 'article'; published?: string; noindex?: boolean }): Metadata {
@@ -40,7 +40,16 @@ export const orgSchema = {
   logo: `${SITE.url}/images/mylopaws-logo.png`,
   email: SITE.email,
   slogan: `${SITE.tagline} ${SITE.verticals}`,
-  areaServed: 'Bengaluru',
+  description: SITE.description,
+  areaServed: { '@type': 'City', name: 'Bengaluru' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Bengaluru', addressRegion: 'Karnataka', postalCode: '560102', addressCountry: 'IN' },
+  knowsAbout: ['Pet-friendly cabs', 'Pet travel in Bangalore', 'Dog skin care', 'Tick and flea treatment', 'Cat boarding', 'Pet pharmacy'],
+  sameAs: [SOCIAL.instagram.url, SOCIAL.facebook.url, SOCIAL.linkedin.url, SOCIAL.google.url],
+  contactPoint: [
+    { '@type': 'ContactPoint', contactType: 'Mylopaws Travel bookings', telephone: CONTACT.travel.phone.replace(/\s/g, ''), areaServed: 'IN' },
+    { '@type': 'ContactPoint', contactType: 'Mylopaws Dermacare bookings', telephone: CONTACT.dermacare.phone.replace(/\s/g, ''), areaServed: 'IN' },
+    { '@type': 'ContactPoint', contactType: 'Mylopaws Homes & Shopping', telephone: CONTACT.homes.phone.replace(/\s/g, ''), areaServed: 'IN' },
+  ],
 };
 
 export const websiteSchema = {
@@ -66,6 +75,8 @@ export function dermacareSchema(therapies: { name: string; slug: string }[]) {
     geo: { '@type': 'GeoCoordinates', latitude: CONTACT.address.lat, longitude: CONTACT.address.lng },
     areaServed: { '@type': 'City', name: 'Bengaluru' },
     parentOrganization: { '@id': `${SITE.url}/#org` },
+    sameAs: [SOCIAL.google.url, SOCIAL.instagram.url],
+    hasMap: SOCIAL.google.url,
     openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '11:00', closes: '18:00' }],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

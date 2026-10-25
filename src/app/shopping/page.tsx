@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CtaBand, JsonLd, PageHero } from '@/components/Blocks';
+import { QuickAnswer, CtaBand, JsonLd, PageHero } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
 import { Reveal } from '@/components/Motion';
 import { ShopCatalogue } from '@/components/ShopCatalogue';
@@ -32,6 +32,7 @@ export default async function ShoppingPage() {
           <a className="btn btn-ghost" href="#catalogue">Browse {items.length ? `${items.length} products` : 'the catalogue'}</a>
         </div>
       </PageHero>
+      <QuickAnswer q="Where can I buy pet medicines with delivery in Bangalore?">Mylopaws Shopping is a pet pharmacy that delivers across Bangalore, or is ready to collect in HSR Layout: tick and flea care, supplements, shampoos, food and vet-prescribed medicines. Ask and order on WhatsApp at +91 90710 91699.</QuickAnswer>
       <section className="section tight">
         <h2 className="sr-only">How ordering works</h2>
         <div className="wrap grid grid-3">
