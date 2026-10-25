@@ -15,7 +15,7 @@ import { SocialHub } from '@/components/Social';
 export const revalidate = 3600;
 
 export const metadata = meta({
-  title: 'Mylopaws Bangalore: Pet Travel, Dermacare, Homes & Shop',
+  title: 'Mylopaws: Pet Travel, Dermacare, Homes & Shopping',
   description: 'Pet-friendly cabs, skin and fur therapies, home-style cat boarding and a pet pharmacy in Bangalore. One platform for strong, tightly bonded pawfamilies.',
   path: '/',
 });
@@ -60,7 +60,7 @@ export default async function HomePage() {
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
           {[0, 1].map((k) =>
-            ['Cabs that never refuse a dog', `${THERAPIES.length} specialist skin & fur therapies`, 'Home-style cat boarding', 'Vet-prescribed medicines, delivered', 'Booked on one app', 'Confirmed on WhatsApp', 'Made in Bengaluru'].map((t) => (
+            ['Cabs that never refuse a dog', `${THERAPIES.length} specialist skin & fur therapies`, 'Home-style cat boarding', 'Vet-prescribed medicines, delivered', 'Booked on WhatsApp', 'A real person replies', 'Made in Bengaluru'].map((t) => (
               <span key={`${k}-${t}`}><Paw /> {t}</span>
             )),
           )}
@@ -71,7 +71,7 @@ export default async function HomePage() {
         <div className="wrap">
           <Reveal className="section-head">
             <div>
-              <div className="eyebrow">Four solutions, one promise</div>
+              <div className="eyebrow" data-n="01">Four solutions, one promise</div>
               <h2>Built around the <em>bond</em>, not the booking.</h2>
             </div>
             <p className="lead">The moments that strain life with a pet are practical ones. We built a dedicated solution for each, run by people who specialise in it.</p>
@@ -136,7 +136,7 @@ export default async function HomePage() {
               {productStat ? (
                 <div className="stat"><CountUp value={productStat} suffix="+" /><span>pet pharmacy products in stock</span></div>
               ) : (
-                <div className="stat"><b>1</b><span>app to book it all</span></div>
+                <div className="stat"><b>3</b><span>WhatsApp lines, one per team</span></div>
               )}
             </div>
           </Reveal>
@@ -147,7 +147,7 @@ export default async function HomePage() {
         <div className="wrap">
           <Reveal className="section-head">
             <div>
-              <div className="eyebrow">Why pawfamilies stay with us</div>
+              <div className="eyebrow" data-n="02">Why pawfamilies stay with us</div>
               <h2>Solutions, not <em>services.</em></h2>
             </div>
             <p className="lead">A service does a job. A solution removes the reason you were worried in the first place.</p>
@@ -165,7 +165,7 @@ export default async function HomePage() {
             </Reveal>
             <Reveal className="pillar" delay={240}>
               <b>03</b>
-              <h3>One app, one team</h3>
+              <h3>One team per solution</h3>
               <p>Each solution has its own WhatsApp line, answered by the people who run it. No call centres, no bots, no surprises.</p>
             </Reveal>
           </div>
@@ -173,25 +173,32 @@ export default async function HomePage() {
       </section>
 
       <section className="section">
-        <div className="wrap split">
-          <Reveal>
-            <div className="slot">
-              <Photo src={photo('/images/vet-dog.webp')} alt="A specialist examining a dog's skin" />
-              <div className="slot-cap">Itching isn&rsquo;t a grooming problem. It&rsquo;s a skin problem.</div>
+        <div className="wrap">
+          <Reveal className="section-head">
+            <div>
+              <div className="eyebrow" data-n="03">How booking works</div>
+              <h2>Three steps to a <em>calmer</em> pet.</h2>
             </div>
+            <p className="lead">No app to download, no forms. You message the team for what you need, and a specialist takes it from there.</p>
           </Reveal>
-          <Reveal delay={100}>
-            <div className="eyebrow">How it works</div>
-            <h2>Three steps to a <em>calmer</em> pet.</h2>
-            <div className="steps" style={{ marginTop: 24 }}>
-              <div className="step"><div><h3>Message the right team</h3><p>Travel, Dermacare, Homes or Shopping. Tell us about your pet and what you need.</p></div></div>
-              <div className="step"><div><h3>We confirm the details</h3><p>A specialist checks the details, answers questions and shares a quote.</p></div></div>
-              <div className="step"><div><h3>Your pet is looked after</h3><p>The right person, the right vehicle or the right therapy, with updates along the way.</p></div></div>
-            </div>
-            <div className="btn-row" style={{ marginTop: 28 }}>
-              <BookMenu label="Book on WhatsApp" />
-            </div>
-          </Reveal>
+          <div className="split">
+            <Reveal>
+              <div className="slot">
+                <Photo src={photo('/images/vet-dog.webp')} alt="A Mylopaws specialist with a pet" />
+                <div className="slot-cap">A specialist reads every message.</div>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="steps">
+                <div className="step"><div><h3>Message the right team</h3><p>Travel, Dermacare, Homes or Shopping. Tell us about your pet and what you need.</p></div></div>
+                <div className="step"><div><h3>We confirm the details</h3><p>A specialist checks the details, answers questions and shares a quote.</p></div></div>
+                <div className="step"><div><h3>Your pet is looked after</h3><p>The right person, the right vehicle or the right therapy, with updates along the way.</p></div></div>
+              </div>
+              <div className="btn-row" style={{ marginTop: 28 }}>
+                <BookMenu label="Book on WhatsApp" />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -199,10 +206,13 @@ export default async function HomePage() {
         <div className="wrap">
           <Reveal className="section-head">
             <div>
-              <div className="eyebrow">Pawprints</div>
-              <h2>Fresh from the <em>blog.</em></h2>
+              <div className="eyebrow" data-n="04">Pawprints: our guides</div>
+              <h2>Learn before you <em>book.</em></h2>
             </div>
-            <p><Link className="btn btn-ghost" href="/pawprints/">All articles <Arrow /></Link></p>
+            <div>
+              <p className="lead">Practical answers from our Travel and Dermacare teams on everyday Bangalore pet life: itching and ticks, first cab rides, airport runs and weekend trips.</p>
+              <p style={{ marginTop: 18 }}><Link className="btn btn-ghost" href="/pawprints/">All articles <Arrow /></Link></p>
+            </div>
           </Reveal>
           <div className="grid grid-3">
             {posts.map((p, i) => (
@@ -219,12 +229,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <SocialHub />
+      <SocialHub n="05" />
 
       <section className="section">
         <div className="wrap split" style={{ alignItems: 'start' }}>
           <div>
-            <div className="eyebrow">Questions</div>
+            <div className="eyebrow" data-n="06">Questions, answered</div>
             <h2>Good to <em>know.</em></h2>
             <p className="lead">Can&rsquo;t find your answer? Our team replies on WhatsApp.</p>
             <Link className="btn btn-ghost" href="/contact/">Contact us</Link>

@@ -9,13 +9,13 @@ const CARDS = [
 ] as const;
 
 /** Social hub: Instagram, Facebook and the Dermacare Centre's Google Business Profile. */
-export function SocialHub({ title, lead }: { title?: React.ReactNode; lead?: string }) {
+export function SocialHub({ title, lead, n }: { title?: React.ReactNode; lead?: string; n?: string }) {
   return (
     <section className="section tight">
       <div className="wrap">
         <Reveal className="section-head">
           <div>
-            <div className="eyebrow">Find us everywhere</div>
+            <div className="eyebrow" data-n={n}>Find us everywhere</div>
             <h2>{title ?? <>Say hello, <em>anywhere.</em></>}</h2>
           </div>
           <p className="lead">{lead ?? 'Follow along for pet moments and tips, or see what Bangalore pet parents say about our Dermacare Centre.'}</p>
