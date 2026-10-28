@@ -1,6 +1,6 @@
 ---
 title: "Best Dog-Friendly Routes From Bangalore: Coorg, Ooty & Chikmagalur"
-seoTitle: "Dog-Friendly Road Trips From Bangalore: Coorg, Ooty, Chikmagalur"
+seoTitle: "Dog-Friendly Road Trips From Bangalore: Coorg, Ooty, Hills"
 description: "Driving to Coorg, Ooty or Chikmagalur with your dog? Routes, drive times, where to stop, ghat roads, forest closures and a pet packing list."
 excerpt: "Routes, drive times, pet-friendly stops and the stretches to plan around — for Bangalore's three favourite hill trips with a dog."
 date: 2026-10-23
