@@ -604,3 +604,6 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .pf-card-price small { margin-left: 8px; font-size: .78rem; font-weight: 800; color: var(--leaf-ink); }
 .pf-foot { margin: 16px 0 0; font-size: .8rem; line-height: 1.6; color: var(--muted); max-width: 90ch; }
 @media (prefers-reduced-motion: reduce) { .pf * { transition: none !important; } }
+.pf-seg button.off { cursor: not-allowed; color: #b3a9b0; display: grid; gap: 1px; padding: 5px 4px; line-height: 1.15; }
+.pf-seg button.off small { font-size: .62rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #b3a9b0; }
+.pf-ctl-note { font-size: .78rem; line-height: 1.45; color: var(--mag); font-weight: 600; }

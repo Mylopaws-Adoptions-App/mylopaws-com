@@ -76,29 +76,28 @@ export { entries };
 export type Term = '6' | '12';
 export type Where = 'centre' | 'home';
 
-export function recommend(sel: SvcKey[], needs: NeedKey[], term: Term) {
+/** Which plan fits each length for a routine. A length with no plan is null (not offered). */
+function family(sel: SvcKey[], needs: NeedKey[]): Record<Term, string | null> & { reason?: string } {
   const has = (k: SvcKey) => sel.includes(k);
   const set = (['Full', 'Minor', 'Spa'] as SvcKey[]).filter(has).join('+');
-  let id = '';
-  let why = '';
-  if (needs.includes('skin')) {
-    id = has('Full') ? 'srp6' : 'sr6';
-    if (term === '12') why = 'Skin Relief and Skin Recovery run 6 months so our vet can review progress before you renew.';
-  } else if (needs.includes('tick')) {
-    id = 'tf6';
-    if (term === '12') why = 'Tick & Flea Protection runs 6 months to cover the main tick season; renew if you need it longer.';
-  } else if (set === 'Full+Minor+Spa') {
-    id = 'all';
-    if (term === '6') why = 'All three services work best on a 12-month rotation.';
-  } else {
-    const map: Record<string, Record<Term, string>> = { 'Full+Minor': { 6: 'tt6', 12: 'tt12' }, 'Full+Spa': { 6: 'fc6', 12: 'sig' }, 'Minor+Spa': { 6: 'bt6', 12: 'bt12' } };
-    id = map[set][term];
-  }
+  if (needs.includes('skin')) return { 6: has('Full') ? 'srp6' : 'sr6', 12: null, reason: 'Skin plans run 6 months, so our vet can review progress before you renew.' };
+  if (needs.includes('tick')) return { 6: 'tf6', 12: null, reason: 'Tick & Flea Protection runs 6 months to cover the main tick season. Renew it if you need a full year.' };
+  if (set === 'Full+Minor+Spa') return { 6: null, 12: 'all', reason: 'All three services work as a 12-month rotation.' };
+  const map: Record<string, Record<Term, string>> = { 'Full+Minor': { 6: 'tt6', 12: 'tt12' }, 'Full+Spa': { 6: 'fc6', 12: 'sig' }, 'Minor+Spa': { 6: 'bt6', 12: 'bt12' } };
+  return map[set];
+}
+
+export function recommend(sel: SvcKey[], needs: NeedKey[], term: Term) {
+  const fam = family(sel, needs);
+  const offered = (['6', '12'] as Term[]).filter((t) => fam[t]);
+  // Use the length asked for when it is offered; otherwise the only length this routine comes in.
+  const effTerm: Term = fam[term] ? term : offered[0];
+  const id = fam[effTerm]!;
   const main = planById(id);
   const pair: Record<string, string> = { tt6: 'tt12', tt12: 'tt6', fc6: 'sig', sig: 'fc6', bt6: 'bt12', bt12: 'bt6', sr6: 'bt6', srp6: 'fc6', tf6: 'fc6', all: 'sig' };
-  let note = why;
-  if (needs.includes('anal') && !main.a.anal) note = (note ? note + ' ' : '') + 'Anal gland care is ₹300 a visit on this plan; the 12-month plans include it.';
-  return { main, alt: planById(pair[id]), note };
+  const note = needs.includes('anal') && !main.a.anal ? 'Anal gland care is ₹300 a visit on this plan; the 12-month plans include it.' : '';
+  const lock = offered.length === 1 ? { term: offered[0], reason: fam.reason ?? '' } : null;
+  return { main, alt: planById(pair[id]), note, lock, asked: term, honoured: effTerm === term };
 }
 
 export function quote(p: Plan, st: { size: Size; where: Where; pets: number }) {

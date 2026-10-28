@@ -14,8 +14,10 @@ const START: State = { svc: ['Full', 'Minor'], needs: [], term: '12', where: 'ce
 const KEY = 'mp-planfinder';
 const SIZE_WORD: Record<Size, string> = { S: 'small', M: 'medium', L: 'large' };
 
-/** Segmented control with a spring thumb (Watermelon frequency-selector pattern). */
-function Seg<T extends string>({ label, value, options, onChange }: { label: string; value: T; options: { v: T; l: string; hint?: string }[]; onChange: (v: T) => void }) {
+type Opt<T> = { v: T; l: string; hint?: string; off?: boolean };
+
+/** Segmented control with a spring thumb (Watermelon frequency-selector pattern). Options can be "not offered". */
+function Seg<T extends string>({ label, value, options, onChange, note }: { label: string; value: T; options: Opt<T>[]; onChange: (v: T) => void; note?: string }) {
   const i = Math.max(0, options.findIndex((o) => o.v === value));
   const reduce = useReducedMotion();
   const s = useSpring({ x: i * 100, immediate: !!reduce, config: { tension: 380, friction: 28 } });
@@ -25,9 +27,12 @@ function Seg<T extends string>({ label, value, options, onChange }: { label: str
       <div className="pf-seg">
         <animated.span className="pf-thumb" style={{ width: `calc((100% - 8px) / ${options.length})`, transform: s.x.to((x) => `translateX(${x}%)`) }} />
         {options.map((o) => (
-          <button key={o.v} type="button" aria-pressed={o.v === value} title={o.hint} onClick={() => onChange(o.v)}>{o.l}</button>
+          <button key={o.v} type="button" aria-pressed={o.v === value} aria-disabled={o.off || undefined} className={o.off ? 'off' : undefined} title={o.off ? 'Not offered for this routine' : o.hint} onClick={() => onChange(o.v)}>
+            {o.l}{o.off && <small>Not offered</small>}
+          </button>
         ))}
       </div>
+      {note && <span className="pf-ctl-note">{note}</span>}
     </div>
   );
 }
@@ -119,7 +124,13 @@ export function PlanFinder() {
           </div>
 
           <div className="pf-q pf-opts">
-            <Seg label="Plan length" value={st.term} onChange={(v) => set({ term: v }, true)} options={[{ v: '6', l: '6 months' }, { v: '12', l: '12 months' }]} />
+            <Seg
+              label="Plan length"
+              value={(shown ? String(shown.m) : st.term) as Term}
+              onChange={(v) => { if (!pick && rec?.lock && rec.lock.term !== v) return; set({ term: v }, true); }}
+              options={(['6', '12'] as Term[]).map((t) => ({ v: t, l: `${t} months`, off: !pick && !!rec?.lock && rec.lock.term !== t }))}
+              note={rec?.lock && !pick ? rec.lock.reason : undefined}
+            />
             <Seg label="Where" value={st.where} onChange={(v) => set({ where: v })} options={[{ v: 'centre', l: 'Our centre' }, { v: 'home', l: 'Your home' }]} />
             <Seg label="Pet size" value={st.size} onChange={(v) => set({ size: v })} options={[{ v: 'S', l: 'Small', hint: 'Shih Tzu, Pug, cats' }, { v: 'M', l: 'Medium', hint: 'Beagle, Indie, Cocker' }, { v: 'L', l: 'Large', hint: 'Golden, Lab, GSD' }]} />
             <div className="pf-ctl" role="group" aria-label="Pets">
