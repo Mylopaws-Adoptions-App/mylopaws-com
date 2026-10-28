@@ -18,10 +18,15 @@ const FAQ = [
   { q: 'Can I travel with my pet?', a: 'Yes, most pet parents ride along. We can also take your pet alone to the salon, boarding or family.' },
   { q: 'How much does it cost?', a: 'It depends on distance, timing and the pet. Message us on WhatsApp and we confirm a quote before the trip.' },
   { q: 'Do you go outside Bangalore?', a: 'Yes, anywhere in India by road, from weekend getaways to full relocations.' },
+  { q: 'Do you carry cats and other pets?', a: 'Yes: dogs, cats and small pets. Cats should travel in a carrier.' },
+  { q: 'Can you carry large or senior dogs?', a: 'Yes. Tell us your dog’s size and mobility when you book, and we send the right vehicle and help with loading.' },
+  { q: 'Is this an ambulance service?', a: 'No. We are a pet cab. In a life-threatening emergency, call your vet first and take the fastest route.' },
 ];
 
 export default function TravelPage() {
-  const posts = postsIn('travel').slice(0, 3);
+  // The most-read travel guides, linked by hand (internal links lift the posts that already rank).
+  const picks = ['pet-friendly-resorts-near-bangalore', 'pet-friendly-resorts-near-bangalore-coorg-chikmagalur', 'dog-friendly-routes-bangalore-coorg-ooty-chikmagalur', 'outstation-travel-pet-bangalore-checklist'];
+  const posts = picks.map((slug) => postsIn('travel').find((p) => p.slug === slug)).filter((p): p is NonNullable<typeof p> => Boolean(p));
   return (
     <>
       <PageHero sol="travel"
@@ -104,8 +109,8 @@ export default function TravelPage() {
 
       <section className="section tight alt">
         <div className="wrap">
-          <div className="eyebrow">Travel guides on Pawprints</div>
-          <div className="grid grid-3" style={{ marginTop: 8 }}>
+          <div className="eyebrow">Popular travel guides</div>
+          <div className="grid grid-4" style={{ marginTop: 8 }}>
             {posts.map((p) => (
               <Link key={p.slug} className="card" href={`/${p.slug}/`}>
                 <Car size={26} />

@@ -24,12 +24,14 @@ const FAQ = [
   { q: 'What is Mylopaws?', a: 'Mylopaws is a Bangalore pet solutions platform. Our vision is to create strong and tightly bonded pawfamilies, so we solve the moments that get in the way: getting your pet somewhere, keeping their skin and fur healthy, caring for them when you travel, and getting the right products to your door.' },
   { q: 'Which areas of Bangalore do you serve?', a: 'Mylopaws Travel covers all of Bangalore and outstation trips across India. Dermacare runs from our salon in HSR Layout, with doorstep sessions in many areas. Homes is in Bangalore, and the pet pharmacy delivers across the city.' },
   { q: 'How do I book?', a: 'Message the right team on WhatsApp: Travel on +91 90366 08453, Dermacare on +91 91489 35441, and Homes or Shopping on +91 90710 91699. A real person replies and confirms everything with you.' },
-  { q: 'Why don’t you show prices on the site?', a: 'Every pet, route, skin condition and prescription is different. We quote once we know what your pet needs, so there are no surprises later.' },
+  { q: 'How much does it cost?', a: 'Dermacare grooming plans are listed with prices on the Dermacare page, with a plan finder that shows what you save. Cab trips, therapies and boarding depend on your pet, route and needs, so we quote on WhatsApp once we know the details.' },
   { q: 'Do you work with cats too?', a: 'Yes. Cats ride in our cabs, get Dermacare therapies, shop from the pharmacy, and Mylopaws Homes is currently focused on cat boarding.' },
 ];
 
 export default async function HomePage() {
-  const posts = allPosts().slice(0, 3);
+  // Featured on the home page: the guides Bangalore pet parents search for most.
+  const featured = ['pet-friendly-resorts-near-bangalore', 'vet-hospitals-bangalore-by-area', 'puppy-vaccination-schedule-india-bangalore'];
+  const posts = featured.map((slug) => allPosts().find((p) => p.slug === slug)).filter((p): p is NonNullable<typeof p> => Boolean(p));
   const products = (await catalogue()).length;
   const productStat = products >= 50 ? Math.floor(products / 50) * 50 : 0;
 
@@ -210,7 +212,7 @@ export default async function HomePage() {
               <h2>Learn before you <em>book.</em></h2>
             </div>
             <div>
-              <p className="lead">Practical answers from our Travel and Dermacare teams on everyday Bangalore pet life: itching and ticks, first cab rides, airport runs and weekend trips.</p>
+              <p className="lead">The guides Bangalore pet parents use most: pet-friendly getaways, vet hospitals by area, your puppy&rsquo;s vaccinations, ticks and itching, and more.</p>
               <p style={{ marginTop: 18 }}><Link className="btn btn-ghost" href="/pawprints/">All articles <Arrow /></Link></p>
             </div>
           </Reveal>

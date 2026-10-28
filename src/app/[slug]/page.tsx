@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { CtaBand, Faq, JsonLd, PageHero, faqSchema } from '@/components/Blocks';
 import { Arrow, Clock, Leaf, Car } from '@/components/Icons';
+import { MapLoader } from '@/components/MapLoader';
 import { THERAPIES, therapyBySlug, type Therapy } from '@/lib/therapies';
 import { TRAVEL, travelBySlug, type TravelService } from '@/lib/travel';
 import { allPosts, postBySlug, CATEGORIES, fmtDate, type Post } from '@/lib/posts';
@@ -253,6 +254,7 @@ function PostPage({ p }: { p: Post }) {
       <section className="section tight">
         <div className="wrap post-layout">
           <article className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
+          {p.html.includes('map-load') && <MapLoader />}
           <aside className="post-aside">
             {vertical === 'travel' && (
               <div className="card mag">

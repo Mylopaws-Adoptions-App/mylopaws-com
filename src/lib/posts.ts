@@ -34,6 +34,20 @@ let cache: Post[] | null = null;
 
 marked.use({ gfm: true });
 
+const esc = (v: string) => v.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+/**
+ * Google Maps embeds load ~1 MB each, and some guides have 30. Swap each <iframe> for a light
+ * tile; the real map loads only when tapped (see MapLoader). Only google.com/maps sources are kept.
+ */
+function mapFacades(html: string) {
+  return html.replace(/<iframe\b[^>]*>\s*<\/iframe>/g, (tag) => {
+    const src = /src="([^"]+)"/.exec(tag)?.[1]?.replace(/&amp;/g, '&') ?? '';
+    if (!src.startsWith('https://www.google.com/maps')) return '';
+    const title = (/title="([^"]+)"/.exec(tag)?.[1] ?? 'Map').replace(/^Map:\s*/, '');
+    return `<div class="map-embed"><button type="button" class="map-load" data-src="${esc(src)}" data-title="${esc(title)}"><span class="map-pin" aria-hidden="true"></span><span><b>Show map</b><small>${esc(title)}</small></span></button></div>`;
+  });
+}
+
 function load(): Post[] {
   if (cache) return cache;
   const files = fs.readdirSync(DIR).filter((f) => f.endsWith('.md'));
@@ -57,7 +71,7 @@ function load(): Post[] {
         featured: Boolean(data.featured),
         readMins: Math.max(3, Math.round(words / 220)),
         // External links open safely; internal links stay relative.
-        html: (marked.parse(content) as string).replace(/<a href="(https?:\/\/(?!mylopaws\.com)[^"]+)"/g, '<a href="$1" target="_blank" rel="noopener"'),
+        html: mapFacades((marked.parse(content) as string).replace(/<a href="(https?:\/\/(?!mylopaws\.com)[^"]+)"/g, '<a href="$1" target="_blank" rel="noopener"')),
         faq: Array.isArray(data.faq) ? data.faq : undefined,
       } satisfies Post;
     })

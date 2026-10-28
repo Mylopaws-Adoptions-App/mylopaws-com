@@ -5,6 +5,7 @@ import { THERAPIES } from '@/lib/therapies';
 import { CONTACT, bookLink } from '@/lib/site';
 import { breadcrumbSchema, dermacareSchema, meta } from '@/lib/seo';
 import { SocialHub } from '@/components/Social';
+import { PlanFinder } from '@/components/PlanFinder';
 
 export const metadata = meta({
   title: 'Mylopaws Dermacare: Skin & Fur Specialists for Pets',
@@ -83,6 +84,19 @@ export default function DermacarePage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="section" id="plans" data-sol="dermacare">
+        <div className="wrap">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">Dermacare plans</div>
+              <h2>Find your pet&rsquo;s <em>plan.</em></h2>
+            </div>
+            <p className="lead">Tell us what your pet usually gets. We match you to one of 10 prepaid plans, built on how often pets with that routine actually come in, and show what you save.</p>
+          </div>
+          <PlanFinder />
         </div>
       </section>
 
