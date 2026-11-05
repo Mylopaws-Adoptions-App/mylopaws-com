@@ -611,3 +611,5 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 @keyframes vlift { from { transform: translateY(24px); } to { transform: none; } }
 .vhero-in { animation: vlift .7s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms + 150ms); }
 @media (prefers-reduced-motion: reduce) { .vhero-in { animation: none; } }
+
+.sol[data-sol='shopping'] .sol-photo img { object-position: 38% 30%; }
