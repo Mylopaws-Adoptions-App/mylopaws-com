@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { CtaBand, Faq, JsonLd, PageHero, faqSchema } from '@/components/Blocks';
 import { Arrow, Clock, Leaf, Car } from '@/components/Icons';
 import { MapLoader } from '@/components/MapLoader';
+import { VetNote } from '@/components/Vet';
 import { THERAPIES, therapyBySlug, type Therapy } from '@/lib/therapies';
 import { TRAVEL, travelBySlug, type TravelService } from '@/lib/travel';
 import { allPosts, postBySlug, CATEGORIES, fmtDate, type Post } from '@/lib/posts';
@@ -277,6 +278,7 @@ function PostPage({ p }: { p: Post }) {
                 <a className="btn btn-yellow" href={bookLink('general')}>Chat on WhatsApp</a>
               </div>
             )}
+            {(vertical === 'dermacare' || p.category === 'new-pet-parent') && <VetNote />}
             {more.length > 0 && (
               <div className="card flat">
                 <h3>More in {cat.name}</h3>

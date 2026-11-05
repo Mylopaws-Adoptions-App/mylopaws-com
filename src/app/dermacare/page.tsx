@@ -7,6 +7,7 @@ import { CONTACT, bookLink } from '@/lib/site';
 import { breadcrumbSchema, dermacareSchema, meta } from '@/lib/seo';
 import { SocialHub } from '@/components/Social';
 import { PlanFinder } from '@/components/PlanFinder';
+import { VetSpotlight, vetPersonSchema } from '@/components/Vet';
 
 export const metadata = meta({
   title: 'Mylopaws Dermacare: Skin & Fur Specialists for Pets',
@@ -25,6 +26,7 @@ const FAQ = [
   { q: 'How is Dermacare different from grooming?', a: 'Grooming tidies fur. Dermacare starts with the skin: we assess what is causing itching, smell, flakes or shedding, and pick the therapy that treats it.' },
   { q: 'Which therapy does my pet need?', a: 'You do not have to know. Book a session and our specialist assesses your pet first, then recommends the right therapy.' },
   { q: 'Do you come home?', a: 'Yes, doorstep sessions are available in many areas of Bangalore. Our salon in HSR Layout is best for longer therapies.' },
+  { q: 'Can I consult a vet online for my pet\'s skin?', a: 'Yes. Dr Amrita Singh Raghuvanshi, our consulting veterinarian (M.V.Sc, 9 years of clinical experience), takes video and audio consults for dogs and cats every day, 9:30 am to 8:30 pm. Message her on WhatsApp to book.' },
   { q: 'Do you treat cats?', a: 'Yes. We adjust products, handling and timing for cats and for anxious pets.' },
   { q: 'Is a vet still needed?', a: 'For open wounds, bleeding, sudden hair loss or a pet who seems unwell, see a vet first. We tell you honestly when something needs a vet.' },
 ];
@@ -88,6 +90,8 @@ export default function DermacarePage() {
         </div>
       </section>
 
+      <VetSpotlight />
+
       <section className="section" id="plans" data-sol="dermacare">
         <div className="wrap">
           <div className="section-head">
@@ -149,7 +153,7 @@ export default function DermacarePage() {
 
       <SocialHub title={<>See what pet parents <em>say.</em></>} lead="Read reviews of the Mylopaws Dermacare Centre on Google, get directions to HSR Layout, or follow our before-and-afters on Instagram." />
       <CtaBand title={<>Your pet&rsquo;s skin is <em>talking.</em></>} text="Book a Dermacare session and our specialist will tell you what it is saying." href={bookLink('dermacare')} label="Book Dermacare" />
-      <JsonLd data={[dermacareSchema(THERAPIES.map((t) => ({ name: t.name, slug: t.slug }))), faqSchema(FAQ), breadcrumbSchema([{ name: 'Dermacare', path: '/dermacare/' }])]} />
+      <JsonLd data={[dermacareSchema(THERAPIES.map((t) => ({ name: t.name, slug: t.slug }))), faqSchema(FAQ), breadcrumbSchema([{ name: 'Dermacare', path: '/dermacare/' }]), vetPersonSchema]} />
     </>
   );
 }

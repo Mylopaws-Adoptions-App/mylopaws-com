@@ -35,9 +35,10 @@ Itching that won't stop, ticks that keep coming back, hair loss, hot spots, smel
 
 **Mylopaws Dermacare** now offers vet consultations focused on skin and fur, with two consulting veterinarians:
 
-### Dr. Amrita — Consulting Veterinarian
+### Dr Amrita Singh Raghuvanshi — Consulting Veterinarian
 - **Qualification:** M.V.Sc (Master of Veterinary Science)
-- **Experience:** 9 years in clinical practice
+- **Experience:** 9 years of clinical practice in Bengaluru, plus 2+ years of video and audio teleconsultation
+- **Focus:** skin and coat issues, ticks and fleas, fungal infections, allergies and general health in dogs and cats
 
 ### Dr. Mansi Sharma — Consulting Veterinarian
 - **Qualification:** B.V.Sc, small-animal veterinarian with a dermatology focus

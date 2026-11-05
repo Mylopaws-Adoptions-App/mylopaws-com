@@ -17,6 +17,7 @@ export const CONTACT = {
   travel: { label: 'Mylopaws Travel', phone: '+91 90366 08453', wa: '919036608453', hours: 'Every day, 6 am to midnight' },
   dermacare: { label: 'Mylopaws Dermacare', phone: '+91 91489 35441', wa: '919148935441', hours: 'Monday to Saturday, 11 am to 6 pm' },
   homes: { label: 'Mylopaws Homes & Shopping', phone: '+91 90710 91699', wa: '919071091699', hours: 'Every day' },
+  vet: { label: 'Dr Amrita Singh Raghuvanshi', phone: '+91 89715 00296', wa: '918971500296', hours: 'Every day, 9:30 am to 8:30 pm' },
   address: {
     street: '764/A, 22nd Cross, Parangipalya Main Road, 2nd Sector, HSR Layout',
     locality: 'Bengaluru',
