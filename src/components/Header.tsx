@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Logo } from './Logo';
 import { NAV, bookLink } from '@/lib/site';
 import { BookMenu, BookList } from './BookMenu';
+import { MobileMenu } from './MobileMenu';
 
 export function Header() {
   return (
@@ -16,7 +17,7 @@ export function Header() {
           ))}
           <BookMenu label="Book now" align="right" />
         </nav>
-        <details className="menu">
+        <MobileMenu>
           <summary aria-label="Open menu">Menu</summary>
           <div className="menu-panel">
             {NAV.map((n) => (
@@ -27,7 +28,7 @@ export function Header() {
             <Link href="/careers/">Careers</Link>
             <BookList />
           </div>
-        </details>
+        </MobileMenu>
       </div>
     </header>
   );
