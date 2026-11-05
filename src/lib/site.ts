@@ -4,7 +4,7 @@ export const SITE = {
   name: 'Mylopaws',
   url: 'https://mylopaws.com',
   tagline: 'Bringing solutions for pawfamilies.',
-  vision: 'Create strong & tightly bonded pawfamilies.',
+  vision: 'Creating strong & tightly bonded pawfamilies.',
   verticals: 'Travel. Dermacare. Homes. Shopping.',
   description:
     'Mylopaws is a Bangalore pet solutions platform: dedicated pet-friendly cabs, specialist skin and fur Dermacare therapies, home-style cat boarding (Homes) and a pet pharmacy that delivers (Shopping).',
@@ -45,7 +45,7 @@ export const SUPABASE = {
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNiYWppeHloeXlqcGdreHJobHRjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNzUzNjEsImV4cCI6MjA5ODY1MTM2MX0.rhGIYMQj4CM-1YvVZ26qCtBKz_C9mI-ERhbg6ISXyvg',
 } as const;
 
-export const VISION = 'Create strong & tightly bonded pawfamilies.';
+export const VISION = 'Creating strong & tightly bonded pawfamilies.';
 
 /** The four solutions, in the order the site presents them. */
 export const SOLUTIONS = [

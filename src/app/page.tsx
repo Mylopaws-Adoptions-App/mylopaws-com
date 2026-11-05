@@ -21,7 +21,7 @@ export const metadata = meta({
 });
 
 const FAQ = [
-  { q: 'What is Mylopaws?', a: 'Mylopaws is a Bangalore pet solutions platform. Our vision is to create strong and tightly bonded pawfamilies, so we solve the moments that get in the way: getting your pet somewhere, keeping their skin and fur healthy, caring for them when you travel, and getting the right products to your door.' },
+  { q: 'What is Mylopaws?', a: 'Mylopaws is a Bangalore pet solutions platform. Our vision is creating strong and tightly bonded pawfamilies, so we solve the moments that get in the way: getting your pet somewhere, keeping their skin and fur healthy, caring for them when you travel, and getting the right products to your door.' },
   { q: 'Which areas of Bangalore do you serve?', a: 'Mylopaws Travel covers all of Bangalore and outstation trips across India. Dermacare runs from our salon in HSR Layout, with doorstep sessions in many areas. Homes is in Bangalore, and the pet pharmacy delivers across the city.' },
   { q: 'How do I book?', a: 'Message the right team on WhatsApp: Travel on +91 90366 08453, Dermacare on +91 91489 35441, and Homes or Shopping on +91 90710 91699. A real person replies and confirms everything with you.' },
   { q: 'How much does it cost?', a: 'Dermacare grooming plans are listed with prices on the Dermacare page, with a plan finder that shows what you save. Cab trips, therapies and boarding depend on your pet, route and needs, so we quote on WhatsApp once we know the details.' },
@@ -47,7 +47,7 @@ export default async function HomePage() {
       <VideoHero
         clips={HERO_CLIPS}
         eyebrow="Mylopaws: A Solution Driven Platform"
-        title="Create strong & tightly bonded"
+        title="Creating strong & tightly bonded"
         accent="pawfamilies."
         lead="Everything that keeps you and your pet close, solved in one place: a cab that welcomes your dog, therapies that heal the skin, a calm home when you travel, and the right medicines at your door."
         actions={
@@ -78,50 +78,61 @@ export default async function HomePage() {
             </div>
             <p className="lead">The moments that strain life with a pet are practical ones. We built a dedicated solution for each, run by people who specialise in it.</p>
           </Reveal>
-          <div className="bento">
+          <div className="sols">
             <TiltLink href="/travel/" className="sol" sol="travel" ariaLabel="Mylopaws Travel: pet-friendly cabs">
-              <div>
+              <div className="sol-photo">
+                <Photo src={photo('/images/travel-hiker.webp')} alt="A hiker on a trail with two dogs" />
                 <div className="sol-top">
                   <span className="sol-ico"><Car size={26} /></span>
                   <span className="sol-go"><Arrow /></span>
                 </div>
-                <h3 style={{ marginTop: 22 }}>Travel</h3>
+              </div>
+              <div className="sol-body">
+                <h3>Travel</h3>
                 <p>Dedicated pet cabs and drivers who expect fur, crates and the occasional nervous passenger. Vet visits, airport runs and road trips across India.</p>
                 <div className="chips"><span>City rides</span><span>Vet visits</span><span>Airport (BLR)</span><span>Outstation</span></div>
               </div>
-              {photo('/images/travel-hiker.webp') && <div className="sol-photo"><Photo src={photo('/images/travel-hiker.webp')} alt="A hiker on a trail with two dogs" /></div>}
             </TiltLink>
             <TiltLink href="/dermacare/" className="sol" sol="dermacare" ariaLabel="Mylopaws Dermacare: skin and fur therapies">
-              <div className="sol-top">
-                <span className="sol-ico"><Leaf size={26} /></span>
-                <span className="sol-go"><Arrow /></span>
+              <div className="sol-photo">
+                <Photo src={photo('/images/vet-cat.webp')} alt="A Mylopaws specialist checking a cat" />
+                <div className="sol-top">
+                  <span className="sol-ico"><Leaf size={26} /></span>
+                  <span className="sol-go"><Arrow /></span>
+                </div>
               </div>
-              <div>
+              <div className="sol-body">
                 <h3>Dermacare</h3>
                 <p>{THERAPIES.length} therapies for ticks, infections, allergies, shedding and dull fur. HSR Layout salon or at your door.</p>
+                <div className="chips"><span>Ticks &amp; fleas</span><span>Skin infections</span><span>Shedding</span><span>At your door</span></div>
               </div>
             </TiltLink>
             <TiltLink href="/homes/" className="sol" sol="homes" ariaLabel="Mylopaws Homes: home-style cat boarding">
-              <div className="sol-top">
-                <span className="sol-ico"><Home size={26} /></span>
-                <span className="sol-go"><Arrow /></span>
+              <div className="sol-photo">
+                <Photo src={photo('/images/cat-dog-sleeping.webp')} alt="A dog and a cat sleeping close together" />
+                <div className="sol-top">
+                  <span className="sol-ico"><Home size={26} /></span>
+                  <span className="sol-go"><Arrow /></span>
+                </div>
               </div>
-              <div>
+              <div className="sol-body">
                 <h3>Homes</h3>
                 <p>A calm, home-style stay for your cat while you are away: familiar food, quiet spaces and updates every day.</p>
+                <div className="chips"><span>Home-style stays</span><span>Familiar food</span><span>Daily updates</span></div>
               </div>
             </TiltLink>
-            <TiltLink href="/shopping/" className="sol wide" sol="shopping" ariaLabel="Mylopaws Shopping: pet pharmacy">
-              <div>
-                <div className="sol-top" style={{ justifyContent: 'flex-start' }}>
+            <TiltLink href="/shopping/" className="sol" sol="shopping" ariaLabel="Mylopaws Shopping: pet pharmacy">
+              <div className="sol-photo">
+                <Photo src={photo('/video/shopping-wide.jpg')} alt="A pug waiting by a bowl of food" />
+                <div className="sol-top">
                   <span className="sol-ico"><Bag size={26} /></span>
+                  <span className="sol-go"><Arrow /></span>
                 </div>
-                <h3 style={{ marginTop: 22 }}>Shopping</h3>
+              </div>
+              <div className="sol-body">
+                <h3>Shopping</h3>
                 <p>A pet pharmacy that delivers: tick and flea care, supplements, shampoos, food and vet-prescribed medicines, across Bangalore or ready to collect in HSR Layout.</p>
                 <div className="chips"><span>Antiparasitic</span><span>Supplements</span><span>Skin &amp; fur care</span><span>Prescription medicines</span></div>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <span className="btn btn-primary">Browse the pharmacy <Arrow /></span>
               </div>
             </TiltLink>
           </div>

@@ -24,7 +24,7 @@ export default function OgImage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={wordmark} width={330} height={61} alt="" />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ fontSize: 70, fontWeight: 800, lineHeight: 1.04, letterSpacing: -2 }}>Create strong &amp; tightly</div>
+          <div style={{ fontSize: 70, fontWeight: 800, lineHeight: 1.04, letterSpacing: -2 }}>Creating strong &amp; tightly</div>
           <div style={{ fontSize: 70, fontWeight: 800, lineHeight: 1.04, letterSpacing: -2, display: 'flex' }}>
             bonded&nbsp;<span style={{ color: '#fee46b' }}>pawfamilies.</span>
           </div>
