@@ -24,6 +24,14 @@ export type Post = {
   readMins: number;
   html: string;
   faq?: { q: string; a: string }[];
+  /** Hero photo: a /public path or an https URL, with alt text and photo credit. */
+  image?: string;
+  imageAlt?: string;
+  imageCredit?: string;
+  imageCreditUrl?: string;
+  /** Filled only after the vet signs off; shows "Medically reviewed by …" and adds it to schema. */
+  reviewedBy?: string;
+  reviewedOn?: string;
 };
 
 const DIR = path.join(process.cwd(), 'content', 'posts');
@@ -31,6 +39,7 @@ const DIR = path.join(process.cwd(), 'content', 'posts');
 /** YAML turns 2026-10-23 into a Date; keep plain YYYY-MM-DD strings. */
 export const ymd = (v: unknown) => (v instanceof Date ? v.toISOString().slice(0, 10) : String(v));
 let cache: Post[] | null = null;
+const str = (v: unknown) => (typeof v === 'string' && v.trim() ? v.trim() : undefined);
 
 marked.use({ gfm: true });
 
@@ -73,6 +82,12 @@ function load(): Post[] {
         // External links open safely; internal links stay relative.
         html: mapFacades((marked.parse(content) as string).replace(/<a href="(https?:\/\/(?!mylopaws\.com)[^"]+)"/g, '<a href="$1" target="_blank" rel="noopener"')),
         faq: Array.isArray(data.faq) ? data.faq : undefined,
+        image: str(data.image),
+        imageAlt: str(data.imageAlt),
+        imageCredit: str(data.imageCredit),
+        imageCreditUrl: str(data.imageCreditUrl),
+        reviewedBy: str(data.reviewedBy),
+        reviewedOn: data.reviewedOn ? ymd(data.reviewedOn) : undefined,
       } satisfies Post;
     })
     .sort((a, b) => (a.date !== b.date ? (a.date < b.date ? 1 : -1) : Number(b.featured) - Number(a.featured) || a.slug.localeCompare(b.slug)));

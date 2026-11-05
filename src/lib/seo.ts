@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { CONTACT, SITE, SOCIAL } from './site';
 
 /** Page metadata with canonical, Open Graph and Twitter. Titles 30–65 chars, descriptions ≤155 (Bing rules). */
-export function meta(opts: { title: string; description: string; path: string; type?: 'website' | 'article'; published?: string; noindex?: boolean }): Metadata {
+export function meta(opts: { title: string; description: string; path: string; type?: 'website' | 'article'; published?: string; modified?: string; image?: string; imageAlt?: string; noindex?: boolean }): Metadata {
   const url = `${SITE.url}${opts.path}`;
   return {
     title: { absolute: opts.title },
@@ -16,8 +16,10 @@ export function meta(opts: { title: string; description: string; path: string; t
       locale: SITE.locale,
       type: opts.type ?? 'website',
       ...(opts.published ? { publishedTime: opts.published } : {}),
+      ...(opts.modified ? { modifiedTime: opts.modified } : {}),
+      ...(opts.image ? { images: [{ url: opts.image, width: 1600, alt: opts.imageAlt ?? opts.title }] } : {}),
     },
-    twitter: { card: 'summary_large_image', title: opts.title, description: opts.description },
+    twitter: { card: 'summary_large_image', title: opts.title, description: opts.description, ...(opts.image ? { images: [opts.image] } : {}) },
     ...(opts.noindex ? { robots: { index: false, follow: true } } : {}),
   };
 }
