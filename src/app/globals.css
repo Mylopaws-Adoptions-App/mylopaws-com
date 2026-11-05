@@ -612,4 +612,12 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .vhero-in { animation: vlift .7s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms + 150ms); }
 @media (prefers-reduced-motion: reduce) { .vhero-in { animation: none; } }
 
-.sol[data-sol='shopping'] .sol-photo img { object-position: 38% 30%; }
+.sol[data-sol='shopping'] .sol-photo img { object-position: 50% 43%; }
+
+/* Dermacare: "why a plan" strip under the finder */
+.plan-why { margin-top: clamp(40px, 6vw, 72px); }
+.plan-why-photo { border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 3; background: #f4f1ee; }
+.plan-why-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 28%; -webkit-user-drag: none; user-select: none; }
+.plan-why ul { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+.plan-why li { display: flex; gap: 12px; align-items: flex-start; }
+.plan-why li::before { content: ''; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { QuickAnswer, CtaBand, Faq, JsonLd, PageHero, Slot, faqSchema } from '@/components/Blocks';
+import { QuickAnswer, CtaBand, Faq, JsonLd, PageHero, Photo, Slot, faqSchema, photo } from '@/components/Blocks';
+import { EXTRA_PET_OFF, HOME_VISIT, inr } from '@/lib/plans';
 import { Arrow, Clock, Pin } from '@/components/Icons';
 import { THERAPIES } from '@/lib/therapies';
 import { CONTACT, bookLink } from '@/lib/site';
@@ -97,6 +98,21 @@ export default function DermacarePage() {
             <p className="lead">Tell us what your pet usually gets. We match you to one of 10 prepaid plans, built on how often pets with that routine actually come in, and show what you save.</p>
           </div>
           <PlanFinder />
+          <div className="split reverse plan-why">
+            <div>
+              <div className="eyebrow">Why a plan</div>
+              <h2>Your pet&rsquo;s routine, <em>sorted.</em></h2>
+              <p className="lead">Pay once for the visits your pet actually needs, then use the time you save however you like.</p>
+              <ul>
+                <li>Prepaid, so every visit costs less than paying one at a time.</li>
+                <li>Salon in HSR Layout, or at your door for {inr(HOME_VISIT)} a visit.</li>
+                <li>{Math.round(EXTRA_PET_OFF * 100)}% off the plan for each extra pet.</li>
+              </ul>
+            </div>
+            <div className="plan-why-photo">
+              <Photo src={photo('/photos/dermacare-routine.webp')} alt="A pet parent on a call with her small dog and a breakfast tray" />
+            </div>
+          </div>
         </div>
       </section>
 

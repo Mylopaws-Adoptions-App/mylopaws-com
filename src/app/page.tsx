@@ -123,7 +123,7 @@ export default async function HomePage() {
             </TiltLink>
             <TiltLink href="/shopping/" className="sol" sol="shopping" ariaLabel="Mylopaws Shopping: pet pharmacy">
               <div className="sol-photo">
-                <Photo src={photo('/photos/shopping-phone.webp')} alt="A pet parent ordering over the phone with her small dog" />
+                <Photo src={photo('/photos/shopping-treats.webp')} alt="A dog and a black cat looking up at a treat" />
                 <div className="sol-top">
                   <span className="sol-ico"><Bag size={26} /></span>
                   <span className="sol-go"><Arrow /></span>
