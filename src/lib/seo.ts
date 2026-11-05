@@ -37,7 +37,7 @@ export const orgSchema = {
   '@id': `${SITE.url}/#org`,
   name: SITE.name,
   url: SITE.url,
-  logo: `${SITE.url}/images/mylopaws-logo.png`,
+  logo: `${SITE.url}/apple-icon.png`,
   email: SITE.email,
   slogan: `${SITE.tagline} ${SITE.verticals}`,
   description: SITE.description,

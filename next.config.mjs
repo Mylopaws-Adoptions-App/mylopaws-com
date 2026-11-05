@@ -46,6 +46,9 @@ const nextConfig = {
       { source: '/tag/:slug*', destination: '/pawprints/', permanent: true },
       { source: '/author/:slug*', destination: '/pawprints/', permanent: true },
       { source: '/category/uncategorized/', destination: '/pawprints/', permanent: true },
+      // Old WordPress RSS feeds: send them to the page they belonged to.
+      { source: '/category/:cat/feed/', destination: '/category/:cat/', permanent: true },
+      { source: '/:slug/feed/', destination: '/:slug/', permanent: true },
       { source: '/donations/:path*', destination: '/', permanent: true },
       { source: '/wp-content/:path*', destination: '/', permanent: false },
     ];
