@@ -1,8 +1,8 @@
-@import '@fontsource/montserrat/400.css';
-@import '@fontsource/montserrat/500.css';
-@import '@fontsource/montserrat/600.css';
-@import '@fontsource/montserrat/700.css';
-@import '@fontsource/montserrat/800.css';
+@import '@fontsource/montserrat/latin-ext-400.css';
+@import '@fontsource/montserrat/latin-ext-500.css';
+@import '@fontsource/montserrat/latin-ext-600.css';
+@import '@fontsource/montserrat/latin-ext-700.css';
+@import '@fontsource/montserrat/latin-ext-800.css';
 
 /* ── Mylopaws brand kit (UI Elements sheet): Montserrat · primary #681947 · secondary #A4EAE6 / #FEE46B / #1FBF79 ── */
 :root {
@@ -31,7 +31,7 @@
   --radius-sm: 10px;
   --shadow: 0 1px 2px rgba(30, 20, 32, 0.04), 0 12px 32px -18px rgba(30, 20, 32, 0.28);
   --shadow-mag: 0 22px 44px -22px rgba(104, 25, 71, 0.55);
-  --font: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  --font: var(--font-mont), 'Montserrat', 'Segoe UI', system-ui, sans-serif;
   --wrap: 1200px;
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
@@ -396,7 +396,7 @@ a.card:hover .more .arrow { transform: translateX(4px); }
   .rise { animation: rise .8s var(--ease) both; }
   .rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .16s; } .rise.d3 { animation-delay: .24s; } .rise.d4 { animation-delay: .32s; }
 }
-@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 
 /* buttons keep their own colours inside link-styled areas */
@@ -607,3 +607,12 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .pf-seg button.off { cursor: not-allowed; color: #b3a9b0; display: grid; gap: 1px; padding: 5px 4px; line-height: 1.15; }
 .pf-seg button.off small { font-size: .62rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #b3a9b0; }
 .pf-ctl-note { font-size: .78rem; line-height: 1.45; color: var(--mag); font-weight: 600; }
+
+/* Scroll reveal (see Reveal in Motion.tsx): hidden only after hydration, and only below the fold. */
+.rv-pre { opacity: 0; transform: translateY(var(--rv-y, 26px)); }
+.rv-pre.rv-in { opacity: 1; transform: none; transition: opacity .7s var(--ease) var(--rv-d, 0ms), transform .7s var(--ease) var(--rv-d, 0ms); }
+@media (prefers-reduced-motion: reduce) { .rv-pre { opacity: 1; transform: none; } }
+/* Hero entrance in CSS: runs from first paint, so the headline never waits for JavaScript. */
+@keyframes vlift { from { transform: translateY(24px); } to { transform: none; } }
+.vhero-in { animation: vlift .7s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms + 150ms); }
+@media (prefers-reduced-motion: reduce) { .vhero-in { animation: none; } }

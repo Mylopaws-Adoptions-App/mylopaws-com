@@ -2,20 +2,33 @@
 
 import Link from 'next/link';
 import { animated, useInView, useReducedMotion, useSpring, useSprings, useTrail, to } from '@react-spring/web';
-import { useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 const AnimatedLink = animated(Link);
 
-/** Fades and lifts its children in once they scroll into view. */
+/**
+ * Fades and lifts its children in once they scroll into view. Plain CSS plus one
+ * IntersectionObserver (no spring per block), and content is visible in the server HTML,
+ * so nothing waits for JavaScript to paint.
+ */
 export function Reveal({ children, delay = 0, y = 26, className, as = 'div' }: { children: ReactNode; delay?: number; y?: number; className?: string; as?: 'div' | 'section' | 'li' }) {
-  const reduce = useReducedMotion();
-  const [ref, style] = useInView(
-    () => ({ from: { opacity: reduce ? 1 : 0, y: reduce ? 0 : y }, to: { opacity: 1, y: 0 }, delay, config: { tension: 210, friction: 26 } }),
-    { rootMargin: '0px 0px -8% 0px', once: true },
-  );
-  const Tag = animated[as];
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return; // already on screen: leave it be
+    el.style.setProperty('--rv-y', `${y}px`);
+    el.style.setProperty('--rv-d', `${delay}ms`);
+    el.classList.add('rv-pre');
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('rv-in'); io.disconnect(); }
+    }, { rootMargin: '0px 0px -8% 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [delay, y]);
+  const Tag = as as 'div';
   return (
-    <Tag ref={ref} className={className} style={style}>
+    <Tag ref={ref as never} className={className}>
       {children}
     </Tag>
   );

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
-import { animated, useReducedMotion, useSpring, useSprings, useTrail } from '@react-spring/web';
+import { animated, useReducedMotion, useSprings } from '@react-spring/web';
 import { clipSrc, type Clip } from '@/lib/media';
 
 type Tab = { sol: string; href: string; name: string; short: string; icon: ReactNode };
@@ -35,9 +35,12 @@ export function VideoHero({ clips, tabs, eyebrow, title, accent, lead, actions }
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
     if (saveData) return;
     const pick = () => setCut(mq.matches ? 'tall' : 'wide');
-    pick();
+    // Start the video only once the page has painted and gone quiet, so it never competes with the first paint.
+    const later = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+    const start = () => (document.readyState === 'complete' ? pick() : window.addEventListener('load', pick, { once: true }));
+    const id = later ? later(start, { timeout: 2500 }) : window.setTimeout(start, 1200);
     mq.addEventListener('change', pick);
-    return () => mq.removeEventListener('change', pick);
+    return () => { mq.removeEventListener('change', pick); window.removeEventListener('load', pick); if (!later) clearTimeout(id); };
   }, []);
 
   const go = useCallback((i: number) => setActive(((i % clips.length) + clips.length) % clips.length), [clips.length]);
@@ -55,18 +58,15 @@ export function VideoHero({ clips, tabs, eyebrow, title, accent, lead, actions }
   }, [active, reduce, cut]);
 
   const [fades] = useSprings(clips.length, (i) => ({ opacity: i === active ? 1 : 0, config: { duration: 900 } }), [active]);
-  const reveal = useSpring({ from: { r: reduce ? 0 : 100 }, to: { r: 0 }, config: { tension: 120, friction: 30 }, delay: 100 });
   const titleWords = title.split(' ');
   const words = [...titleWords, ...accent.split(' ')];
-  const trail = useTrail(words.length + 4, { from: { o: reduce ? 1 : 0, y: reduce ? 0 : 28 }, to: { o: 1, y: 0 }, delay: 350, config: { tension: 240, friction: 24 } });
-  const t = (i: number) => ({ opacity: trail[i].o, transform: trail[i].y.to((v) => `translateY(${v}px)`) });
 
   const activeSol = clips[active]?.sol;
   const posterCut = cut ?? 'wide';
 
   return (
     <section className="vhero" aria-label="Mylopaws">
-      <animated.div className="vhero-media" style={{ clipPath: reveal.r.to((r) => `inset(0 0 0 ${r}%)`) }}>
+      <div className="vhero-media">
         {clips[0] && (
           <picture>
             <source media="(max-width: 760px)" srcSet={clipSrc(clips[0].name, 'tall', 'jpg')} />
@@ -96,24 +96,24 @@ export function VideoHero({ clips, tabs, eyebrow, title, accent, lead, actions }
             </animated.video>
           ))}
         <div className="vhero-shade" />
-      </animated.div>
+      </div>
 
       <div className="wrap vhero-copy">
-        <animated.div className="vhero-eyebrow" style={t(0)}>{eyebrow}</animated.div>
+        <div className="vhero-eyebrow vhero-in" style={{ ["--i" as string]: 0 }}>{eyebrow}</div>
         <h1 aria-label={`${title} ${accent}`}>
           {words.map((w, i) => (
             <span key={i} aria-hidden="true" className="vhero-word">
-              <animated.span style={{ display: 'inline-block', ...t(Math.min(i + 1, words.length)) }}>
+              <span className="vhero-in" style={{ display: 'inline-block', ["--i" as string]: i + 1 }}>
                 {i >= titleWords.length ? <em>{w}</em> : w}
-              </animated.span>
+              </span>
             </span>
           ))}
         </h1>
-        <animated.p className="vhero-lead" style={t(words.length + 1)}>{lead}</animated.p>
-        <animated.div className="btn-row" style={t(words.length + 2)}>{actions}</animated.div>
+        <p className="vhero-lead vhero-in" style={{ ["--i" as string]: words.length + 1 }}>{lead}</p>
+        <div className="btn-row vhero-in" style={{ ["--i" as string]: words.length + 2 }}>{actions}</div>
       </div>
 
-      <animated.nav className="vhero-strip" aria-label="Mylopaws solutions" style={t(words.length + 3)}>
+      <nav className="vhero-strip vhero-in" aria-label="Mylopaws solutions" style={{ ["--i" as string]: words.length + 3 }}>
         <div className="wrap vhero-tabs">
           {tabs.map((tab) => {
             const idx = clips.findIndex((c) => c.sol === tab.sol);
@@ -137,7 +137,7 @@ export function VideoHero({ clips, tabs, eyebrow, title, accent, lead, actions }
             );
           })}
         </div>
-      </animated.nav>
+      </nav>
     </section>
   );
 }

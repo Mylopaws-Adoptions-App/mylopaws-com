@@ -5,7 +5,7 @@ import { TRAVEL } from '@/lib/travel';
 import { allPosts, CATEGORIES } from '@/lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date('2026-10-23');
+  const now = new Date('2026-11-05');
   const u = (p: string, priority: number, lastModified: Date = now): MetadataRoute.Sitemap[number] => ({ url: `${SITE.url}${p}`, lastModified, priority });
   return [
     u('/', 1),
