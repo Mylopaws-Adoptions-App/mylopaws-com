@@ -265,7 +265,7 @@ function PostPage({ p }: { p: Post }) {
       <PageHero sol={vertical === 'general' ? undefined : vertical} crumbs={[{ href: '/pawprints/', label: 'Pawprints' }, { href: `/category/${p.category}/`, label: cat.name }]} eyebrow={cat.name} title={p.title} long>
         <div className="post-meta">
           <span>{fmtDate(p.updated ?? p.date)}</span><span aria-hidden="true">·</span><span>{p.readMins} min read</span><span aria-hidden="true">·</span><span>By the Mylopaws team</span>
-          {p.reviewedBy && (<><span aria-hidden="true">·</span><span className="post-reviewed">Medically reviewed by {p.reviewedBy}{p.reviewedOn ? ` on ${fmtDate(p.reviewedOn)}` : ''}</span></>)}
+          {p.reviewedBy && (<><span aria-hidden="true">·</span><span className="post-reviewed">Reviewed &amp; approved by {p.reviewedBy}{p.reviewedOn ? ` on ${fmtDate(p.reviewedOn)}` : ''}</span></>)}
         </div>
       </PageHero>
       <section className="section tight">

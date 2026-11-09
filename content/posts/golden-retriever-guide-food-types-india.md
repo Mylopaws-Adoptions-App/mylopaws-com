@@ -4,20 +4,20 @@ seoTitle: "Golden Retriever Guide India: Types, Food & Care"
 description: "British, American or Canadian? Golden Retriever types explained, plus the right food for puppies and adults, grooming, health risks and Bangalore tips."
 excerpt: "The three Golden Retriever types, what to feed at every age, why keeping them lean adds years, grooming that prevents hot spots, and the health risks to know."
 date: 2026-11-05
-updated: 2026-11-05
+updated: 2026-11-09
 category: new-pet-parent
 order: 13
 image: "https://images.unsplash.com/photo-1748532557131-49a28f0f94c0?w=1600&q=80&fm=jpg&fit=crop"
 imageAlt: "Golden Retriever with its tongue out sitting on green grass"
 imageCredit: "stephan de MARANTHI on Unsplash"
 imageCreditUrl: "https://unsplash.com/photos/golden-retriever-on-green-grass-yljkjsy12zo"
-reviewedBy: ""
-reviewedOn: ""
+reviewedBy: "Dr Amrita Singh Raghuvanshi, M.V.Sc"
+reviewedOn: 2026-11-09
 faq:
   - q: "What are the different types of Golden Retrievers?"
     a: "There are three commonly described types: British (English), American and Canadian. They're the same breed with different breed standards — British Goldens are usually lighter and stockier, American Goldens darker and leaner, and Canadian Goldens darker, taller and thinner-furred."
   - q: "What is the best food for a Golden Retriever?"
-    a: "A complete, balanced food made for large breeds. Puppies need a large-breed puppy formula with controlled calcium until about 12–15 months. Adults do best on measured meals that keep them lean."
+    a: "A complete, balanced food made for large breeds. Puppies need a large-breed puppy formula with controlled calcium, then move to adult food somewhere between 12 and 18 months. Adults do best on measured meals that keep them lean."
   - q: "How much should a Golden Retriever eat?"
     a: "It depends on the food's calories and your dog's age, weight and activity. Start with the pack's feeding guide, weigh your dog monthly, and adjust so you can easily feel the ribs."
   - q: "Should I feed my Golden Retriever a grain-free diet?"
@@ -71,11 +71,11 @@ You'll also hear about **field (working) Goldens** — slimmer, darker and much 
 
 ## What to feed a Golden Retriever
 
-### Puppies (2–15 months)
+### Puppies (2–18 months)
 
 - Feed a **complete large-breed puppy food.** It controls calcium and calories so the skeleton grows steadily — growing too fast increases the risk of hip and elbow dysplasia.
 - **3–4 meals a day** until 6 months, then 2.
-- Switch to adult food at around **12–15 months**, as your vet advises.
+- Move your Golden to adult food somewhere between **12 and 18 months**, as your vet advises. Big breeds like Goldens keep growing for longer, so the wider range suits them.
 - **Don't add calcium or bone supplements** to a complete puppy food.
 
 ### Adults
@@ -105,9 +105,9 @@ Golden Retrievers featured prominently in a US FDA investigation (2018–2019) i
 
 ### Safe human foods (in moderation)
 
-Plain cooked chicken, plain boiled egg, carrot, cucumber, pumpkin and apple (without seeds) make good occasional treats.
+Boiled chicken (no bones), boiled egg, carrot, cucumber, pumpkin and apple (without the seeds and core) are good treats once in a while. Just keep them plain — no salt, oil, masala, onion or garlic.
 
-**Never feed:** chocolate, grapes and raisins, onion, garlic, xylitol (in sugar-free gum and some peanut butters), cooked bones, and spicy or heavily salted food.
+**Never feed:** chocolate, grapes and raisins, onion, garlic, xylitol (in sugar-free gum and some peanut butters), cooked bones, and spicy or heavily salted food. Also no alcohol, and no oily or fried leftovers like festival sweets, biryani or mutton fat.
 
 ## Grooming a Golden
 
@@ -123,7 +123,9 @@ Our guide to [bathing your puppy](/bathing-puppy-bangalore-guide/) covers produc
 
 ## Cancer: the biggest health concern for Goldens
 
-Golden Retrievers have one of the highest cancer rates of any breed. Researchers have estimated that around **60% of Goldens in the US die of cancer**.
+Golden Retrievers have one of the highest cancer rates of any breed. A 1998 survey by the Golden Retriever Club of America found that about **60% of Goldens in the US died of cancer**. A later US study, which looked at 652 Goldens after death, found a similar number: **65%**.
+
+**These figures come from US dogs.** Goldens in India come from different bloodlines, so their risk may not be the same — but the warning signs and checks below apply to every Golden.
 
 The Morris Animal Foundation's **Golden Retriever Lifetime Study**, which has followed more than 3,000 Goldens since 2012, had recorded over 500 diagnoses of four major cancers by 2023:
 
@@ -147,7 +149,8 @@ The Morris Animal Foundation's **Golden Retriever Lifetime Study**, which has fo
 | **Skin allergies and hot spots** | Licking paws, red patches, wet sores, smell |
 | **Ear infections** | Head shaking, scratching ears, smell, redness |
 | **Hypothyroidism** | Weight gain, low energy, thinning fur, skin infections |
-| **Eye conditions** | Cloudiness, redness, squinting |
+| **Pigmentary uveitis** | A painful inflammation inside the eye that can lead to glaucoma. Watch for redness, squinting, tearing, cloudiness or a dark spot in the eye — see a vet promptly |
+| **Other eye conditions** | Cloudiness, redness, squinting |
 | **Heart disease** | Tiredness, coughing, fainting |
 
 ## Bangalore-specific care
@@ -175,7 +178,8 @@ Compare other options in our [dog breeds for Bangalore](/dog-breeds-india-best-f
 
 - [Dogs fed a reduced-calorie diet live nearly two years longer (Penn Today, on the 2002 Purina Labrador study)](https://penntoday.upenn.edu/news/study-finds-dogs-fed-reduced-calorie-diet-live-nearly-two-years-longer-dogs-unrestricted-diet)
 - [Golden Retriever Lifetime Study reaches 500 diagnoses of 4 major cancers (Morris Animal Foundation, 2023)](https://www.morrisanimalfoundation.org/article/golden-retriever-lifetime-study-reaches-500-diagnoses-4-major-cancers)
-- [61% of Golden Retrievers die of cancer (ABC11, 2016)](https://abc11.com/post/study-61-percent-of-golden-retrievers-die-of-cancer/1565004/)
+- [61% of Golden Retrievers die of cancer — on the Golden Retriever Club of America survey (ABC11, 2016)](https://abc11.com/post/study-61-percent-of-golden-retrievers-die-of-cancer/1565004/)
+- [Cancer-related deaths in 652 Golden Retrievers at a US veterinary teaching hospital, 1989–2016 (PLoS ONE, 2018)](https://pmc.ncbi.nlm.nih.gov/articles/PMC5800597/)
 - [FDA investigation into diets and canine dilated cardiomyopathy](https://www.fda.gov/animal-veterinary/outbreaks-and-advisories/fda-investigation-potential-link-between-certain-diets-and-canine-dilated-cardiomyopathy)
 - [Dog breed popularity trends in India, 2024 (It's About Dog)](https://www.newsfilecorp.com/release/220980)
 
