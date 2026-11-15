@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { CONTACT, SITE, SOCIAL } from './site';
 
 /** Page metadata with canonical, Open Graph and Twitter. Titles 30–65 chars, descriptions ≤155 (Bing rules). */
-export function meta(opts: { title: string; description: string; path: string; type?: 'website' | 'article'; published?: string; modified?: string; image?: string; imageAlt?: string; noindex?: boolean }): Metadata {
+export function meta(opts: { title: string; description: string; path: string; type?: 'website' | 'article'; published?: string; modified?: string; image?: string; imageAlt?: string; keywords?: string[]; noindex?: boolean }): Metadata {
   const url = `${SITE.url}${opts.path}`;
   return {
     title: { absolute: opts.title },
     description: opts.description,
+    ...(opts.keywords?.length ? { keywords: opts.keywords } : {}),
     alternates: { canonical: url },
     openGraph: {
       title: opts.title,

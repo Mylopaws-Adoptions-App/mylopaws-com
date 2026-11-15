@@ -288,6 +288,8 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .post-aside { position: sticky; top: 96px; display: grid; gap: 16px; }
 @media (max-width: 980px) { .post-layout { grid-template-columns: minmax(0, 1fr); } .post-aside { position: static; } }
 .post-main { min-width: 0; }
+.post-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; padding: 0; max-width: 70ch; }
+.post-tags li { font-size: 0.8rem; padding: 6px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--ink); border: 1px solid var(--line, rgba(0,0,0,.08)); }
 .post-hero-img { margin: 0 0 28px; max-width: 70ch; }
 .post-hero-img img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 20px; background: var(--bg-soft); -webkit-user-drag: none; user-select: none; }
 .post-hero-img figcaption { margin-top: 8px; font-size: 0.78rem; color: var(--muted); }

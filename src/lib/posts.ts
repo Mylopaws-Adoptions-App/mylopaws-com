@@ -32,6 +32,8 @@ export type Post = {
   /** Filled only after the vet signs off; shows "Medically reviewed by …" and adds it to schema. */
   reviewedBy?: string;
   reviewedOn?: string;
+  /** Search-intent labels: shown as chips under the article and added to schema keywords. */
+  tags?: string[];
 };
 
 const DIR = path.join(process.cwd(), 'content', 'posts');
@@ -88,6 +90,7 @@ function load(): Post[] {
         imageCreditUrl: str(data.imageCreditUrl),
         reviewedBy: str(data.reviewedBy),
         reviewedOn: data.reviewedOn ? ymd(data.reviewedOn) : undefined,
+        tags: Array.isArray(data.tags) ? data.tags.map(String).filter(Boolean) : undefined,
       } satisfies Post;
     })
     .sort((a, b) => (a.date !== b.date ? (a.date < b.date ? 1 : -1) : Number(b.featured) - Number(a.featured) || a.slug.localeCompare(b.slug)));

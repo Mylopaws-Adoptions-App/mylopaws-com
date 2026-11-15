@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tr = travelBySlug(slug);
   if (tr) return meta({ title: tr.title, description: tr.description, path: `/${slug}/` });
   const p = postBySlug(slug);
-  if (p) return meta({ title: p.seoTitle, description: p.description, path: `/${slug}/`, type: 'article', published: p.date, modified: p.updated, image: p.image ? absUrl(p.image) : undefined, imageAlt: p.imageAlt });
+  if (p) return meta({ title: p.seoTitle, description: p.description, path: `/${slug}/`, type: 'article', published: p.date, modified: p.updated, image: p.image ? absUrl(p.image) : undefined, imageAlt: p.imageAlt, keywords: p.tags });
   return {};
 }
 
@@ -247,6 +247,7 @@ function PostPage({ p }: { p: Post }) {
     articleSection: cat.name,
     inLanguage: 'en-IN',
     ...(p.image ? { image: absUrl(p.image) } : {}),
+    ...(p.tags?.length ? { keywords: p.tags.join(', ') } : {}),
   };
   // Shown and marked up only once a vet has signed the article off.
   const reviewed = p.reviewedBy
@@ -281,6 +282,11 @@ function PostPage({ p }: { p: Post }) {
               </figure>
             )}
             <article className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
+            {p.tags?.length ? (
+              <ul className="post-tags" aria-label="Topics">
+                {p.tags.map((t) => <li key={t}>{t}</li>)}
+              </ul>
+            ) : null}
           </div>
           {p.html.includes('map-load') && <MapLoader />}
           <aside className="post-aside">

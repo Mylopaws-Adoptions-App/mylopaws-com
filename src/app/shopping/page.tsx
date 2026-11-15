@@ -37,7 +37,7 @@ export default async function ShoppingPage() {
         <h2 className="sr-only">How ordering works</h2>
         <div className="wrap grid grid-3">
           <Reveal className="card flat" delay={0}><span className="tag b">Delivery</span><h3>Delivered across Bangalore</h3><p>Batched delivery runs across the city, or free pickup from our HSR Layout store. See our <Link href="/shipping-delivery-policy/">delivery policy</Link>.</p></Reveal>
-          <Reveal className="card flat" delay={100}><span className="tag g">Prescriptions</span><h3>Vet-prescribed medicines</h3><p>Prescription-only products need a valid vet prescription, which you share with us before payment.</p></Reveal>
+          <Reveal className="card flat" delay={100}><span className="tag g">Prescriptions</span><h3>Vet-prescribed medicines</h3><p>Prescription-only products need a valid vet prescription, which you share with us before payment. Not sure which one? Compare <Link href="/bravecto-vs-simparica-trio-vs-apoquel/">Bravecto, Simparica Trio and Apoquel</Link>.</p></Reveal>
           <Reveal className="card flat" delay={200}><span className="tag y">Pricing</span><h3>Prices on request</h3><p>Ask for today&rsquo;s price on anything you see. We aim to beat the big apps on everything we stock.</p></Reveal>
         </div>
       </section>
