@@ -13,11 +13,17 @@ const ADS_WHATSAPP = process.env.NEXT_PUBLIC_ADS_WHATSAPP_LABEL;
 
 export type Item = { item_id: string; item_name: string; item_brand?: string | null; item_category?: string | null; item_variant?: string | null; price?: number; quantity?: number };
 
+/** gtag is defined before hydration (Scripts.tsx); this fallback queues to dataLayer if it ever isn't. */
+function gtag(...a: unknown[]) {
+  if (typeof window.gtag === 'function') return window.gtag(...a);
+  window.dataLayer = window.dataLayer || [];
+  // gtag.js only reads Arguments objects, not plain arrays
+  (function (..._x: unknown[]) { window.dataLayer!.push(arguments); })(...a);
+}
+
 export function track(name: string, params: Params = {}) {
-  try {
-    window.gtag?.('event', name, params);
-    window.clarity?.('event', name);
-  } catch { /* analytics must never break the shop */ }
+  try { gtag('event', name, params); } catch { /* analytics must never break the shop */ }
+  try { if (typeof window.clarity === 'function') window.clarity('event', name); } catch { /* ignore */ }
 }
 
 const FB: Record<string, string> = { view_item: 'ViewContent', add_to_cart: 'AddToCart', begin_checkout: 'InitiateCheckout', add_payment_info: 'AddPaymentInfo', purchase: 'Purchase' };
@@ -31,17 +37,14 @@ export function ecommerce(name: 'view_item_list' | 'view_item' | 'add_to_cart' |
     if (fb && window.fbq) {
       window.fbq('track', fb, { currency: 'INR', value: name === 'purchase' ? (extra.value as number) ?? value : value, content_ids: items.map((i) => i.item_id), content_type: 'product', num_items: items.reduce((t, i) => t + (i.quantity ?? 1), 0) }, eventId ? { eventID: eventId } : undefined);
     }
-    if (name === 'purchase' && ADS_PURCHASE) window.gtag?.('event', 'conversion', { send_to: `${ADS_ID}/${ADS_PURCHASE}`, value: (extra.value as number) ?? value, currency: 'INR', transaction_id: extra.transaction_id });
+    if (name === 'purchase' && ADS_PURCHASE) gtag('event', 'conversion', { send_to: `${ADS_ID}/${ADS_PURCHASE}`, value: (extra.value as number) ?? value, currency: 'INR', transaction_id: extra.transaction_id });
   } catch { /* ignore */ }
 }
 
-/** WhatsApp / vet clicks: GA4 lead event plus the Google Ads WhatsApp conversion when its label is set. */
-export function whatsappClick(where: string, product?: string, kind: 'whatsapp_click' | 'vet_consult_click' = 'whatsapp_click') {
-  track(kind, { where, product, page_path: location.pathname });
-  try {
-    if (ADS_WHATSAPP) window.gtag?.('event', 'conversion', { send_to: `${ADS_ID}/${ADS_WHATSAPP}` });
-    window.fbq?.('track', 'Contact');
-  } catch { /* ignore */ }
+/** WhatsApp / vet clicks. The GA4 event (whatsapp_click / vet_consult_click) and Meta Contact fire for every wa.me link
+ * site-wide from the click listener in Scripts.tsx; this only adds the Google Ads conversion when its label is set. */
+export function whatsappClick(_where: string, _product?: string, kind: 'whatsapp_click' | 'vet_consult_click' = 'whatsapp_click') {
+  try { if (ADS_WHATSAPP && kind === 'whatsapp_click') gtag('event', 'conversion', { send_to: `${ADS_ID}/${ADS_WHATSAPP}` }); } catch { /* ignore */ }
 }
 
 // ── attribution captured on landing, sent with the order ─────────
@@ -73,7 +76,7 @@ export function getConsent(): Consent {
 }
 export function applyConsent(v: 'granted' | 'denied') {
   try { localStorage.setItem(CONSENT_KEY, v); } catch { /* ignore */ }
-  window.gtag?.('consent', 'update', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: 'granted' });
+  gtag('consent', 'update', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: 'granted' });
   if (v === 'granted') loadMetaPixel();
 }
 const PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID;
