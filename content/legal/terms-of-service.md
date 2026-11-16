@@ -2,10 +2,15 @@
 title: Terms of Service
 seoTitle: "Terms of Service for Mylopaws Pet Services"
 description: The terms that apply when you use Mylopaws Travel, Dermacare, Homes, the pet pharmacy and shop, mylopaws.com and the Mylopaws app.
-updated: 2026-10-23
+updated: 2026-11-16
 ---
 
 These Terms apply when you use mylopaws.com, the Mylopaws app at mylopaws.app, our WhatsApp and Instagram channels, and any Mylopaws service. By booking or ordering, you agree to them.
+
+## About the seller
+
+Mylopaws is a brand of Prescom Technologies. Registered store address: 764/A, 22nd Cross, Parangipalya Main Road, 2nd Sector, HSR Layout, Bengaluru 560102, Karnataka, India. Email: [customercare@mylopaws.com](mailto:customercare@mylopaws.com). Shop invoices carry our GST details.
+<!-- TODO(Kush): add exact registered legal name, GSTIN and (if applicable) pet-medicine drug licence number here: required by the Consumer Protection (E-Commerce) Rules, 2020 -->
 
 ## 1. Our services
 
@@ -16,11 +21,11 @@ These Terms apply when you use mylopaws.com, the Mylopaws app at mylopaws.app, o
 
 ## 2. Bookings and orders
 
-Bookings are made through the Mylopaws app or our official WhatsApp numbers. A booking is confirmed only when our team confirms it with you. Orders in the shop are confirmed when payment succeeds.
+Bookings are made through the Mylopaws app or our official WhatsApp numbers. A booking is confirmed only when our team confirms it with you. Shop orders are confirmed when payment succeeds. We then confirm the delivery date with you on WhatsApp. If we cannot supply an item, we tell you and refund it.
 
 ## 3. Prices and payment
 
-Prices are quoted before you confirm, through the app or on WhatsApp. Online payments are processed by Razorpay. Prices include applicable taxes unless we tell you otherwise. You will receive an invoice for paid orders.
+Prices are quoted before you confirm, through the app or on WhatsApp. Online payments are processed by Razorpay. Shop prices are in Indian rupees, include GST, and are shown against the maximum retail price (MRP) where we offer a saving. Delivery charges are shown before you pay. Product photos are for reference; packaging may vary. We may correct an obvious pricing error and will refund you if you do not want the order at the corrected price. You will receive an invoice for paid orders.
 
 ## 4. Your pet's information
 
@@ -40,7 +45,7 @@ Pets must be vaccinated and dewormed, and free of contagious conditions. If your
 
 ## 8. Prescription medicines
 
-Prescription-only medicines are dispensed only against a valid prescription from a registered veterinarian, which you share before payment. We may refuse an order if the prescription is missing, unclear or invalid. Vaccines are not sold online.
+Prescription-only medicines are dispensed only against a valid prescription from a registered veterinarian, which you share before payment. We may refuse an order if the prescription is missing, unclear or invalid. Vaccines are not sold online. Product information on our site is general and is not veterinary advice. Ask your vet before starting any medicine, supplement or diet change, especially for pets with health conditions.
 
 ## 9. Delivery
 

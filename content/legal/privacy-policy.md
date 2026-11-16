@@ -2,7 +2,7 @@
 title: Privacy Policy
 seoTitle: "Privacy Policy: How Mylopaws Handles Your Data"
 description: How Mylopaws collects, uses, shares and protects your personal data, and how to exercise your rights under India's data protection law.
-updated: 2026-10-23
+updated: 2026-11-16
 ---
 
 This Privacy Policy explains how Mylopaws ("we", "us") handles personal data when you use mylopaws.com, the Mylopaws app at mylopaws.app, our WhatsApp and Instagram channels, our voice assistant and our services (Travel, Dermacare, Homes and the pet pharmacy and shop). We process personal data in line with India's Digital Personal Data Protection Act, 2023 and the rules under it.
@@ -56,6 +56,20 @@ You can ask us to:
 - nominate someone to exercise these rights for you.
 
 Write to [customercare@mylopaws.com](mailto:customercare@mylopaws.com). We may ask you to confirm your identity.
+
+## Shop orders
+
+When you order from our shop without an account, we collect your name, phone number, delivery address, email (optional), the items you buy, and any prescription you upload. We use them to take payment, deliver, send WhatsApp order updates, issue your invoice and handle returns. Prescriptions are stored privately and seen only by our team. We keep order and invoice records for as long as tax law requires.
+
+## Who we share data with
+
+Only service providers that help us run the shop, under their own privacy terms: Razorpay (payments; we never see your card or UPI details), Supabase (secure database and file storage), Vercel (website hosting), Meta (WhatsApp messaging, and advertising measurement if you accept all cookies), and Google (analytics and advertising measurement). We do not sell your data.
+
+## Your choices
+
+- **Cookies:** the banner lets you accept all or keep only essential and analytics cookies. Advertising cookies and the Meta Pixel load only after you accept all.
+- **Messages:** order updates are service messages. Reply STOP to any promotional message and we will stop it.
+- **Access, correction and deletion:** write to customercare@mylopaws.com or see [Data Deletion](/data-deletion/).
 
 ## Cookies
 
