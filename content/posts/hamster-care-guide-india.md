@@ -4,7 +4,7 @@ seoTitle: "Hamster Care Guide India: Types, Food & Lifespan"
 description: "Syrian, Roborovski or dwarf? A complete hamster guide for Indian homes — types, safe and unsafe foods, lifespan, cage setup and Bangalore heat tips."
 excerpt: "Choosing the right hamster, setting up a proper home, what to feed (and never feed), how long they live, and keeping them safe in Indian summers."
 date: 2026-11-05
-updated: 2026-11-05
+updated: 2026-11-16
 category: new-pet-parent
 order: 11
 image: "https://images.unsplash.com/photo-1577099600565-e89ede2b9422?w=1600&q=80&fm=jpg&fit=crop"
@@ -15,7 +15,7 @@ reviewedBy: ""
 reviewedOn: ""
 faq:
   - q: "How long do hamsters live?"
-    a: "Most pet hamsters live 2 to 3 years. Roborovski dwarf hamsters often live around 3 years and sometimes up to 4 with good care, while Winter White dwarfs can be as short-lived as 1 to 2 years."
+    a: "Most pet hamsters live 2 to 3 years. Roborovski dwarfs often live 3 to 3.5 years, while Campbell's and Winter White dwarfs often live 1.5 to 2 years."
   - q: "What do hamsters eat?"
     a: "A good-quality hamster pellet or lab block as the base, a small daily portion of fresh vegetables, and a little protein such as plain boiled egg or mealworms a few times a week. Fresh water must always be available."
   - q: "Which hamster is best for beginners in India?"
@@ -25,7 +25,7 @@ faq:
   - q: "What temperature is safe for hamsters?"
     a: "Hamsters do best at about 18–25°C. Long spells above about 25°C raise the risk of heatstroke, so in Indian summers keep the cage in the coolest room, out of direct sun, with a cool tile to lie on."
   - q: "How big should a hamster cage be?"
-    a: "Welfare groups recommend at least 100 × 50 cm of floor space, with about 25 cm of bedding so the hamster can burrow. Most cages sold in shops are much smaller."
+    a: "Indian pet-care guides suggest at least 4 sq ft of floor space for a Syrian and 2 sq ft for a dwarf hamster; international welfare groups recommend more — 100 × 50 cm (about 5.4 sq ft) — with about 25 cm (10 inches) of bedding. Most cages sold in Indian pet shops are much smaller."
   - q: "Do hamsters need a vet?"
     a: "Yes. Find a vet who treats small or exotic pets before you need one. Wet tail, overgrown teeth and heatstroke all need prompt treatment."
 ---
@@ -39,10 +39,10 @@ Here's everything you need to know before you bring one home.
 | Type | Size | Lifespan | Temperament | Live alone? |
 | --- | --- | --- | --- | --- |
 | **Syrian (Golden)** | 15–18 cm, 90–140 g | 2–3 years | Calm, friendly, easiest to handle | **Always alone** |
-| **Campbell's dwarf** | 8–10 cm, 40–60 g | 2–3 years | Can be nippy until it trusts you | Same-sex pair possible if introduced young |
-| **Winter White dwarf** | 8–10 cm, 30–50 g | 1–3 years | Gentle but quick | Same-sex pair possible if introduced young |
-| **Roborovski (Robo)** | 4–5 cm, 20–25 g | ~3 years, up to 4 | Very fast — better to watch than hold | Best alone, or in a very large enclosure |
-| **Chinese** | 10–12 cm, 40–45 g | 2.5–3 years | Shy at first, then easy to handle | Usually alone |
+| **Campbell's dwarf** | 8–10 cm, 40–60 g | 1.5–2 years | Can be nippy until it trusts you | Same-sex pair possible if introduced young |
+| **Winter White dwarf** | 8–10 cm, 30–50 g | 1.5–2 years | Gentle but quick | Same-sex pair possible if introduced young |
+| **Roborovski (Robo)** | 4–5 cm, 20–25 g | 3–3.5 years | Very fast — better to watch than hold | Best alone, or in a very large enclosure |
+| **Chinese** | 10–12 cm, 40–45 g | 2–3 years | Shy at first, then easy to handle | Usually alone |
 
 **Best for beginners and families:** the Syrian. It's the largest, calmest and easiest to hold.
 
@@ -63,9 +63,9 @@ Most cages sold in India are far too small. Hamsters in cramped cages often deve
 
 | What | Recommendation |
 | --- | --- |
-| **Floor space** | At least **100 × 50 cm** for one hamster — bigger is better |
-| **Bedding depth** | About **25 cm** of paper-based bedding for burrowing |
-| **Wheel** | Solid surface, no rungs. At least **30 cm** across for Syrians, **20 cm** for dwarfs |
+| **Floor space** | Indian guides: at least **4 sq ft** for a Syrian, **2 sq ft** for a dwarf. Welfare groups recommend **100 × 50 cm** (about 5.4 sq ft) — bigger is better |
+| **Bedding depth** | About **25 cm (10 inches)** of paper-based bedding for burrowing |
+| **Wheel** | Solid surface, no rungs. At least **30 cm (12 inches)** across for Syrians, **20 cm (8 inches)** for dwarfs — Indian shops usually list wheels in inches |
 | **Hides** | At least one multi-chamber hide, plus tunnels |
 | **Sand bath** | A dish of plain children's play sand or chinchilla sand (not dust) |
 | **Chews** | Untreated wood, hay cubes — teeth grow throughout life |
@@ -108,7 +108,7 @@ Remove uneaten fresh food the next day so it doesn't rot in the hoard.
 
 ## How long do hamsters live?
 
-Most pet hamsters live **2 to 3 years**. Roborovskis often reach around 3 years, and sometimes 4. Good food, a large enclosure, a stable temperature and early vet care for illness all help your hamster reach the upper end.
+Most pet hamsters live **2 to 3 years**. Roborovskis often reach 3 to 3.5 years, while Campbell's and Winter White dwarfs often live 1.5 to 2 years. Good food, a large enclosure, a stable temperature and early vet care for illness all help your hamster reach the upper end.
 
 Because their lives are short, hamsters age fast. From around 18 months, watch for weight loss, thinning fur, lumps and slowing down, and take your hamster for a check-up.
 
@@ -154,8 +154,8 @@ Find a vet who treats small or exotic pets **before** you need one. Our guide to
 
 ## A hamster checklist before you buy
 
-- [ ] Enclosure with at least 100 × 50 cm of floor space
-- [ ] About 25 cm of paper-based bedding
+- [ ] Enclosure with at least 4 sq ft of floor space — ideally 100 × 50 cm (about 5.4 sq ft)
+- [ ] About 25 cm (10 inches) of paper-based bedding
 - [ ] Solid wheel of the right size
 - [ ] Hides, tunnels, chews and a sand bath
 - [ ] Hamster pellets or lab blocks
@@ -170,6 +170,13 @@ A Mylopaws consulting vet can advise on diet, housing and health by video or aud
 Thinking about a dog instead? Read our guide to [dog breeds for Bangalore homes](/dog-breeds-india-best-for-bangalore/).
 
 ## Sources
+
+**Indian guides**
+
+- [Hamster care for beginners in India (Supertails)](https://supertails.com/blogs/posts/hamster-care-for-beginners-in-india-a-complete-handbook)
+- [Hamster types and lifespans (Supertails)](https://supertails.com/blogs/posts/the-ultimate-guide-to-hamster-types-choosing-the-perfect-pet)
+
+**International welfare guidance**
 
 - [The ideal home for your hamster — cage size, bedding and wheels (PDSA)](https://pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/small-pets/the-ideal-home-for-your-hamster)
 - [Hamster types, sizes and lifespans (PetMD)](https://www.petmd.com/exotic/general-health/what-type-hamster-should-you-get)

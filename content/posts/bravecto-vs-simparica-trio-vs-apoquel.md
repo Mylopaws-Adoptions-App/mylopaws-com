@@ -4,15 +4,15 @@ seoTitle: "Bravecto vs Simparica Trio vs Apoquel: Which Does Your Dog Need?"
 description: "Bravecto and Simparica Trio kill ticks and fleas; Apoquel reduces allergic itching. Indian packs, dosing by weight, safety and home delivery in Bangalore."
 excerpt: "Two tick-and-flea tablets and one anti-itch tablet, compared using the packs sold in India: what each treats, how long it lasts, dosing by weight, who shouldn't take it, and how to order with a prescription in Bangalore."
 date: 2026-11-15
-updated: 2026-11-15
+updated: 2026-11-16
 category: skin-fur-care
 order: 20
 image: "https://images.unsplash.com/photo-1759721367037-232697bcd378?w=1600&q=80&fm=jpg&fit=crop"
 imageAlt: "Dog rolling happily on its back in green grass"
 imageCredit: "Alvan Nee on Unsplash"
 imageCreditUrl: "https://unsplash.com/photos/a-beagle-dog-rolls-on-its-back-in-grass-G0lfUsch6nU"
-reviewedBy: ""
-reviewedOn: ""
+reviewedBy: "Dr Amrita Singh Raghuvanshi, M.V.Sc"
+reviewedOn: 2026-11-16
 tags:
   - Bravecto for dogs
   - Simparica Trio

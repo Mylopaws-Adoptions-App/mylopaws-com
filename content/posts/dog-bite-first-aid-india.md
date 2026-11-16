@@ -4,7 +4,7 @@ seoTitle: "Dog Bite First Aid India: What to Apply & Rabies Vaccine"
 description: "Bitten by a dog? Wash for 15 minutes, apply antiseptic, and get the rabies vaccine — free in Karnataka. Plus how to treat a dog bitten by another dog."
 excerpt: "Step-by-step first aid for dog bites, which antiseptic or antibiotic to use, India's rabies vaccine schedules, free treatment in Karnataka, and how to care for a dog bitten by another dog."
 date: 2026-11-05
-updated: 2026-11-05
+updated: 2026-11-16
 category: new-pet-parent
 order: 14
 image: "https://images.unsplash.com/photo-1664730807673-9ea7b6e5d6b4?w=1600&q=80&fm=jpg&fit=crop"
@@ -25,7 +25,7 @@ faq:
   - q: "How soon after a dog bite should I get the rabies vaccine?"
     a: "As soon as possible — ideally within 24 hours, and the same day if you can. If you're late, still go: wound care and vaccination are given even when a patient reports late."
   - q: "I was vaccinated against rabies before. What do I need now?"
-    a: "Usually two booster doses on days 0 and 3, and no immunoglobulin. If you completed a documented full course very recently, your doctor may advise wound care alone. Carry your vaccination record."
+    a: "Usually two booster doses on days 0 and 3, and no immunoglobulin. If you completed a documented course within the last 3 months, Indian guidelines advise wound care alone. Carry your vaccination record."
   - q: "My dog was bitten by another dog. What should I do?"
     a: "Stay calm, check for wounds under the fur, gently clean with saline or diluted povidone-iodine, and see a vet the same day. Small punctures can hide deep damage and often become infected."
 ---
@@ -93,18 +93,22 @@ Indian guidelines classify exposures into three categories, based on WHO guidanc
 
 | Schedule | How it's given | Days |
 | --- | --- | --- |
-| **Intramuscular (Essen)** | One dose into the upper arm muscle | **0, 3, 7, 14 and 28** |
+| **Intramuscular (Essen)** | One dose into the upper arm (deltoid) muscle — the outer thigh in young children; never the buttock | **0, 3, 7, 14 and 28** |
 | **Intradermal (updated Thai Red Cross)** | Small doses into the skin at two sites | **0, 3, 7 and 28** |
 
-Day 0 is the day of your first dose. **Complete every dose.** Stopping halfway leaves you unprotected.
+Day 0 is the day of your first dose. **Complete every dose.** Stopping halfway leaves you unprotected. Both schedules are approved under India's National Guidelines for Rabies Prophylaxis.
 
 ### Rabies immunoglobulin (RIG)
 
-For Category III bites, doctors also give **rabies immunoglobulin** — ready-made antibodies that protect you while the vaccine takes effect. As much as possible is injected **into and around the wound**. It's given once, at the start of treatment.
+For Category III bites, doctors also give **rabies immunoglobulin** — ready-made antibodies that protect you while the vaccine takes effect. As much as possible is injected **into and around the wound**. It's given once, at the start of treatment. The dose depends on body weight — under Indian guidelines, **20 IU per kg** for human RIG or **40 IU per kg** for equine RIG (for a 60 kg adult, that's 1,200 IU or 2,400 IU) — and your doctor works it out. Indian doctors may also use **rabies monoclonal antibodies** (such as Rabishield or Twinrab) instead of RIG; they work the same way.
+
+### Vaccinating yourself before a bite
+
+Pet parents, groomers, vets, volunteers who feed community dogs and children who play outdoors can get **pre-exposure vaccination**: three doses on **days 0, 7 and 21 or 28**. It doesn't replace wound care after a bite, but it means you'll need only two boosters and no immunoglobulin if you're bitten later. Ask your doctor.
 
 ### If you've been vaccinated before
 
-If you've had a full rabies vaccine course before (as treatment after a bite, or as pre-exposure vaccination), you'll usually need only **two booster doses, on days 0 and 3**, and **no immunoglobulin**. If you completed a documented full course very recently, your doctor may advise wound care alone. **Carry your vaccination record** — doctors need proof.
+If you've had a full rabies vaccine course before (as treatment after a bite, or as pre-exposure vaccination), you'll usually need only **two booster doses, on days 0 and 3**, and **no immunoglobulin**. If you completed a documented course **within the last 3 months**, Indian guidelines advise wound care alone — no vaccine or RIG. **Carry your vaccination record** — doctors need proof.
 
 ### Free treatment in Karnataka
 
@@ -168,6 +172,8 @@ Find the nearest 24/7 hospital in our [vet hospitals in Bangalore by area](/vet-
 
 ## Sources
 
+- [Rabies prophylaxis in children: Indian Academy of Paediatrics guidelines (Medical Dialogues)](https://medicaldialogues.in/pediatrics-neonatology/guidelines/rabies-prophylaxis-in-children-iap-guidelines-99891)
+- [Karnataka declares human rabies a notifiable disease, Dec 2022 (The News Minute)](https://www.thenewsminute.com/karnataka/karnataka-aims-eliminate-rabies-2030-declares-it-notifiable-disease-170709)
 - [National Rabies Control Programme, Government of India](https://rabiesfreeindia.mohfw.gov.in/)
 - [Minutes of the expert group reviewing India's National Guidelines on Rabies Prophylaxis (NCDC, 2019)](https://rabiesfreeindia.mohfw.gov.in/resources/uploads/PageContentPdf/170687215557.pdf)
 - [From dog bites to deaths: understanding rabies prevention in India (The Week, Oct 2025)](https://www.theweek.in/news/health/2025/10/22/from-dog-bites-to-deaths-understanding-rabies-prevention-in-india.html)

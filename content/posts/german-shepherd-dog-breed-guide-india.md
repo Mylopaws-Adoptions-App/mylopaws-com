@@ -4,7 +4,7 @@ seoTitle: "German Shepherd Dog Breed Guide for India (2026)"
 description: "German Shepherd size, temperament, food, exercise, health problems and Bangalore care tips — everything to know before and after you bring one home."
 excerpt: "Size, temperament, food, grooming, the health problems vets see most, choosing a breeder, and Bangalore-specific care for one of India's most-loved breeds."
 date: 2026-11-05
-updated: 2026-11-05
+updated: 2026-11-16
 category: new-pet-parent
 order: 10
 image: "https://images.unsplash.com/photo-1587487871865-f41efdc445c5?w=1600&q=80&fm=jpg&fit=crop"
@@ -17,7 +17,7 @@ faq:
   - q: "Is a German Shepherd good for Bangalore weather?"
     a: "Yes, with care. Bangalore's mild climate suits German Shepherds better than most Indian cities, but April afternoons average about 34°C and can run hotter. Walk early morning and late evening, keep water and shade available, and never shave their double fur."
   - q: "How long do German Shepherds live?"
-    a: "Usually 9 to 13 years. A large UK study of German Shepherds under veterinary care found a median lifespan of about 10.3 years. Keeping them lean, choosing health-screened parents and regular vet check-ups give the best chance of a long life."
+    a: "Usually 9 to 13 years. There is no large Indian lifespan study yet; a large UK study found a median of about 10.3 years. Keeping them lean, choosing health-screened parents and regular vet check-ups give the best chance of a long life."
   - q: "What is the best food for a German Shepherd puppy?"
     a: "A complete large-breed puppy food with controlled calcium, fed in three to four meals a day until about six months, then two meals. Stay on large-breed puppy food until 12–18 months, as your vet advises."
   - q: "Do German Shepherds shed a lot?"
@@ -25,7 +25,7 @@ faq:
   - q: "Can a German Shepherd live in a Bangalore apartment?"
     a: "It can, if it gets 1.5 to 2 hours of exercise and training every day. A bored German Shepherd in a small flat will bark, chew and become hard to manage."
   - q: "What health problems are common in German Shepherds?"
-    a: "Vets most often see ear infections, arthritis, diarrhoea, weight gain and behaviour problems. The breed is also prone to hip and elbow dysplasia, bloat, degenerative myelopathy, exocrine pancreatic insufficiency and skin infections."
+    a: "Indian veterinary studies show German Shepherds are the breed most often treated for hip dysplasia and for skin infections (pyoderma). The breed is also prone to ear infections, arthritis, elbow dysplasia, bloat, degenerative myelopathy, exocrine pancreatic insufficiency and skin infections."
   - q: "How do I choose a good German Shepherd breeder?"
     a: "Meet the mother, see where the puppies are raised, ask for the parents' hip and elbow screening results and Kennel Club of India papers, and avoid pet shops and sellers who won't let you visit. Rescues in Bangalore also rehome German Shepherds."
 ---
@@ -39,9 +39,9 @@ They're also a big commitment. A German Shepherd needs more exercise, training a
 | Trait | Detail |
 | --- | --- |
 | **Origin** | Germany, developed in the 1890s as a herding dog |
-| **Height** | Males 60–65 cm, females 55–60 cm at the shoulder |
-| **Weight** | Males 30–40 kg, females 22–32 kg |
-| **Lifespan** | 9–13 years (median about 10 in a large UK study) |
+| **Height** | Males 60–65 cm, females 55–60 cm at the shoulder (breed standard followed by the Kennel Club of India) |
+| **Weight** | Males 30–40 kg, females 22–32 kg (the 20–40 kg pack of Indian tick tablets like Bravecto or Simparica Trio) |
+| **Lifespan** | 9–13 years |
 | **Fur** | Double layer; short-haired and long-haired types |
 | **Colours** | Black and tan, sable, black, black and red |
 | **Energy** | High — 1.5 to 2 hours of activity a day |
@@ -56,7 +56,7 @@ German Shepherds are **people dogs**. They bond closely with their family, follo
 - **Need a job.** Without daily physical and mental exercise, they invent their own: chewing furniture, digging, barking at every passer-by.
 - **Gentle with their own family,** including children — when well socialised and supervised.
 
-**Behaviour matters for health, too.** In a large UK study of German Shepherds under veterinary care, aggression was among the five most common problems recorded. Good socialisation and reward-based training are the best prevention.
+**Behaviour matters for health, too.** Aggression is one of the problems vets record most often in the breed. Good socialisation and reward-based training are the best prevention.
 
 ## Choosing a puppy (or adopting)
 
@@ -126,15 +126,12 @@ German Shepherds shed **all year**, and twice a year they shed their dense under
 
 ## The health problems vets see most
 
-A large UK study of German Shepherds under primary veterinary care found the most commonly recorded problems were:
+**What Indian veterinary studies show:**
 
-1. **Ear infections** (otitis externa)
-2. **Osteoarthritis**
-3. **Diarrhoea**
-4. **Overweight and obesity**
-5. **Aggression**
+- **Hip dysplasia:** at the Veterinary College and Research Institute, Namakkal (Tamil Nadu), German Shepherds made up **41%** of dogs diagnosed with hip dysplasia over a year (2021–22) — the highest of any breed, ahead of Labradors at 24%.
+- **Skin infections:** in a 2021 study of 137 dogs with pyoderma across Andhra Pradesh, German Shepherds were the most affected breed, at **28%** of cases.
 
-The most common causes of death were **musculoskeletal disorders** and **being unable to stand** — a reminder that joint and spine health shapes a German Shepherd's later years.
+**What large international studies add:** a UK study of German Shepherds under veterinary care found the most commonly recorded problems were ear infections, osteoarthritis, diarrhoea, weight gain and aggression, and that joint and spine problems were the most common causes of death. There is no Indian study of this size yet, but the pattern matches what Indian vets report: **joints, skin and ears** are the big three.
 
 ### Breed-related conditions to know
 
@@ -185,6 +182,13 @@ Comparing breeds? Read our guides to [dog breeds for Bangalore homes](/dog-breed
 - **Getting around:** big dogs and autos don't mix. [Mylopaws Travel](https://wa.me/919036608453?text=Hi%20Mylopaws%2C%20I%20need%20a%20pet%20cab%20for%20my%20German%20Shepherd.) pet cabs carry large dogs across Bangalore, every day 6 am to midnight.
 
 ## Sources
+
+**Indian studies**
+
+- [A survey on incidence and radiographic assessment of hip disorders in dogs — Veterinary College and Research Institute, Namakkal (The Haryana Veterinarian, 2023)](https://www.luvas.edu.in/haryana-veterinarian/download/sept-2023-new/35.pdf)
+- [Clinical epidemiology and cutaneous microbiota associated with canine pyoderma — Andhra Pradesh (The Haryana Veterinarian, 2023)](https://www.luvas.edu.in/haryana-veterinarian/download/march-2023-new/26-30.pdf)
+
+**Other sources**
 
 - [Demography and disorders of German Shepherd Dogs under primary veterinary care in the UK (Royal Veterinary College, VetCompass, 2017)](https://www.rvc.ac.uk/vetcompass/news/demography-and-disorders-of-german-shepherd-dogs-under-primary-veterinary-care-in-the-uk)
 - [Bengaluru's April 2026 temperatures vs the normal (Deccan Herald)](https://www.deccanherald.com/india/karnataka/bengaluru/april-2026-a-month-of-sharp-weather-swings-for-bengaluru-3987056)
