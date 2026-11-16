@@ -7,7 +7,7 @@ export function Scripts() {
     <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS.ga4}`} strategy="afterInteractive" />
       <Script id="gtag" strategy="afterInteractive">
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ANALYTICS.ga4}');gtag('config','${ANALYTICS.ads}');
+        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});try{if(localStorage.getItem('mp_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}gtag('js',new Date());gtag('config','${ANALYTICS.ga4}');gtag('config','${ANALYTICS.ads}');
 document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a');if(!a)return;var h=a.href||'';if(h.indexOf('mylopaws.app')>-1||h.indexOf('wa.me')>-1||h.indexOf('tel:')===0){gtag('event','generate_lead',{link_url:h,page_path:location.pathname});}},{passive:true});`}
       </Script>
       <Script id="header-scroll" strategy="afterInteractive">
