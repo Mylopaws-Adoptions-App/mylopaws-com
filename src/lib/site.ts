@@ -34,6 +34,8 @@ export const SHOP_WHATSAPP = '919071091699';
 export const ANALYTICS = {
   ga4: 'G-F6T11C7GTB',
   ads: 'AW-958815128',
+  /** Meta dataset (Pixel) ID: public, it appears in every page's pixel code. */
+  metaPixel: '1095195340006967',
 } as const;
 
 export const ANANNYA_AGENT_ID = 'agent_9501ka16zka0e8jsct7dqtvvmvkc';

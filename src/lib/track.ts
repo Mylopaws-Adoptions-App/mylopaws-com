@@ -1,4 +1,5 @@
 'use client';
+import { ANALYTICS } from './site';
 /** Shop analytics. One call fans out to GA4 + Google Ads (gtag), Meta Pixel (if loaded after consent) and Clarity. Never throws. */
 
 type Params = Record<string, unknown>;
@@ -79,7 +80,7 @@ export function applyConsent(v: 'granted' | 'denied') {
   gtag('consent', 'update', { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: 'granted' });
   if (v === 'granted') loadMetaPixel();
 }
-const PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+const PIXEL: string = process.env.NEXT_PUBLIC_META_PIXEL_ID || ANALYTICS.metaPixel;
 export function loadMetaPixel() {
   if (!PIXEL || window.fbq) return;
   // Standard Meta Pixel bootstrap
