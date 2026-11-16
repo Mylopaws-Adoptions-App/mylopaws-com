@@ -3,6 +3,7 @@ import { Logo } from './Logo';
 import { NAV, bookLink } from '@/lib/site';
 import { BookMenu, BookList } from './BookMenu';
 import { MobileMenu } from './MobileMenu';
+import { CartLink } from './shop/CartLink';
 
 export function Header() {
   return (
@@ -15,8 +16,10 @@ export function Header() {
               {n.label}
             </Link>
           ))}
+          <CartLink />
           <BookMenu label="Book now" align="right" />
         </nav>
+        <div className="cart-mobile"><CartLink /></div>
         <MobileMenu>
           <summary aria-label="Open menu">Menu</summary>
           <div className="menu-panel">

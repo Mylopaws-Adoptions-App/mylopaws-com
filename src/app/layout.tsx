@@ -4,6 +4,8 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Scripts } from '@/components/Scripts';
+import { CartProvider } from '@/components/shop/CartProvider';
+import { ConsentBanner } from '@/components/shop/ConsentBanner';
 import { JsonLd } from '@/components/Blocks';
 import { SITE } from '@/lib/site';
 import { orgSchema, websiteSchema } from '@/lib/seo';
@@ -38,9 +40,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN" className={mont.variable}>
       <body>
         <a className="skip" href="#main">Skip to content</a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <ConsentBanner />
+        </CartProvider>
         <JsonLd data={[orgSchema, websiteSchema]} />
         <Scripts />
       </body>
