@@ -35,6 +35,7 @@ export function ecommerce(name: 'view_item_list' | 'view_item' | 'add_to_cart' |
   track(name, { currency: 'INR', value, items, ...extra });
   try {
     const fb = FB[name];
+    if (fb && getConsent() === 'granted') loadMetaPixel(); // product pages fire view_item before the banner effect loads the pixel
     if (fb && window.fbq) {
       window.fbq('track', fb, { currency: 'INR', value: name === 'purchase' ? (extra.value as number) ?? value : value, content_ids: items.map((i) => i.item_id), content_type: 'product', num_items: items.reduce((t, i) => t + (i.quantity ?? 1), 0) }, eventId ? { eventID: eventId } : undefined);
     }
@@ -91,6 +92,8 @@ export function loadMetaPixel() {
     const t = b.createElement(e) as HTMLScriptElement; t.async = true; t.src = v; const s = b.getElementsByTagName(e)[0]; s.parentNode!.insertBefore(t, s);
   })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
   /* eslint-enable */
+  // Meta's automatic setup crashes on our product JSON-LD and then drops every event on product pages; we send all events explicitly.
+  window.fbq!('set', 'autoConfig', false, PIXEL);
   window.fbq!('init', PIXEL);
   window.fbq!('track', 'PageView');
 }
