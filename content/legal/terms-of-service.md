@@ -9,7 +9,7 @@ These Terms apply when you use mylopaws.com, the Mylopaws app at mylopaws.app, o
 
 ## About the seller
 
-Mylopaws is a brand of **Prescom Technologies Private Limited** (GSTIN: 29AAMCP3475F1Z0). Registered store address: 764/A, 22nd Cross, Parangipalya Main Road, 2nd Sector, HSR Layout, Bengaluru 560102, Karnataka, India. Email: [customercare@mylopaws.com](mailto:customercare@mylopaws.com). Shop invoices carry our GST details.
+Mylopaws is a brand of **Prescom Technologies Private Limited** (GSTIN: 29AAMCP3475F1Z0). Retail drug licence nos. KA-B62-271350 (Form 20) and KA-B62-271351 (Form 21). Registered store address: 764/A, 22nd Cross, Parangipalya Main Road, 2nd Sector, HSR Layout, Bengaluru 560102, Karnataka, India. Email: [customercare@mylopaws.com](mailto:customercare@mylopaws.com). Shop invoices carry our GST details.
 
 ## 1. Our services
 
