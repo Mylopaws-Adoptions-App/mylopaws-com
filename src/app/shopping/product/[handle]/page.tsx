@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   const { handle } = await params;
   const p = (await allProducts()).find((x) => x.handle === handle);
   if (!p) return {};
-  const desc = (p.short_desc ?? p.description ?? `${p.title} from the Mylopaws pet pharmacy.`).replace(/\s+/g, ' ').slice(0, 150);
+  const desc = (p.short_desc ?? p.description ?? `${p.title} from Mylopaws Shopping, delivered in Bangalore.`).replace(/\s+/g, ' ').slice(0, 150);
   const img = imagesOf(p)[0];
   return meta({
     title: `${p.title} | Buy online in Bangalore`.slice(0, 65), description: `${desc}`.slice(0, 155), path: productPath(handle),
@@ -106,7 +106,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
       {related.length > 0 && (
         <section className="section tight"><div className="wrap"><h2>You may also like</h2><div className="sp-grid">{related.map((x) => <ProductCard key={x.handle} p={toCard(x)} list="Related" />)}</div></div></section>
       )}
-      <CtaBand title={<>Questions about <em>{p.brand ?? 'this product'}</em>?</>} text="Message the pharmacy team. We usually reply within the hour." href={shopLink(`Hi Mylopaws, I have a question about ${p.title}.`)} label="Chat on WhatsApp" />
+      <CtaBand title={<>Questions about <em>{p.brand ?? 'this product'}</em>?</>} text="Message the Mylopaws Shopping team. We usually reply within the hour." href={shopLink(`Hi Mylopaws, I have a question about ${p.title}.`)} label="Chat on WhatsApp" />
       <JsonLd data={[schema, breadcrumbSchema([{ name: 'Shopping', path: '/shopping/' }, { name: p.title, path: productPath(handle) }])]} />
     </>
   );

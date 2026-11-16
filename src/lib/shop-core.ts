@@ -102,7 +102,7 @@ export function collections(items: ShopProduct[]): Collection[] {
   }
   const brands = new Map<string, number>();
   for (const p of items) if (p.brand && p.brand !== 'Generic') brands.set(p.brand, (brands.get(p.brand) ?? 0) + 1);
-  for (const [b, n] of brands) if (n >= 2) out.push({ slug: `brand-${slugify(b)}`, title: `${b} pet products in Bangalore`, h1: b, blurb: `${b} pet care available from the Mylopaws pharmacy, delivered across Bangalore.`, filter: (p) => p.brand === b });
+  for (const [b, n] of brands) if (n >= 2) out.push({ slug: `brand-${slugify(b)}`, title: `${b} pet products in Bangalore`, h1: b, blurb: `${b} pet care available from Mylopaws Shopping, delivered across Bangalore.`, filter: (p) => p.brand === b });
   return out.filter((c) => items.some(c.filter));
 }
 

@@ -60,7 +60,7 @@ export function ShopBrowser({ items, concernCounts }: { items: Card[]; concernCo
         <div className="wrap">
           <label className="shop-search">
             <Search />
-            <span className="sr-only">Search the pharmacy</span>
+            <span className="sr-only">Search the shop</span>
             <input type="search" placeholder="Search tick care, shampoo, brand..." value={q} onChange={(e) => setQ(e.target.value)} />
           </label>
           <div className="shop-filters">

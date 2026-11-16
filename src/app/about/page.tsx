@@ -6,7 +6,7 @@ import { breadcrumbSchema, meta } from '@/lib/seo';
 
 export const metadata = meta({
   title: 'About Mylopaws: A Solutions Platform for Pawfamilies',
-  description: 'Mylopaws builds practical solutions for Bangalore’s pet parents: pet-friendly cabs, specialist skin and fur care, home-style boarding and a pet pharmacy.',
+  description: 'Mylopaws builds practical solutions for Bangalore’s pet parents: pet-friendly cabs, specialist skin and fur care, home-style boarding and a pet store that delivers.',
   path: '/about/',
 });
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
             <Link className="card" href="/dermacare/"><span className="num">Dermacare</span><h3>Skin &amp; fur specialists</h3><p>Twelve therapies at our HSR Layout salon and at your door.</p><span className="more">Explore <Arrow size={14} /></span></Link>
             <Link className="card" href="/homes/"><span className="num">Homes</span><h3>Home-style boarding</h3><p>Calm, routine-led stays, starting with cats.</p><span className="more">Explore <Arrow size={14} /></span></Link>
           </div>
-          <p className="muted" style={{ marginTop: 24 }}>We also run a <Link href="/shopping/">pet pharmacy and shop</Link> that delivers across Bangalore, and publish free guides on <Link href="/pawprints/">Pawprints</Link>.</p>
+          <p className="muted" style={{ marginTop: 24 }}>We also run a <Link href="/shopping/">pet shop</Link> that delivers across Bangalore, and publish free guides on <Link href="/pawprints/">Pawprints</Link>.</p>
         </div>
       </section>
       <CtaBand title={<>Come say <em>hello.</em></>} text="Message us on WhatsApp, or visit our Dermacare salon in HSR Layout." href={bookLink('general')} label="Chat on WhatsApp" secondary={{ href: '/contact/', label: 'Contact us' }} />

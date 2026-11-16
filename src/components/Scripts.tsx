@@ -1,5 +1,6 @@
 import Script from 'next/script';
-import { ANALYTICS, ANANNYA_AGENT_ID } from '@/lib/site';
+import { ANALYTICS } from '@/lib/site';
+import { VoiceAgent } from './VoiceAgent';
 
 /** GA4 + Google Ads (one gtag), and Anannya, the ElevenLabs voice agent. Both load after the page is interactive. */
 export function Scripts() {
@@ -19,7 +20,7 @@ export function Scripts() {
       <Script id="mp-clarity" strategy="afterInteractive">
         {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","y8zd9qyelj");`}
       </Script>
-      <elevenlabs-convai agent-id={ANANNYA_AGENT_ID}></elevenlabs-convai>
+      <VoiceAgent />
       <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed@0.21.4" strategy="lazyOnload" />
     </>
   );

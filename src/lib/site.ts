@@ -7,7 +7,7 @@ export const SITE = {
   vision: 'Creating strong & tightly bonded pawfamilies.',
   verticals: 'Travel. Dermacare. Homes. Shopping.',
   description:
-    'Mylopaws is a Bangalore pet solutions platform: dedicated pet-friendly cabs, specialist skin and fur Dermacare therapies, home-style cat boarding (Homes) and a pet pharmacy that delivers (Shopping).',
+    'Mylopaws is a Bangalore pet solutions platform: dedicated pet-friendly cabs, specialist skin and fur Dermacare therapies, home-style cat boarding (Homes) and a pet store that delivers (Shopping).',
   email: 'customercare@mylopaws.com',
   locale: 'en_IN',
   themeColor: '#681947',
@@ -55,7 +55,7 @@ export const SOLUTIONS = [
   { key: 'travel', href: '/travel/', name: 'Travel', short: 'Pet-friendly cabs, city & outstation' },
   { key: 'dermacare', href: '/dermacare/', name: 'Dermacare', short: 'Skin & fur therapies' },
   { key: 'homes', href: '/homes/', name: 'Homes', short: 'Home-style cat boarding' },
-  { key: 'shopping', href: '/shopping/', name: 'Shopping', short: 'Pet pharmacy, delivered' },
+  { key: 'shopping', href: '/shopping/', name: 'Shopping', short: 'Pet supplies, delivered' },
 ] as const;
 
 export const NAV = [
@@ -94,7 +94,7 @@ export function bookLink(intent: Intent = 'general', text?: string) {
 export const BOOK_LINES = [
   { intent: 'travel' as const, name: 'Travel', sub: 'Pet cabs', phone: CONTACT.travel.phone },
   { intent: 'dermacare' as const, name: 'Dermacare', sub: 'Skin & fur therapies', phone: CONTACT.dermacare.phone },
-  { intent: 'homes' as const, name: 'Homes & Shopping', sub: 'Cat stays & pharmacy', phone: CONTACT.homes.phone },
+  { intent: 'homes' as const, name: 'Homes & Shopping', sub: 'Cat stays & shopping', phone: CONTACT.homes.phone },
 ];
 
 export const SOCIAL = {

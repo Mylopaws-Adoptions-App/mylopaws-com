@@ -41,7 +41,7 @@ ${p.pack_size ? `<g:product_detail><g:attribute_name>Pack size</g:attribute_name
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
 <channel>
-<title>Mylopaws Pet Pharmacy</title>
+<title>Mylopaws Shopping</title>
 <link>${SITE.url}/shopping/</link>
 <description>Pet care products from Mylopaws, delivered in Bangalore</description>
 ${rows.join('\n')}

@@ -5,7 +5,7 @@ description: How to cancel Mylopaws bookings and shop orders, and how and when r
 updated: 2026-11-16
 ---
 
-## Shop and pharmacy orders
+## Shop orders
 
 - **Before dispatch:** you can cancel a paid order by messaging us on WhatsApp. We refund the full amount to your original payment method automatically.
 - **After dispatch:** orders cannot be cancelled once they are out for delivery. If you refuse a delivery, the delivery fee is not refunded.

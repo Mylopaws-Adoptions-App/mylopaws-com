@@ -19,7 +19,7 @@ export function GET() {
     `- [Mylopaws Travel](${u('/travel/')}): dedicated pet-friendly cabs in Bangalore, every day 6 am to midnight. Intracity rides, vet visits, Bangalore airport (BLR) transfers and outstation trips across India. WhatsApp ${CONTACT.travel.phone}.`,
     `- [Mylopaws Dermacare](${u('/dermacare/')}) — prepaid plans at ${u('/dermacare/#plans')}: ${THERAPIES.length} specialist skin and fur therapies for dogs and cats (ticks and fleas, skin infections, allergies, shedding, dull coat) at the HSR Layout salon or at home. ${CONTACT.dermacare.hours}. WhatsApp ${CONTACT.dermacare.phone}.`,
     `- [Mylopaws Homes](${u('/homes/')}): calm, home-style cat boarding in Bangalore with daily updates. WhatsApp ${CONTACT.homes.phone}.`,
-    `- [Mylopaws Shopping](${u('/shopping/')}): pet pharmacy with delivery across Bangalore — tick and flea care, supplements, shampoos, food and vet-prescribed medicines. WhatsApp ${CONTACT.homes.phone}.`,
+    `- [Mylopaws Shopping](${u('/shopping/')}): one-stop pet store with delivery across Bangalore — food and treats, grooming, hygiene, tick and flea care, supplements and vet medicines. WhatsApp ${CONTACT.homes.phone}.`,
     '',
     '## Travel services',
     ...TRAVEL.map((t) => `- [${t.name}](${u(`/${t.slug}/`)}): ${t.short}`),

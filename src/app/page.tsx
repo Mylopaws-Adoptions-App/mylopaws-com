@@ -16,16 +16,16 @@ export const revalidate = 3600;
 
 export const metadata = meta({
   title: 'Mylopaws: Pet Travel, Dermacare, Homes & Shopping',
-  description: 'Pet-friendly cabs, skin and fur therapies, home-style cat boarding and a pet pharmacy in Bangalore. One platform for strong, tightly bonded pawfamilies.',
+  description: 'Pet-friendly cabs, skin and fur therapies, home-style cat boarding and a pet store that delivers in Bangalore. One platform for strong, tightly bonded pawfamilies.',
   path: '/',
 });
 
 const FAQ = [
   { q: 'What is Mylopaws?', a: 'Mylopaws is a Bangalore pet solutions platform. Our vision is creating strong and tightly bonded pawfamilies, so we solve the moments that get in the way: getting your pet somewhere, keeping their skin and fur healthy, caring for them when you travel, and getting the right products to your door.' },
-  { q: 'Which areas of Bangalore do you serve?', a: 'Mylopaws Travel covers all of Bangalore and outstation trips across India. Dermacare runs from our salon in HSR Layout, with doorstep sessions in many areas. Homes is in Bangalore, and the pet pharmacy delivers across the city.' },
+  { q: 'Which areas of Bangalore do you serve?', a: 'Mylopaws Travel covers all of Bangalore and outstation trips across India. Dermacare runs from our salon in HSR Layout, with doorstep sessions in many areas. Homes is in Bangalore, and Mylopaws Shopping delivers across the city.' },
   { q: 'How do I book?', a: 'Message the right team on WhatsApp: Travel on +91 90366 08453, Dermacare on +91 91489 35441, and Homes or Shopping on +91 90710 91699. A real person replies and confirms everything with you.' },
   { q: 'How much does it cost?', a: 'Dermacare grooming plans are listed with prices on the Dermacare page, with a plan finder that shows what you save. Cab trips, therapies and boarding depend on your pet, route and needs, so we quote on WhatsApp once we know the details.' },
-  { q: 'Do you work with cats too?', a: 'Yes. Cats ride in our cabs, get Dermacare therapies, shop from the pharmacy, and Mylopaws Homes is currently focused on cat boarding.' },
+  { q: 'Do you work with cats too?', a: 'Yes. Cats ride in our cabs, get Dermacare therapies, shop for food and care, and Mylopaws Homes is currently focused on cat boarding.' },
 ];
 
 export default async function HomePage() {
@@ -39,7 +39,7 @@ export default async function HomePage() {
     { href: '/travel/', sol: 'travel', title: 'Travel', sub: 'Cabs that expect a dog', icon: <Car size={24} /> },
     { href: '/dermacare/', sol: 'dermacare', title: 'Dermacare', sub: 'Skin & fur, treated', icon: <Leaf size={24} /> },
     { href: '/homes/', sol: 'homes', title: 'Homes', sub: 'A home while you travel', icon: <Home size={24} /> },
-    { href: '/shopping/', sol: 'shopping', title: 'Shopping', sub: 'Pharmacy, delivered', icon: <Bag size={24} /> },
+    { href: '/shopping/', sol: 'shopping', title: 'Shopping', sub: 'Pet supplies, delivered', icon: <Bag size={24} /> },
   ];
 
   return (
@@ -121,7 +121,7 @@ export default async function HomePage() {
                 <div className="chips"><span>Home-style stays</span><span>Familiar food</span><span>Daily updates</span></div>
               </div>
             </TiltLink>
-            <TiltLink href="/shopping/" className="sol" sol="shopping" ariaLabel="Mylopaws Shopping: pet pharmacy">
+            <TiltLink href="/shopping/" className="sol" sol="shopping" ariaLabel="Mylopaws Shopping: pet supplies delivered">
               <div className="sol-photo">
                 <Photo src={photo('/photos/shopping-treats.webp')} alt="A dog and a black cat looking up at a treat" />
                 <div className="sol-top">
@@ -131,8 +131,8 @@ export default async function HomePage() {
               </div>
               <div className="sol-body">
                 <h3>Shopping</h3>
-                <p>A pet pharmacy that delivers: tick and flea care, supplements, shampoos, food and vet-prescribed medicines, across Bangalore or ready to collect in HSR Layout.</p>
-                <div className="chips"><span>Antiparasitic</span><span>Supplements</span><span>Skin &amp; fur care</span><span>Prescription medicines</span></div>
+                <p>Everything your pet needs, delivered: food and treats, grooming, hygiene, tick and flea care, supplements and vet medicines, across Bangalore or ready to collect in HSR Layout.</p>
+                <div className="chips"><span>Food &amp; treats</span><span>Grooming</span><span>Tick &amp; flea</span><span>Health care</span></div>
               </div>
             </TiltLink>
           </div>
@@ -147,7 +147,7 @@ export default async function HomePage() {
               <div className="stat"><CountUp value={THERAPIES.length} /><span>specialist skin &amp; fur therapies</span></div>
               <div className="stat"><CountUp value={18} suffix=" hrs" /><span>a day of pet cabs, 6 am to midnight</span></div>
               {productStat ? (
-                <div className="stat"><CountUp value={productStat} suffix="+" /><span>pet pharmacy products in stock</span></div>
+                <div className="stat"><CountUp value={productStat} suffix="+" /><span>pet products to shop</span></div>
               ) : (
                 <div className="stat"><b>3</b><span>WhatsApp lines, one per team</span></div>
               )}
@@ -169,7 +169,7 @@ export default async function HomePage() {
             <Reveal className="pillar" delay={0}>
               <b>01</b>
               <h3>Specialists for each need</h3>
-              <p>Drivers who handle pets every day. Dermacare specialists who read skin before they touch it. A pharmacy that stocks what vets prescribe.</p>
+              <p>Drivers who handle pets every day. Dermacare specialists who read skin before they touch it. A shop that stocks what your pet actually needs.</p>
             </Reveal>
             <Reveal className="pillar" delay={120}>
               <b>02</b>
@@ -261,7 +261,7 @@ export default async function HomePage() {
         text="Message the team you need on WhatsApp. A real person replies and confirms everything with you."
         href={bookLink('general')}
         label="Chat on WhatsApp"
-        secondary={{ href: '/shopping/', label: 'Visit the pharmacy' }}
+        secondary={{ href: '/shopping/', label: 'Visit the shop' }}
       />
       <JsonLd data={faqSchema(FAQ)} />
     </>

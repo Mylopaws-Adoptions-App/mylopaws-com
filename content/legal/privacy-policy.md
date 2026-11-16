@@ -5,7 +5,7 @@ description: How Mylopaws collects, uses, shares and protects your personal data
 updated: 2026-11-16
 ---
 
-This Privacy Policy explains how Mylopaws ("we", "us") handles personal data when you use mylopaws.com, the Mylopaws app at mylopaws.app, our WhatsApp and Instagram channels, our voice assistant and our services (Travel, Dermacare, Homes and the pet pharmacy and shop). We process personal data in line with India's Digital Personal Data Protection Act, 2023 and the rules under it.
+This Privacy Policy explains how Mylopaws ("we", "us") handles personal data when you use mylopaws.com, the Mylopaws app at mylopaws.app, our WhatsApp and Instagram channels, our voice assistant and our services (Travel, Dermacare, Homes and Shopping). We process personal data in line with India's Digital Personal Data Protection Act, 2023 and the rules under it.
 
 ## What we collect
 

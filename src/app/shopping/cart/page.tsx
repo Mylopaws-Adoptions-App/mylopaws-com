@@ -2,7 +2,7 @@ import { PageHero } from '@/components/Blocks';
 import { CartView } from '@/components/shop/CartView';
 import { meta } from '@/lib/seo';
 
-export const metadata = meta({ title: 'Your cart and checkout | Mylopaws Shopping', description: 'Review your Mylopaws pet pharmacy cart and pay securely. Free delivery on orders over ₹3,000 across Bangalore.', path: '/shopping/cart/', noindex: true });
+export const metadata = meta({ title: 'Your cart and checkout | Mylopaws Shopping', description: 'Review your Mylopaws Shopping cart and pay securely. Free delivery on orders over ₹3,000 across Bangalore.', path: '/shopping/cart/', noindex: true });
 
 export default function CartPage() {
   return (

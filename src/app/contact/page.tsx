@@ -43,7 +43,7 @@ export default function ContactPage() {
           </div>
           <div className="card">
             <span className="tag y">Homes &amp; Shopping</span>
-            <h3>Cat stays &amp; pharmacy</h3>
+            <h3>Cat stays &amp; shopping</h3>
             <p style={{ display: 'flex', gap: 10 }}><Phone /> <a href={`tel:${CONTACT.homes.phone.replace(/\s/g, '')}`}>{CONTACT.homes.phone}</a></p>
             <p style={{ display: 'flex', gap: 10 }}><Clock /> {CONTACT.homes.hours}</p>
             <a className="btn btn-ghost" href={waLink(CONTACT.homes.wa, 'Hi Mylopaws, I have a question about Homes or Shopping.')}>WhatsApp Homes &amp; Shopping</a>
@@ -65,7 +65,7 @@ export default function ContactPage() {
             <p className="lead">Partnerships, feedback, press or anything else. We reply within one working day.</p>
             <p className="muted">Grievances and data requests: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. See our <a href="/data-deletion/">data deletion</a> page.</p>
           </div>
-          <div className="card"><LeadForm kind="contact" topics={['Travel', 'Dermacare', 'Homes', 'Shop & pharmacy', 'Partnership', 'Feedback', 'Something else']} /></div>
+          <div className="card"><LeadForm kind="contact" topics={['Travel', 'Dermacare', 'Homes', 'Shopping', 'Partnership', 'Feedback', 'Something else']} /></div>
         </div>
       </section>
       <SocialHub />

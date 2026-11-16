@@ -3,7 +3,7 @@ import { PageHero } from '@/components/Blocks';
 import { OrderView } from '@/components/shop/OrderView';
 import { meta } from '@/lib/seo';
 
-export const metadata = meta({ title: 'Your Mylopaws order | Mylopaws Shopping', description: 'Track your Mylopaws pet pharmacy order. We update you on WhatsApp at every step.', path: '/shopping/order/', noindex: true });
+export const metadata = meta({ title: 'Your Mylopaws order | Mylopaws Shopping', description: 'Track your Mylopaws Shopping order. We update you on WhatsApp at every step.', path: '/shopping/order/', noindex: true });
 
 export default function OrderPage() {
   return (

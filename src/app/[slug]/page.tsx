@@ -307,7 +307,7 @@ function PostPage({ p }: { p: Post }) {
             {vertical === 'general' && (
               <div className="card mag">
                 <h3>New pet parent?</h3>
-                <p>Gentle puppy grooming, pet cabs to the vet, and a pet pharmacy that delivers.</p>
+                <p>Gentle puppy grooming, pet cabs to the vet, and a pet store that delivers everything else.</p>
                 <a className="btn btn-yellow" href={bookLink('general')}>Chat on WhatsApp</a>
               </div>
             )}

@@ -26,7 +26,7 @@ export function Footer() {
               <li><Link href="/travel/">Travel: pet cabs</Link></li>
               <li><Link href="/dermacare/">Dermacare: skin &amp; fur</Link></li>
               <li><Link href="/homes/">Homes: cat boarding</Link></li>
-              <li><Link href="/shopping/">Shopping: pet pharmacy</Link></li>
+              <li><Link href="/shopping/">Shopping: pet supplies</Link></li>
             </ul>
           </div>
           <div>

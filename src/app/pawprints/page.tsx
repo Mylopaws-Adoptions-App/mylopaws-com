@@ -55,7 +55,7 @@ export default function PawprintsPage() {
           </section>
         );
       })}
-      <CtaBand title={<>Reading is good. <em>Booking</em> is better.</>} text="Pet cabs, skin and fur therapies, cat stays and a pet pharmacy, a WhatsApp message away." href={bookLink('general')} label="Chat on WhatsApp" />
+      <CtaBand title={<>Reading is good. <em>Booking</em> is better.</>} text="Pet cabs, skin and fur therapies, cat stays and a pet store that delivers, a WhatsApp message away." href={bookLink('general')} label="Chat on WhatsApp" />
       <JsonLd data={breadcrumbSchema([{ name: 'Pawprints', path: '/pawprints/' }])} />
     </>
   );

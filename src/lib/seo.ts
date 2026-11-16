@@ -46,7 +46,7 @@ export const orgSchema = {
   description: SITE.description,
   areaServed: { '@type': 'City', name: 'Bengaluru' },
   address: { '@type': 'PostalAddress', addressLocality: 'Bengaluru', addressRegion: 'Karnataka', postalCode: '560102', addressCountry: 'IN' },
-  knowsAbout: ['Pet-friendly cabs', 'Pet travel in Bangalore', 'Dog skin care', 'Tick and flea treatment', 'Cat boarding', 'Pet pharmacy'],
+  knowsAbout: ['Pet-friendly cabs', 'Pet travel in Bangalore', 'Dog skin care', 'Tick and flea treatment', 'Cat boarding', 'Pet supplies delivery'],
   sameAs: [SOCIAL.instagram.url, SOCIAL.facebook.url, SOCIAL.linkedin.url, SOCIAL.google.url],
   contactPoint: [
     { '@type': 'ContactPoint', contactType: 'Mylopaws Travel bookings', telephone: CONTACT.travel.phone.replace(/\s/g, ''), areaServed: 'IN' },

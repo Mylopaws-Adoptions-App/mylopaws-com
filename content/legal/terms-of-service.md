@@ -1,7 +1,7 @@
 ---
 title: Terms of Service
 seoTitle: "Terms of Service for Mylopaws Pet Services"
-description: The terms that apply when you use Mylopaws Travel, Dermacare, Homes, the pet pharmacy and shop, mylopaws.com and the Mylopaws app.
+description: The terms that apply when you use Mylopaws Travel, Dermacare, Homes, Mylopaws Shopping, mylopaws.com and the Mylopaws app.
 updated: 2026-11-16
 ---
 
@@ -16,7 +16,7 @@ Mylopaws is a brand of **Prescom Technologies Private Limited** (GSTIN: 29AAMCP3
 - **Mylopaws Travel:** pet-friendly cab rides in Bangalore and outstation.
 - **Mylopaws Dermacare:** skin and fur therapies for pets, at our HSR Layout salon or at your home.
 - **Mylopaws Homes:** home-style boarding, currently for cats.
-- **Pet pharmacy and shop:** pet products and medicines, delivered in Bangalore or collected from HSR Layout.
+- **Mylopaws Shopping:** pet food, grooming, hygiene and health products, including medicines, delivered in Bangalore or collected from HSR Layout.
 
 ## 2. Bookings and orders
 

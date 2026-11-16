@@ -13,8 +13,8 @@ import { breadcrumbSchema, meta } from '@/lib/seo';
 export const revalidate = 900; // catalogue refreshes from Supabase every 15 minutes
 
 export const metadata = meta({
-  title: 'Mylopaws Pet Pharmacy & Shop: Delivered in Bangalore',
-  description: 'Tick and flea care, skin and fur, supplements, food and vet-prescribed medicines. Free delivery over ₹3,000 in Bangalore, free pickup in HSR Layout.',
+  title: 'Mylopaws Shopping: Pet Food, Grooming & Care in Bangalore',
+  description: 'Everything your dog or cat needs: food, treats, grooming, hygiene, tick and flea care, supplements and vet medicines. Free delivery over ₹3,000 in Bangalore.',
   path: '/shopping/',
 });
 
@@ -50,15 +50,15 @@ export default async function ShoppingPage() {
         sol="shopping"
         crumbs={[{ label: 'Shopping' }]}
         eyebrow="Mylopaws Shopping"
-        title={<>The pet pharmacy that <em>delivers.</em></>}
-        lead="Tick and flea care, skin and fur, supplements, food and vet-prescribed medicines. Free delivery over ₹3,000 across Bangalore, or free pickup from HSR Layout."
+        title={<>Everything your pet needs, <em>delivered.</em></>}
+        lead="Food and treats, grooming, hygiene, tick and flea care, supplements and vet medicines from brands you trust. Free delivery over ₹3,000 across Bangalore, or free pickup from HSR Layout."
       >
         <div className="btn-row">
           <a className="btn btn-primary" href="#catalogue">Shop now <Arrow /></a>
           <a className="btn btn-ghost" href={shopLink('Hi Mylopaws, I need help choosing for my pet.')}>Ask on WhatsApp</a>
         </div>
       </PageHero>
-      <QuickAnswer q="Where can I buy pet medicines with delivery in Bangalore?">Mylopaws Shopping is a pet pharmacy that delivers across Bangalore (free over ₹3,000) or is ready to collect free from HSR Layout: tick and flea care, skin and fur, supplements, food and vet-prescribed medicines. No account needed, and updates come on WhatsApp.</QuickAnswer>
+      <QuickAnswer q="Where can I buy pet supplies with delivery in Bangalore?">Mylopaws Shopping is a one-stop pet store that delivers across Bangalore (free over ₹3,000) or is ready to collect free from HSR Layout: food and treats, grooming and hygiene, tick and flea care, supplements and vet medicines. No account needed, and updates come on WhatsApp.</QuickAnswer>
 
       <section className="section tight">
         <h2 className="sr-only">Why shop with Mylopaws</h2>
@@ -134,7 +134,7 @@ export default async function ShoppingPage() {
       </section>
 
       <section className="section tight alt"><div className="wrap"><h2>Shopping FAQs</h2><Faq items={FAQ} /></div></section>
-      <CtaBand title={<>Can&rsquo;t find it? <em>Ask us.</em></>} text="We can usually source what your vet prescribes within a day or two." href={shopLink('Hi Mylopaws, can you get this for my pet?')} label="Message the pharmacy" />
+      <CtaBand title={<>Can&rsquo;t find it? <em>Ask us.</em></>} text="Tell us what you need. If it is not on the shop yet, we can usually source it within a day or two." href={shopLink('Hi Mylopaws, can you get this for my pet?')} label="Message the shop" />
       <ListView items={picks.map((p) => ({ item_id: p.handle, item_name: p.title, price: sell(p) ?? 0 }))} name="Our picks" />
       <JsonLd data={[breadcrumbSchema([{ name: 'Shopping', path: '/shopping/' }]), faqSchema(FAQ)]} />
     </>

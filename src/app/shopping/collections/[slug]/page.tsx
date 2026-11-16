@@ -42,7 +42,7 @@ export default async function Collection({ params }: { params: Promise<Params> }
           </div>
         </div>
       </section>
-      <CtaBand title={<>Not sure what to pick? <em>Ask us.</em></>} text="Tell us about your pet and we will suggest the right product, or connect you to our vet." href={shopLink(`Hi Mylopaws, I need help choosing ${c.h1.toLowerCase()} products.`)} label="Message the pharmacy" />
+      <CtaBand title={<>Not sure what to pick? <em>Ask us.</em></>} text="Tell us about your pet and we will suggest the right product, or connect you to our vet." href={shopLink(`Hi Mylopaws, I need help choosing ${c.h1.toLowerCase()} products.`)} label="Message the shop" />
       <ListView items={items.slice(0, 20).map((p) => ({ item_id: p.handle, item_name: p.title }))} name={c.h1} />
       <JsonLd data={[
         breadcrumbSchema([{ name: 'Shopping', path: '/shopping/' }, { name: c.h1, path: `/shopping/collections/${slug}/` }]),
