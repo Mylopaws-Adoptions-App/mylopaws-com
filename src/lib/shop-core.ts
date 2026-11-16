@@ -117,4 +117,5 @@ export const DELIVERY_FEE = 100;
 export const VET_WHATSAPP = '918971500296';
 export const shopLink = (text: string) => waLink(SHOP_WHATSAPP, text);
 export const askLink = (title: string) => waLink(SHOP_WHATSAPP, `Hi Mylopaws, I'd like to order: ${title}`);
+export const vaccineLink = (what?: string) => waLink(SHOP_WHATSAPP, `Hi Mylopaws, I'd like to book a vaccination for my pet${what ? ` (${what})` : ''}. Please share availability and price.`);
 export const vetLink = (title?: string) => waLink(VET_WHATSAPP, title ? `Hi Dr Amrita, I'd like a consult about ${title} for my pet.` : 'Hi Dr Amrita, I have a question about a medicine for my pet.');

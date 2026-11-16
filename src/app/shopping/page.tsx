@@ -7,7 +7,7 @@ import { BundleCard, type BundleView } from '@/components/shop/BundleCard';
 import { ListView } from '@/components/shop/ProductBuy';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { ShopBrowser } from '@/components/shop/ShopBrowser';
-import { allProducts, bundles, brandList, collections, imagesOf, isRx, sell, mrp, shopLink, slugify, toCard, vetLink, CONCERNS, HOME_CONCERNS } from '@/lib/shop';
+import { allProducts, bundles, brandList, collections, imagesOf, isRx, sell, mrp, shopLink, slugify, toCard, vaccineLink, vetLink, CONCERNS, HOME_CONCERNS } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 
 export const revalidate = 900; // catalogue refreshes from Supabase every 15 minutes
@@ -22,6 +22,7 @@ const FAQ = [
   { q: 'Is delivery free?', a: 'Delivery is free across Bangalore on orders of ₹3,000 or more, and ₹100 below that. Pickup from our HSR Layout store is always free.' },
   { q: 'Do I need an account to order?', a: 'No. Check out as a guest with your name and mobile number. We send order updates on WhatsApp.' },
   { q: 'How do prescription medicines work?', a: 'Prescription-only products need a valid vet prescription. You upload a photo or PDF at checkout before paying, and our team checks it before packing. No prescription? Our vet, Dr Amrita, can consult on WhatsApp for ₹650.' },
+  { q: 'Do you sell vaccines?', a: 'Vaccines are not sold online because they need cold-chain storage and a vet to administer them. Message us on WhatsApp and we will arrange the vaccination for your dog or cat.' },
   { q: 'When will my order arrive?', a: 'We run one delivery across Bangalore each evening (5 to 8 pm, Monday to Saturday). Orders paid before 1 pm go out the same evening.' },
   { q: 'Are the products genuine?', a: 'Yes. We source from the brands and their authorised distributors, and check expiry before packing.' },
 ];
@@ -99,6 +100,13 @@ export default async function ShoppingPage() {
           <div className="wrap"><h2>Bundles that save</h2><p className="muted">Everything you need in one go, with a bundle discount.</p><div className="bundles">{bundleViews.map((b) => <BundleCard key={b.slug} b={b} />)}</div></div>
         </section>
       )}
+
+      <section className="section tight">
+        <div className="wrap vetstrip">
+          <div><h2>Need a vaccination?</h2><p>Vaccines are not sold online. Message us on WhatsApp and we will arrange the right vaccine for your dog or cat.</p></div>
+          <a className="btn btn-yellow" href={vaccineLink()}>Book a vaccine on WhatsApp</a>
+        </div>
+      </section>
 
       <section className="section tight">
         <div className="wrap vetstrip">
