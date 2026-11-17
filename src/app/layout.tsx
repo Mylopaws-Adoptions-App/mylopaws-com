@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   description: SITE.description,
   applicationName: SITE.name,
   formatDetection: { telephone: false },
+  other: { 'facebook-domain-verification': 'gc3faf3ob3s61b1no24iz00y4l51p0' }, // Meta Business domain verification
 };
 
 export const viewport: Viewport = { themeColor: SITE.themeColor, width: 'device-width', initialScale: 1 };
