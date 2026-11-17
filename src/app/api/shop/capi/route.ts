@@ -26,7 +26,7 @@ export async function POST(req: Request) {
         event_name: 'Purchase', event_time: Math.floor(Date.now() / 1000), event_id: String(b.event_id ?? `order-${orderId}`), action_source: 'website',
         event_source_url: `https://mylopaws.com/shopping/order/?id=${orderId}`,
         user_data: { ph: [sha('91' + phone)], client_ip_address: (req.headers.get('x-forwarded-for') ?? '').split(',')[0] || undefined, client_user_agent: req.headers.get('user-agent') ?? undefined, fbp: ck(req, '_fbp'), fbc: ck(req, '_fbc') },
-        custom_data: { currency: 'INR', value: Number(order.total), order_id: String(order.order_number), content_type: 'product', content_ids: order.items.map((i: { handle: string }) => i.handle), num_items: order.items.length },
+        custom_data: { currency: 'INR', value: Number(order.total), order_id: String(order.order_number), content_type: 'product', content_ids: order.items.map((i: { handle: string }) => i.handle).filter(Boolean), contents: order.items.filter((i: { handle: string }) => i.handle).map((i: { handle: string; qty?: number; price?: number }) => ({ id: i.handle, quantity: i.qty ?? 1, item_price: Number(i.price ?? 0) })), num_items: order.items.length },
       }],
       ...(process.env.META_TEST_EVENT_CODE ? { test_event_code: process.env.META_TEST_EVENT_CODE } : {}),
     };
