@@ -39,7 +39,12 @@ export function ecommerce(name: 'view_item_list' | 'view_item' | 'add_to_cart' |
     if (fb && window.fbq) {
       // content_ids = product slugs, exactly the <g:id> in the Merchant feed (bundles have no feed id, so they are left out)
       const feedItems = items.filter((i) => !i.item_id.startsWith('bundle-'));
-      window.fbq('track', fb, { currency: 'INR', value: name === 'purchase' ? (extra.value as number) ?? value : value, content_ids: feedItems.map((i) => i.item_id), contents: feedItems.map((i) => ({ id: i.item_id, quantity: i.quantity ?? 1, item_price: i.price ?? 0 })), content_type: 'product', num_items: items.reduce((t, i) => t + (i.quantity ?? 1), 0) }, eventId ? { eventID: eventId } : undefined);
+      // shared event_id lets Meta de-duplicate the pixel event against the same event sent from our server (Conversions API)
+      const evId = eventId ?? (fb !== 'Purchase' && fb !== 'AddPaymentInfo' ? `${fb}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}` : undefined);
+      window.fbq('track', fb, { currency: 'INR', value: name === 'purchase' ? (extra.value as number) ?? value : value, content_ids: feedItems.map((i) => i.item_id), contents: feedItems.map((i) => ({ id: i.item_id, quantity: i.quantity ?? 1, item_price: i.price ?? 0 })), content_type: 'product', num_items: items.reduce((t, i) => t + (i.quantity ?? 1), 0) }, evId ? { eventID: evId } : undefined);
+      if (evId && !eventId && feedItems.length && getConsent() === 'granted') {
+        try { void fetch('/api/shop/capi/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true, body: JSON.stringify({ event: fb, event_id: evId, content_ids: feedItems.map((i) => i.item_id), contents: feedItems.map((i) => ({ id: i.item_id, quantity: i.quantity ?? 1, item_price: i.price ?? 0 })), value, url: location.href.split('#')[0] }) }).catch(() => {}); } catch { /* ignore */ }
+      }
     }
     if (name === 'purchase' && ADS_PURCHASE) gtag('event', 'conversion', { send_to: `${ADS_ID}/${ADS_PURCHASE}`, value: (extra.value as number) ?? value, currency: 'INR', transaction_id: extra.transaction_id });
   } catch { /* ignore */ }
