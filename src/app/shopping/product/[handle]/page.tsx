@@ -4,7 +4,7 @@ import { CtaBand, JsonLd, PageHero } from '@/components/Blocks';
 import { Gallery } from '@/components/shop/Gallery';
 import { ProductBuy } from '@/components/shop/ProductBuy';
 import { ProductCard } from '@/components/shop/ProductCard';
-import { allProducts, imagesOf, inr, isRx, mrp, productPath, sell, shopLink, toCard, vetLink, CONCERNS } from '@/lib/shop';
+import { absUrl, allProducts, imagesOf, productDescription, inr, isRx, mrp, productPath, sell, shopLink, toCard, vetLink, CONCERNS } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   const { handle } = await params;
   const p = (await allProducts()).find((x) => x.handle === handle);
   if (!p) return {};
-  const desc = (p.short_desc ?? p.description ?? `${p.title} from Mylopaws Shopping, delivered in Bangalore.`).replace(/\s+/g, ' ').slice(0, 150);
+  const desc = (productDescription(p) || `${p.title} from Mylopaws Shopping, delivered in Bangalore.`).replace(/\s+/g, ' ').slice(0, 150);
   const img = imagesOf(p)[0];
   return meta({
     title: `${p.title} | Buy online in Bangalore`.slice(0, 65), description: `${desc}`.slice(0, 155), path: productPath(handle),
-    image: img ? `${SITE.url}${img}` : undefined, imageAlt: p.title, noindex: isRx(p),
+    image: img ? absUrl(img) : undefined, imageAlt: p.title, noindex: isRx(p),
   });
 }
 
@@ -40,21 +40,23 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   const variants = family.map((x) => ({ handle: x.handle, label: x.variant_label ?? x.pack_size ?? 'Standard', price: sell(x) })).sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
   const related = all.filter((x) => x.handle !== p.handle && x.family !== p.family && (x.concerns ?? []).some((c) => (p.concerns ?? []).includes(c)) && (x.pet_type === p.pet_type || x.pet_type === 'both' || p.pet_type === 'both')).slice(0, 4);
   const concerns = (p.concerns ?? []).filter((c) => CONCERNS[c]);
-  const about = (p.short_desc ?? p.description ?? '').trim();
+  const about = productDescription(p);
   const url = `${SITE.url}${productPath(handle)}`;
 
   const schema = {
     '@context': 'https://schema.org', '@type': 'Product', name: p.title, url, sku: p.handle,
-    ...(images.length ? { image: images.map((i) => `${SITE.url}${i}`) } : {}),
+    ...(images.length ? { image: images.map(absUrl) } : {}),
     ...(about ? { description: about } : {}),
     ...(p.brand ? { brand: { '@type': 'Brand', name: p.brand } } : {}),
     ...(p.gtin ? { gtin: p.gtin } : {}),
     category: p.category ?? undefined,
+    // Mirrors the Merchant feed: sale price as the Offer price, MRP as the strikethrough list price, same stock flag.
     ...(price && !rx ? {
       offers: {
-        '@type': 'Offer', url, priceCurrency: 'INR', price: price.toFixed(2), availability: 'https://schema.org/InStock', itemCondition: 'https://schema.org/NewCondition',
+        '@type': 'Offer', url, priceCurrency: 'INR', price: price.toFixed(2),
+        ...(m && m > price ? { priceSpecification: { '@type': 'UnitPriceSpecification', priceType: 'https://schema.org/StrikethroughPrice', price: m.toFixed(2), priceCurrency: 'INR' } } : {}),
+        availability: p.in_stock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', itemCondition: 'https://schema.org/NewCondition',
         seller: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-        shippingDetails: { '@type': 'OfferShippingDetails', shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'IN', addressRegion: 'KA' }, shippingRate: { '@type': 'MonetaryAmount', value: '100', currency: 'INR' }, deliveryTime: { '@type': 'ShippingDeliveryTime', handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' }, transitTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 2, unitCode: 'DAY' } } },
       },
     } : {}),
   };

@@ -28,6 +28,11 @@ export type ShopProduct = {
   bestseller: boolean | null;
   sort_rank: number | null;
   country_of_origin: string | null;
+  in_stock?: boolean | null;
+  feed_eligible?: boolean | null;
+  feed_description?: string | null;
+  feed_google_category?: string | null;
+  feed_product_type?: string | null;
 };
 /** Backwards compatible name used by the home page. */
 export type Product = ShopProduct;
@@ -57,6 +62,8 @@ export const imagesOf = (p: Pick<ShopProduct, 'images' | 'image_url'>): string[]
   const a = (p.images ?? []).filter(Boolean);
   return (a.length ? a : p.image_url ? [p.image_url] : []).map(imgSrc);
 };
+/** Absolute image URL: site-relative paths get the site origin; full URLs (e.g. Supabase storage) are used as-is. */
+export const absUrl = (u: string) => (/^https?:\/\//i.test(u) ? u : `https://mylopaws.com${u.startsWith('/') ? '' : '/'}${u}`);
 export const productPath = (handle: string) => `/shopping/product/${handle}/`;
 
 /** The slim shape sent to client components (keeps the page light). */
