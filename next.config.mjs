@@ -63,8 +63,15 @@ const nextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), geolocation=(), microphone=(self), payment=(self "https://checkout.razorpay.com" "https://api.razorpay.com")' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          // Safe CSP subset: blocks clickjacking, <base> hijacking and plugin content without restricting the
+          // analytics / Razorpay / ElevenLabs scripts the pages rely on.
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" },
+          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
         ],
       },
+      // API routes are never cached by browsers or shared caches
+      { source: '/api/:path*', headers: [{ key: 'Cache-Control', value: 'no-store' }, { key: 'X-Robots-Tag', value: 'noindex' }] },
     ];
   },
 };
