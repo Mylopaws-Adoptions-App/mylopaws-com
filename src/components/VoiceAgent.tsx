@@ -2,12 +2,12 @@
 import { usePathname } from 'next/navigation';
 import { ANANNYA_AGENT_ID } from '@/lib/site';
 
-/** Anannya, the ElevenLabs voice agent. Hidden on the cart/checkout and order pages, where its floating button
- * sat on top of the pay and form buttons on phones. */
-const HIDE = ['/shopping/cart', '/shopping/order'];
+/** Anannya, the ElevenLabs voice agent. Hidden everywhere under /shopping (browse, product, cart, checkout, order):
+ * on phones its floating button sat on top of the cart bar and the pay and form buttons. */
+const isShopping = (path: string) => path === '/shopping' || path.startsWith('/shopping/');
 
 export function VoiceAgent() {
   const path = usePathname() ?? '';
-  if (HIDE.some((p) => path.startsWith(p))) return null;
+  if (isShopping(path)) return null;
   return <elevenlabs-convai agent-id={ANANNYA_AGENT_ID}></elevenlabs-convai>;
 }
