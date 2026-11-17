@@ -1,5 +1,6 @@
 'use client';
 import { ANALYTICS } from './site';
+import { feedId } from './feed-id';
 /** Shop analytics. One call fans out to GA4 + Google Ads (gtag), Meta Pixel (if loaded after consent) and Clarity. Never throws. */
 
 type Params = Record<string, unknown>;
@@ -30,7 +31,9 @@ export function track(name: string, params: Params = {}) {
 const FB: Record<string, string> = { view_item: 'ViewContent', add_to_cart: 'AddToCart', begin_checkout: 'InitiateCheckout', add_payment_info: 'AddPaymentInfo', purchase: 'Purchase' };
 const sum = (items: Item[]) => items.reduce((t, i) => t + (i.price ?? 0) * (i.quantity ?? 1), 0);
 
-export function ecommerce(name: 'view_item_list' | 'view_item' | 'add_to_cart' | 'remove_from_cart' | 'view_cart' | 'begin_checkout' | 'add_payment_info' | 'purchase', items: Item[], extra: Params = {}, eventId?: string) {
+export function ecommerce(name: 'view_item_list' | 'view_item' | 'add_to_cart' | 'remove_from_cart' | 'view_cart' | 'begin_checkout' | 'add_payment_info' | 'purchase', rawItems: Item[], extra: Params = {}, eventId?: string) {
+  // every external product ID (GA4 / Google Ads item_id and Meta content_ids) is the Merchant feed <g:id>
+  const items = rawItems.map((i) => (i.item_id.startsWith('bundle-') ? i : { ...i, item_id: feedId(i.item_id) }));
   const value = Math.round(sum(items) * 100) / 100;
   track(name, { currency: 'INR', value, items, ...extra });
   try {

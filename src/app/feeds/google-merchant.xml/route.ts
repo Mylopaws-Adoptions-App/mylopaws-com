@@ -1,5 +1,6 @@
 import { absUrl, feedProducts, imagesOf, isRx, mrp, productDescription, productPath, sell } from '@/lib/shop';
 import { SITE } from '@/lib/site';
+import { feedId, feedIdCollisions } from '@/lib/feed-id';
 
 /**
  * Google Merchant Center product feed (RSS 2.0, g: namespace).
@@ -13,13 +14,15 @@ const DEFAULT_CAT = 'Animals & Pet Supplies > Pet Supplies';
 
 export async function GET() {
   const items = (await feedProducts()).filter((p) => !isRx(p) && sell(p) && imagesOf(p)[0] && productDescription(p));
+  const clash = feedIdCollisions(items.map((p) => p.handle));
+  if (clash.length) console.error('feedId collision', clash);
   const rows = items.map((p) => {
     const img = imagesOf(p).map(absUrl);
     const price = sell(p)!, list = mrp(p);
     const gtin = (p.gtin ?? '').replace(/\D/g, '');
     return [
       '<item>',
-      `<g:id>${esc(p.handle)}</g:id>`,
+      `<g:id>${esc(feedId(p.handle))}</g:id>`,
       `<g:title>${esc(p.title.slice(0, 150))}</g:title>`,
       `<g:description>${esc(productDescription(p).slice(0, 4900))}</g:description>`,
       `<g:link>${SITE.url}${productPath(p.handle)}</g:link>`,
@@ -32,7 +35,7 @@ export async function GET() {
       gtin.length >= 8 ? `<g:gtin>${gtin}</g:gtin>` : '<g:identifier_exists>no</g:identifier_exists>',
       `<g:google_product_category>${esc(p.feed_google_category || DEFAULT_CAT)}</g:google_product_category>`,
       `<g:product_type>${esc(p.feed_product_type || 'Pet Supplies')}</g:product_type>`,
-      ...(p.family ? [`<g:item_group_id>${esc(p.family)}</g:item_group_id>`] : []),
+      ...(p.family ? [`<g:item_group_id>${esc(p.family.slice(0, 50))}</g:item_group_id>`] : []),
       ...(p.pack_size ? [`<g:product_detail><g:attribute_name>Pack size</g:attribute_name><g:attribute_value>${esc(p.pack_size)}</g:attribute_value></g:product_detail>`] : []),
       '</item>',
     ].join('\n');

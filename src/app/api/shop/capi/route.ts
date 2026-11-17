@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createHash } from 'node:crypto';
 import { ANALYTICS, SUPABASE } from '@/lib/site';
+import { feedId } from '@/lib/feed-id';
 
 /**
  * Server-side Meta Conversions API, paired with the browser pixel through a shared event_id so Meta de-duplicates.
@@ -70,7 +71,7 @@ export async function POST(req: Request) {
         ...(phone.length === 10 ? { ph: [sha('91' + phone)] } : {}), ...(email ? { em: [sha(email)] } : {}),
         client_ip_address: o.client_ip || ip, client_user_agent: o.client_ua || ua, fbp: o.fbp || ck(req, '_fbp'), fbc: o.fbc || ck(req, '_fbc'),
       },
-      custom_data: { currency: 'INR', value: Number(o.total), order_id: String(o.order_number), content_type: 'product', content_ids: items.map((i) => i.handle), contents: items.map((i) => ({ id: i.handle, quantity: i.qty ?? 1, item_price: Number(i.price ?? 0) })), num_items: items.length },
+      custom_data: { currency: 'INR', value: Number(o.total), order_id: String(o.order_number), content_type: 'product', content_ids: items.map((i) => feedId(i.handle!)), contents: items.map((i) => ({ id: feedId(i.handle!), quantity: i.qty ?? 1, item_price: Number(i.price ?? 0) })), num_items: items.length },
     });
     if (!r.ok) await fetch(`${rest}/shop_orders?id=eq.${orderId}`, { method: 'PATCH', headers: h, body: JSON.stringify({ capi_sent_at: null }) }); // let a retry through
     return NextResponse.json(r);

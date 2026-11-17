@@ -5,13 +5,14 @@ import { Card, askLink, inr, productPath } from '@/lib/shop-core';
 import { useCart } from './CartProvider';
 import { track, whatsappClick } from '@/lib/track';
 import { logSearchClick } from '@/lib/shop-search';
+import { feedId } from '@/lib/feed-id';
 
 export function ProductCard({ p, list }: { p: Card; list?: string }) {
   const { add } = useCart();
   const save = p.p && p.m && p.m > p.p ? Math.round((1 - p.p / p.m) * 100) : 0;
   return (
     <article className="sp">
-      <Link href={productPath(p.h)} className="sp-link" onClick={() => { logSearchClick(p.h); track('select_item', { item_list_name: list, items: [{ item_id: p.h, item_name: p.t }] }); }}>
+      <Link href={productPath(p.h)} className="sp-link" onClick={() => { logSearchClick(p.h); track('select_item', { item_list_name: list, items: [{ item_id: feedId(p.h), item_name: p.t }] }); }}>
         <span className="sp-img">
           {save >= 3 && <span className="sp-save">{save}% off</span>}
           {p.i && (
