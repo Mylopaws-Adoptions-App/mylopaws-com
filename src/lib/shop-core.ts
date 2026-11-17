@@ -121,8 +121,9 @@ export const brandList = (items: ShopProduct[]) => {
 
 export const FREE_DELIVERY_MIN = 3000;
 export const DELIVERY_FEE = 100;
-export const VET_WHATSAPP = '918971500296';
+/** Vet consults are booked through the main Mylopaws line, never Dr Amrita's own number. */
+export const VET_WHATSAPP = SHOP_WHATSAPP;
 export const shopLink = (text: string) => waLink(SHOP_WHATSAPP, text);
 export const askLink = (title: string) => waLink(SHOP_WHATSAPP, `Hi Mylopaws, I'd like to order: ${title}`);
 export const vaccineLink = (what?: string) => waLink(SHOP_WHATSAPP, `Hi Mylopaws, I'd like to book a vaccination for my pet${what ? ` (${what})` : ''}. Please share availability and price.`);
-export const vetLink = (title?: string) => waLink(VET_WHATSAPP, title ? `Hi Dr Amrita, I'd like a consult about ${title} for my pet.` : 'Hi Dr Amrita, I have a question about a medicine for my pet.');
+export const vetLink = (title?: string) => waLink(VET_WHATSAPP, title ? `Hi Mylopaws, I'd like a video consult with Dr Amrita about ${title} for my pet.` : "Hi Mylopaws, I'd like to talk to Dr Amrita about a medicine for my pet.");

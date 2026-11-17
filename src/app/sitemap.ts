@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...Object.keys(CATEGORIES).map((c) => u(`/category/${c}/`, 0.5)),
     ...allPosts().map((p) => u(`/${p.slug}/`, 0.6, new Date(p.updated ?? p.date))),
     u('/bangalore-pet-sitters-directory/', 0.5),
-    u('/about/', 0.5), u('/contact/', 0.6), u('/careers/', 0.4),
+    u('/about/', 0.5), u('/contact/', 0.6), u('/careers/', 0.4), u('/work-with-us/', 0.5),
     ...['privacy-policy', 'terms-of-service', 'cancellation-refund-policy', 'shipping-delivery-policy', 'data-deletion'].map((s) => u(`/${s}/`, 0.2)),
   ];
 }

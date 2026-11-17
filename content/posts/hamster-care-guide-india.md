@@ -165,7 +165,7 @@ Find a vet who treats small or exotic pets **before** you need one. Our guide to
 
 ## Need help?
 
-A Mylopaws consulting vet can advise on diet, housing and health by video or audio call — [WhatsApp us](https://wa.me/918971500296?text=Hi%20Dr%20Amrita%2C%20I%20have%20a%20question%20about%20my%20hamster.), every day 9:30 am – 8:30 pm.
+A Mylopaws consulting vet can advise on diet, housing and health by video or audio call — [WhatsApp us](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20talk%20to%20Dr%20Amrita.%20I%20have%20a%20question%20about%20my%20hamster.), every day 9:30 am – 8:30 pm.
 
 Thinking about a dog instead? Read our guide to [dog breeds for Bangalore homes](/dog-breeds-india-best-for-bangalore/).
 

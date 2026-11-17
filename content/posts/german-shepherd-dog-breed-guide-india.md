@@ -178,7 +178,7 @@ Comparing breeds? Read our guides to [dog breeds for Bangalore homes](/dog-breed
 ## How Mylopaws helps
 
 - **Skin and fur care:** Shepherds are prone to skin infections and heavy shedding. [Mylopaws Dermacare](/therapy-sensitive-skin-relief/) in HSR Layout treats skin problems at the root.
-- **Vet consults on video:** talk to a Mylopaws consulting vet about diet, skin, ears or behaviour — [WhatsApp us](https://wa.me/918971500296?text=Hi%20Dr%20Amrita%2C%20I%27d%20like%20a%20vet%20consult%20for%20my%20German%20Shepherd.), every day 9:30 am – 8:30 pm.
+- **Vet consults on video:** talk to a Mylopaws consulting vet about diet, skin, ears or behaviour — [WhatsApp us](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20talk%20to%20Dr%20Amrita.%20I%27d%20like%20a%20vet%20consult%20for%20my%20German%20Shepherd.), every day 9:30 am – 8:30 pm.
 - **Getting around:** big dogs and autos don't mix. [Mylopaws Travel](https://wa.me/919036608453?text=Hi%20Mylopaws%2C%20I%20need%20a%20pet%20cab%20for%20my%20German%20Shepherd.) pet cabs carry large dogs across Bangalore, every day 6 am to midnight.
 
 ## Sources

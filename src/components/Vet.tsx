@@ -7,7 +7,7 @@ const VET = {
   short: 'Dr Amrita',
   role: 'Consulting veterinarian · dogs & cats',
   photo: '/photos/dr-amrita.webp',
-  wa: waLink(CONTACT.vet.wa, 'Hi Dr Amrita, I found you on mylopaws.com. I would like a video consult for my pet.'),
+  wa: waLink(CONTACT.vet.wa, 'Hi Mylopaws, I found you on mylopaws.com. I would like a video consult with Dr Amrita for my pet.'),
 };
 
 const AREAS: { h: string; p: string }[] = [

@@ -162,7 +162,7 @@ The rules were in draft at the time of writing. Check the current requirements w
 
 ## How Mylopaws helps
 
-- **Unsure which breed suits you?** A Mylopaws consulting vet can talk it through by video — [WhatsApp us](https://wa.me/918971500296?text=Hi%20Dr%20Amrita%2C%20I%27d%20like%20advice%20on%20choosing%20a%20dog%20breed.), every day 9:30 am – 8:30 pm.
+- **Unsure which breed suits you?** A Mylopaws consulting vet can talk it through by video — [WhatsApp us](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20talk%20to%20Dr%20Amrita.%20I%27d%20like%20advice%20on%20choosing%20a%20dog%20breed.), every day 9:30 am – 8:30 pm.
 - **Grooming and skin care** for long-furred breeds at [Mylopaws Dermacare](/therapy-puppy-grooming/), HSR Layout.
 - **Bringing your new dog home?** [Mylopaws Travel](https://wa.me/919036608453?text=Hi%20Mylopaws%2C%20I%20need%20a%20pet%20cab%20to%20bring%20my%20new%20dog%20home.) pet cabs run across Bangalore every day, 6 am to midnight.
 

@@ -171,7 +171,7 @@ Compare other options in our [dog breeds for Bangalore](/dog-breeds-india-best-f
 ## How Mylopaws helps
 
 - **Hot spots, itching or smelly ears?** [Mylopaws Dermacare](/therapy-sensitive-skin-relief/) in HSR Layout treats the skin problems Goldens are prone to.
-- **Diet, weight or lump questions?** Talk to a Mylopaws consulting vet by video — [WhatsApp us](https://wa.me/918971500296?text=Hi%20Dr%20Amrita%2C%20I%27d%20like%20a%20vet%20consult%20for%20my%20Golden%20Retriever.), every day 9:30 am – 8:30 pm.
+- **Diet, weight or lump questions?** Talk to a Mylopaws consulting vet by video — [WhatsApp us](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20talk%20to%20Dr%20Amrita.%20I%27d%20like%20a%20vet%20consult%20for%20my%20Golden%20Retriever.), every day 9:30 am – 8:30 pm.
 - **Big dog, no car?** [Mylopaws Travel](https://wa.me/919036608453?text=Hi%20Mylopaws%2C%20I%20need%20a%20pet%20cab%20for%20my%20Golden%20Retriever.) pet cabs run across Bangalore every day, 6 am to midnight.
 
 ## Sources

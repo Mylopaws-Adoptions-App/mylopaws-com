@@ -236,7 +236,7 @@ Apoquel brings fast relief, but itching always has a reason. Your vet will look 
 
 **Mylopaws Shopping** is a pet pharmacy in HSR Layout that delivers across Bangalore. All three medicines are dispensed against a valid veterinary prescription.
 
-1. **Get a prescription.** Ask your vet, or book a video consult with a Mylopaws consulting vet — [WhatsApp us](https://wa.me/918971500296?text=Hi%20Dr%20Amrita%2C%20I%27d%20like%20a%20consult%20about%20tick%20and%20flea%20or%20itch%20medicine%20for%20my%20dog.), every day 9:30 am – 8:30 pm.
+1. **Get a prescription.** Ask your vet, or book a video consult with a Mylopaws consulting vet — [WhatsApp us](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20talk%20to%20Dr%20Amrita.%20I%27d%20like%20a%20consult%20about%20tick%20and%20flea%20or%20itch%20medicine%20for%20my%20dog.), every day 9:30 am – 8:30 pm.
 2. **Share it on WhatsApp** with your dog's current weight — [order on WhatsApp](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20order%20Bravecto%20%2F%20Simparica%20Trio%20%2F%20Apoquel.%20I%20have%20a%20vet%20prescription.).
 3. **Confirm and pay.** Your order is delivered across Bangalore, or ready to collect from HSR Layout.
 

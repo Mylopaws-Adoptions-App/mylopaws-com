@@ -167,7 +167,7 @@ Find the nearest 24/7 hospital in our [vet hospitals in Bangalore by area](/vet-
 
 ## How Mylopaws helps
 
-- **Your dog's been in a fight?** Talk to a Mylopaws consulting vet on video for first-aid guidance — [WhatsApp us](https://wa.me/918971500296?text=Hi%20Dr%20Amrita%2C%20my%20dog%20was%20bitten%20by%20another%20dog.), every day 9:30 am – 8:30 pm.
+- **Your dog's been in a fight?** Talk to a Mylopaws consulting vet on video for first-aid guidance — [WhatsApp us](https://wa.me/919071091699?text=Hi%20Mylopaws%2C%20I%27d%20like%20to%20talk%20to%20Dr%20Amrita.%20my%20dog%20was%20bitten%20by%20another%20dog.), every day 9:30 am – 8:30 pm.
 - **Need to get to a vet fast?** [Mylopaws Travel](https://wa.me/919036608453?text=Hi%20Mylopaws%2C%20I%20need%20an%20urgent%20pet%20cab%20to%20a%20vet.) pet cabs run every day, 6 am to midnight.
 
 ## Sources
