@@ -6,6 +6,7 @@ import { askLink, inr, productPath, vetLink } from '@/lib/shop-core';
 import { useCart } from './CartProvider';
 import { ecommerce, whatsappClick } from '@/lib/track';
 import { WhatsApp } from '../Icons';
+import { logSearchClick } from '@/lib/shop-search';
 
 export type BuyProps = {
   handle: string; title: string; brand: string | null; category: string | null; pack: string | null;
@@ -42,7 +43,7 @@ export function ProductBuy(p: BuyProps) {
               <span aria-live="polite">{qty}</span>
               <button type="button" onClick={() => setQty((q) => Math.min(20, q + 1))} aria-label="Increase">+</button>
             </div>
-            <button type="button" className="btn btn-primary pb-add" onClick={() => add({ handle: p.handle, title: p.title, price: p.price!, mrp: p.mrp, img: p.img, rx: p.rx, brand: p.brand, category: p.category, pack: p.pack, qty })}>Add to cart</button>
+            <button type="button" className="btn btn-primary pb-add" onClick={() => { logSearchClick(p.handle, true); add({ handle: p.handle, title: p.title, price: p.price!, mrp: p.mrp, img: p.img, rx: p.rx, brand: p.brand, category: p.category, pack: p.pack, qty }); }}>Add to cart</button>
           </div>
         </>
       ) : (

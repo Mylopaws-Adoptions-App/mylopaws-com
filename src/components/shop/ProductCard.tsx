@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { Card, askLink, inr, productPath } from '@/lib/shop-core';
 import { useCart } from './CartProvider';
 import { track, whatsappClick } from '@/lib/track';
+import { logSearchClick } from '@/lib/shop-search';
 
 export function ProductCard({ p, list }: { p: Card; list?: string }) {
   const { add } = useCart();
   const save = p.p && p.m && p.m > p.p ? Math.round((1 - p.p / p.m) * 100) : 0;
   return (
     <article className="sp">
-      <Link href={productPath(p.h)} className="sp-link" onClick={() => track('select_item', { item_list_name: list, items: [{ item_id: p.h, item_name: p.t }] })}>
+      <Link href={productPath(p.h)} className="sp-link" onClick={() => { logSearchClick(p.h); track('select_item', { item_list_name: list, items: [{ item_id: p.h, item_name: p.t }] }); }}>
         <span className="sp-img">
           {save >= 3 && <span className="sp-save">{save}% off</span>}
           {p.i && (
@@ -29,7 +30,7 @@ export function ProductCard({ p, list }: { p: Card; list?: string }) {
             <button
               type="button"
               className="btn btn-primary sp-add"
-              onClick={() => add({ handle: p.h, title: p.t, price: p.p!, mrp: p.m, img: p.i, rx: p.rx, brand: p.b, category: p.c, pack: p.pk })}
+              onClick={() => { logSearchClick(p.h, true); add({ handle: p.h, title: p.t, price: p.p!, mrp: p.m, img: p.i, rx: p.rx, brand: p.b, category: p.c, pack: p.pk }); }}
             >
               Add to cart
             </button>

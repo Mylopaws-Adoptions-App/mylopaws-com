@@ -6,6 +6,7 @@ import { Search } from '../Icons';
 import { Card, CONCERNS } from '@/lib/shop-core';
 import { ProductCard } from './ProductCard';
 import { track } from '@/lib/track';
+import { logSearch } from '@/lib/shop-search';
 
 type Sort = 'featured' | 'low' | 'high' | 'save';
 const PAGE = 24;
@@ -21,6 +22,8 @@ export function ShopBrowser({ items, concernCounts }: { items: Card[]; concernCo
   const [rxOnly, setRxOnly] = useState(false);
   const [limit, setLimit] = useState(PAGE);
   const first = useRef(true);
+  const countRef = useRef(0);
+  const lastLogged = useRef('');
 
   const cats = useMemo(() => [...new Set(items.map((p) => p.c ?? 'Other'))].sort(), [items]);
   const brands = useMemo(() => [...new Set(items.map((p) => p.b).filter(Boolean) as string[])].sort(), [items]);
@@ -43,6 +46,14 @@ export function ShopBrowser({ items, concernCounts }: { items: Card[]; concernCo
     return out;
   }, [items, q, pet, concern, cat, brand, sort, rxOnly]);
 
+  countRef.current = shown.length;
+  const fireSearch = (term: string) => { const t = term.trim(); if (!t || t === lastLogged.current) return; lastLogged.current = t; logSearch(t, countRef.current); };
+  useEffect(() => {
+    if (!q.trim()) { lastLogged.current = ''; return; }
+    const t = setTimeout(() => fireSearch(q), 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q]);
   useEffect(() => { setLimit(PAGE); }, [q, pet, concern, cat, brand, sort, rxOnly]);
   useEffect(() => {
     if (first.current) { first.current = false; return; }
@@ -61,7 +72,7 @@ export function ShopBrowser({ items, concernCounts }: { items: Card[]; concernCo
           <label className="shop-search">
             <Search />
             <span className="sr-only">Search the shop</span>
-            <input type="search" placeholder="Search tick care, shampoo, brand..." value={q} onChange={(e) => setQ(e.target.value)} />
+            <input type="search" placeholder="Search tick care, shampoo, brand..." value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); fireSearch(q); } }} />
           </label>
           <div className="shop-filters">
             <select aria-label="Pet" value={pet} onChange={(e) => setPet(e.target.value)}><option value="all">Dogs & cats</option><option value="dog">Dogs</option><option value="cat">Cats</option></select>
