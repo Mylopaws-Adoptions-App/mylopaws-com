@@ -28,7 +28,6 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
-            <Link href="/careers/">Careers</Link>
             <BookList />
           </div>
         </MobileMenu>

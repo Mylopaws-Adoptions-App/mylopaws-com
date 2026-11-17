@@ -36,7 +36,6 @@ export function Footer() {
               <li><Link href="/pet-friendly-resorts-near-bangalore/">Pet-friendly resorts</Link></li>
               <li><Link href="/bangalore-pet-sitters-directory/">Pet sitters directory</Link></li>
               <li><Link href="/about/">About Mylopaws</Link></li>
-              <li><Link href="/careers/">Careers</Link></li>
               <li><Link href="/work-with-us/">Work with us</Link></li>
             </ul>
           </div>

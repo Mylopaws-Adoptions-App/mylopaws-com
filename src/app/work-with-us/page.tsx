@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { CtaBand, Faq, JsonLd, PageHero, faqSchema } from '@/components/Blocks';
 import { Arrow } from '@/components/Icons';
+import { LeadForm } from '@/components/LeadForm';
 import { Reveal } from '@/components/Motion';
 import { CONTACT, SITE, bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta } from '@/lib/seo';
@@ -56,48 +56,63 @@ const WAYS = [
   },
 ];
 
-const ROLE = {
-  title: 'Head, Shopping & Retail',
-  type: 'Full-time · HSR Layout, Bengaluru · Reports to the Founder & CEO',
-  summary: 'Own Mylopaws Shopping end to end: the pet store that delivers across Bangalore. You will run the range, pricing, brand partners, stock and delivery, and grow it online and on WhatsApp, with the P&L in your hands.',
-  does: [
-    'Run the Shopping and Retail P&L: sales, gross margin, stock turns and working capital',
-    'Own the range and pricing: what we stock, at what price, and when we add or drop a product',
-    'Source and manage brand and distributor partners; negotiate terms, supply and margin',
-    'Keep stock accurate and orders moving with our warehouse and delivery team, from order to doorstep',
-    'Grow orders through the website, WhatsApp, Google Shopping and social, together with marketing',
-    'Raise repeat orders and customer satisfaction: reviews, returns, support and refunds',
-    'Shape the retail roadmap, including in-centre retail and partner outlets',
-    'Hire, lead and coach the Shopping and delivery team',
-  ],
-  you: [
-    '7+ years in retail, e-commerce or consumer brands, including 2+ years running a category, store or P&L',
-    'Strong with numbers: margins, pricing, inventory and unit economics',
-    'Experience negotiating with vendors and managing supply and logistics',
-    'Hands-on with online selling: catalogue, marketplace or D2C, plus basic ads and analytics',
-    'A leader who also gets into the detail, and enjoys building from a small base',
-    'A pet owner or genuine animal lover (a big plus); English fluency, Kannada or Hindi a bonus',
-  ],
-  msg: "Hi Mylopaws, I'd like to apply for the Head, Shopping & Retail role. A little about me: ",
-};
+const ROLES = [
+  {
+    title: 'Head, Shopping & Retail',
+    type: 'Full-time · HSR Layout, Bengaluru · Reports to the Founder & CEO',
+    summary: 'Own Mylopaws Shopping end to end: the pet store that delivers across Bangalore. You will run the range, pricing, brand partners, stock and delivery, and grow it online and on WhatsApp, with the P&L in your hands.',
+    does: [
+      'Run the Shopping and Retail P&L: sales, gross margin, stock turns and working capital',
+      'Own the range and pricing: what we stock, at what price, and when we add or drop a product',
+      'Source and manage brand and distributor partners; negotiate terms, supply and margin',
+      'Keep stock accurate and orders moving with our warehouse and delivery team, from order to doorstep',
+      'Grow orders through the website, WhatsApp, Google Shopping and social, together with marketing',
+      'Raise repeat orders and customer satisfaction: reviews, returns, support and refunds',
+      'Shape the retail roadmap, including in-centre retail and partner outlets',
+      'Hire, lead and coach the Shopping and delivery team',
+    ],
+    you: [
+      '7+ years in retail, e-commerce or consumer brands, including 2+ years running a category, store or P&L',
+      'Strong with numbers: margins, pricing, inventory and unit economics',
+      'Experience negotiating with vendors and managing supply and logistics',
+      'Hands-on with online selling: catalogue, marketplace or D2C, plus basic ads and analytics',
+      'A leader who also gets into the detail, and enjoys building from a small base',
+      'A pet owner or genuine animal lover (a big plus); English fluency, Kannada or Hindi a bonus',
+    ],
+  },
+  {
+    title: 'Warehouse & Delivery Executive',
+    type: 'Full-time · HSR Layout, Bengaluru',
+    summary: 'Keep our pet shop running: receive and organise stock, pack orders carefully, and deliver across Bangalore on our evening runs.',
+    you: ['Own a two-wheeler and a valid licence', 'Know Bangalore’s roads well', 'Careful with medicines, cold-chain and fragile items', 'Comfortable with WhatsApp and simple stock apps', 'Kannada, Hindi or English; more is a bonus'],
+  },
+  {
+    title: 'Dermacare Specialist & Business Associate',
+    type: 'Full-time · HSR Layout salon and doorstep',
+    summary: 'Deliver our skin and fur therapies to dogs and cats, assess skin before every session, and help pet parents choose the right care.',
+    you: ['Hands-on grooming or pet care experience', 'Calm, patient handling of anxious pets', 'Interest in skin and coat health (we train you on our protocols)', 'Good with people: explaining, advising, following up', 'Willing to travel for doorstep sessions'],
+  },
+];
 
-const jobSchema = {
+const roleMsg = (title: string) => `Hi Mylopaws, I'd like to apply for the ${title} role. A little about me: `;
+
+const jobSchemas = ROLES.map((r) => ({
   '@context': 'https://schema.org',
   '@type': 'JobPosting',
-  title: ROLE.title,
-  description: `${ROLE.summary} Responsibilities: ${ROLE.does.join('; ')}. Requirements: ${ROLE.you.join('; ')}.`,
+  title: r.title,
+  description: `${r.summary}${r.does ? ` Responsibilities: ${r.does.join('; ')}.` : ''} Requirements: ${r.you.join('; ')}.`,
   employmentType: 'FULL_TIME',
-  datePosted: '2026-11-17',
+  datePosted: r.does ? '2026-11-17' : '2026-10-23',
   hiringOrganization: { '@type': 'Organization', name: 'Mylopaws', sameAs: SITE.url },
   jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', streetAddress: CONTACT.address.street, addressLocality: CONTACT.address.locality, addressRegion: CONTACT.address.region, postalCode: CONTACT.address.postalCode, addressCountry: 'IN' } },
-};
+}));
 
 const FAQ = [
   { q: 'What does a Dermacare franchise involve?', a: 'You run a Mylopaws Dermacare Centre using our therapy protocols and brand. Investment, space and support depend on the city and the format, so we walk through the details on a call rather than quote a number here.' },
   { q: 'Which areas do you need cat boarding partners in?', a: 'North Bengaluru right now. If you are somewhere else in the city, message us anyway and we will note it for later.' },
   { q: 'What kinds of brands do you take?', a: 'Pet food, treats, grooming and care products for dogs and cats. Share your range and we will tell you what fits. Medicines need a valid licence and prescription handling, so we talk about those separately.' },
   { q: 'How do I get started?', a: 'Send us a WhatsApp message on the button for the option you want. Tell us a little about yourself or your brand. We read every message and reply on WhatsApp.' },
-  { q: 'I am looking for a job, not a partnership.', a: 'We are hiring a Head, Shopping & Retail, described above on this page. Our Careers page lists our other open roles, with an application form.' },
+  { q: 'I am looking for a job, not a partnership.', a: 'See the open roles above: Head, Shopping & Retail; Warehouse & Delivery Executive; and Dermacare Specialist & Business Associate. Apply on WhatsApp, or send your CV with the form.' },
 ];
 
 const PILLARS = [
@@ -156,33 +171,46 @@ export default function WorkWithUsPage() {
         <div className="wrap">
           <div className="section-head">
             <div>
-              <div className="eyebrow">Open role</div>
-              <h2>We are hiring: <em>{ROLE.title}.</em></h2>
+              <div className="eyebrow">Open roles</div>
+              <h2>Join the <em>team.</em></h2>
             </div>
-            <p className="lead">One senior hire to run Mylopaws Shopping, our pet store that delivers across Bangalore.</p>
+            <p className="lead">Three roles open in Bengaluru, from a senior head of Shopping to hands-on pet care. Apply on WhatsApp, or send your CV with the form below.</p>
           </div>
-          <article className="card">
-            <span className="tag">{ROLE.type}</span>
-            <h3>{ROLE.title}</h3>
-            <p>{ROLE.summary}</p>
-            <div className="grid grid-2" style={{ marginTop: 14, alignItems: 'start' }}>
-              <div>
-                <p style={{ margin: 0, fontWeight: 700, color: 'var(--mag)' }}>What you will do</p>
-                <ul className="ticks" style={{ marginTop: 12 }}>
-                  {ROLE.does.map((d) => <li key={d} style={{ fontSize: '0.95rem' }}>{d}</li>)}
-                </ul>
-              </div>
-              <div>
-                <p style={{ margin: 0, fontWeight: 700, color: 'var(--mag)' }}>What we are looking for</p>
-                <ul className="ticks" style={{ marginTop: 12 }}>
-                  {ROLE.you.map((y) => <li key={y} style={{ fontSize: '0.95rem' }}>{y}</li>)}
-                </ul>
-              </div>
+          <div className="grid grid-2">
+            {ROLES.map((r) => (
+              <article className="card" key={r.title} style={r.does ? { gridColumn: '1 / -1' } : undefined}>
+                <span className="tag">{r.type}</span>
+                <h3>{r.title}</h3>
+                <p>{r.summary}</p>
+                {r.does ? (
+                  <div className="grid grid-2" style={{ marginTop: 14, alignItems: 'start' }}>
+                    <div>
+                      <p style={{ margin: 0, fontWeight: 700, color: 'var(--mag)' }}>What you will do</p>
+                      <ul className="ticks" style={{ marginTop: 12 }}>{r.does.map((d) => <li key={d} style={{ fontSize: '0.95rem' }}>{d}</li>)}</ul>
+                    </div>
+                    <div>
+                      <p style={{ margin: 0, fontWeight: 700, color: 'var(--mag)' }}>What we are looking for</p>
+                      <ul className="ticks" style={{ marginTop: 12 }}>{r.you.map((y) => <li key={y} style={{ fontSize: '0.95rem' }}>{y}</li>)}</ul>
+                    </div>
+                  </div>
+                ) : (
+                  <ul className="ticks" style={{ marginTop: 10 }}>{r.you.map((y) => <li key={y} style={{ fontSize: '0.95rem' }}>{y}</li>)}</ul>
+                )}
+                <div className="btn-row" style={{ marginTop: r.does ? 24 : 'auto', paddingTop: r.does ? 0 : 22 }}>
+                  <a className="btn btn-primary" href={wa(roleMsg(r.title))}>Apply on WhatsApp <Arrow /></a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="split" id="apply" style={{ alignItems: 'start', marginTop: 56 }}>
+            <div>
+              <div className="eyebrow">Send your CV</div>
+              <h2>Tell us about <em>you.</em></h2>
+              <p className="lead">Pick a role, tell us a little about yourself and attach your CV if you have one. We read every application and reply on WhatsApp or email.</p>
             </div>
-            <div className="btn-row" style={{ marginTop: 24 }}>
-              <a className="btn btn-primary" href={wa(ROLE.msg)}>Apply on WhatsApp <Arrow /></a>
-            </div>
-          </article>
+            <div className="card"><LeadForm kind="careers" topics={ROLES.map((r) => r.title).concat('Something else')} withCv cta="Send application" /></div>
+          </div>
         </div>
       </section>
 
@@ -226,7 +254,7 @@ export default function WorkWithUsPage() {
           <div>
             <div className="eyebrow">Questions</div>
             <h2>Before you <em>message us.</em></h2>
-            <p className="lead">Something not covered? Ask on WhatsApp at {CONTACT.homes.phone}. Looking for a job instead? See <Link href="/careers/" style={{ textDecoration: 'underline' }}>Careers</Link>.</p>
+            <p className="lead">Something not covered? Ask on WhatsApp at {CONTACT.homes.phone}. Looking for a job instead? See the <a href="#role" style={{ textDecoration: 'underline' }}>open roles</a>.</p>
           </div>
           <Faq items={FAQ} />
         </div>
@@ -239,7 +267,7 @@ export default function WorkWithUsPage() {
         label="Message us on WhatsApp"
       />
 
-      <JsonLd data={[breadcrumbSchema([{ name: 'Work with us', path: '/work-with-us/' }]), faqSchema(FAQ), jobSchema]} />
+      <JsonLd data={[breadcrumbSchema([{ name: 'Work with us', path: '/work-with-us/' }]), faqSchema(FAQ), ...jobSchemas]} />
     </>
   );
 }

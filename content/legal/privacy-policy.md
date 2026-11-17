@@ -15,7 +15,7 @@ This Privacy Policy explains how Mylopaws ("we", "us") handles personal data whe
 - **Payments:** payments are processed by Razorpay. We receive payment status and reference numbers. We never see or store your full card, UPI PIN or bank details.
 - **Conversations:** messages you send us on WhatsApp, Instagram or through website forms, including messages answered by our AI shopping assistant, and calls or conversations with our voice assistant, Anannya.
 - **Website and app usage:** pages visited, device and browser information and approximate location, collected through cookies and similar tools (see Cookies below).
-- **Job applications:** your CV and the details you share when you apply through our Careers page.
+- **Job applications:** your CV and the details you share when you apply through our Work with us page.
 
 ## How we use it
 

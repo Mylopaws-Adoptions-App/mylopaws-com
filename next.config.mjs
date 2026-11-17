@@ -43,6 +43,8 @@ const nextConfig = {
       { source: '/:path((?!.*\\.).*)', has: [{ type: 'host', value: 'www.mylopaws.com' }], destination: 'https://mylopaws.com/:path/', permanent: true },
       { source: '/:file(.*\\..*)', has: [{ type: 'host', value: 'www.mylopaws.com' }], destination: 'https://mylopaws.com/:file', permanent: true },
       ...legacy.map(([source, destination]) => ({ source, destination, permanent: true })),
+      // Careers merged into Work with us.
+      { source: '/careers/', destination: '/work-with-us/#role', permanent: true },
       { source: '/tag/:slug*', destination: '/pawprints/', permanent: true },
       { source: '/author/:slug*', destination: '/pawprints/', permanent: true },
       { source: '/category/uncategorized/', destination: '/pawprints/', permanent: true },
