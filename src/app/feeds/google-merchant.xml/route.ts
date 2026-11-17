@@ -43,6 +43,7 @@ export async function GET() {
 <title>Mylopaws Shopping</title>
 <link>${SITE.url}/shopping/</link>
 <description>Pet food, grooming and care products from Mylopaws, delivered in Bangalore</description>
+<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${rows.join('\n')}
 </channel>
 </rss>`;
