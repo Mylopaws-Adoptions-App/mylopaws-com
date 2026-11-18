@@ -1,4 +1,4 @@
-import { absUrl, feedProducts, imagesOf, isRx, mrp, productDescription, productPath, sell } from '@/lib/shop';
+import { absUrl, imagesOf, merchantItems, priceTags, productDescription, productPath } from '@/lib/shop';
 import { SITE } from '@/lib/site';
 import { feedId, feedIdCollisions } from '@/lib/feed-id';
 
@@ -13,12 +13,11 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const DEFAULT_CAT = 'Animals & Pet Supplies > Pet Supplies';
 
 export async function GET() {
-  const items = (await feedProducts()).filter((p) => !isRx(p) && sell(p) && imagesOf(p)[0] && productDescription(p));
+  const items = await merchantItems();
   const clash = feedIdCollisions(items.map((p) => p.handle));
   if (clash.length) console.error('feedId collision', clash);
   const rows = items.map((p) => {
     const img = imagesOf(p).map(absUrl);
-    const price = sell(p)!, list = mrp(p);
     const gtin = (p.gtin ?? '').replace(/\D/g, '');
     return [
       '<item>',
@@ -29,7 +28,7 @@ export async function GET() {
       `<g:image_link>${esc(img[0])}</g:image_link>`,
       ...img.slice(1, 6).map((i) => `<g:additional_image_link>${esc(i)}</g:additional_image_link>`),
       `<g:availability>${p.in_stock === false ? 'out_of_stock' : 'in_stock'}</g:availability>`,
-      ...(list && list > price ? [`<g:price>${list.toFixed(2)} INR</g:price>`, `<g:sale_price>${price.toFixed(2)} INR</g:sale_price>`] : [`<g:price>${price.toFixed(2)} INR</g:price>`]),
+      ...priceTags(p),
       '<g:condition>new</g:condition>',
       ...(p.brand ? [`<g:brand>${esc(p.brand)}</g:brand>`] : []),
       gtin.length >= 8 ? `<g:gtin>${gtin}</g:gtin>` : '<g:identifier_exists>no</g:identifier_exists>',

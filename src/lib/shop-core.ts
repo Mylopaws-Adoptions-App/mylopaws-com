@@ -30,6 +30,7 @@ export type ShopProduct = {
   country_of_origin: string | null;
   in_stock?: boolean | null;
   feed_eligible?: boolean | null;
+  in_store?: boolean | null;
   feed_description?: string | null;
   feed_google_category?: string | null;
   feed_product_type?: string | null;

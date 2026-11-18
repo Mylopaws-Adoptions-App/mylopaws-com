@@ -1,10 +1,10 @@
 import fs from 'node:fs';
 import { SUPABASE } from './site';
 import FEED_DESC from '@/data/feed-descriptions.json';
-import { shopCategory, type Bundle, type ShopProduct } from './shop-core';
+import { shopCategory, sell, mrp, isRx, imagesOf, type Bundle, type ShopProduct } from './shop-core';
 export * from './shop-core';
 
-const COLS = 'handle,title,category,brand,pet_type,concerns,life_stage,pack_size,family,variant_label,gtin,benefits,how_to_use,short_desc,description,images,image_url,price,mylopaws_price,price_flag,in_stock,feed_eligible,feed_description,feed_google_category,feed_product_type,is_prescription,rx_required,featured,bestseller,sort_rank,country_of_origin';
+const COLS = 'handle,title,category,brand,pet_type,concerns,life_stage,pack_size,family,variant_label,gtin,benefits,how_to_use,short_desc,description,images,image_url,price,mylopaws_price,price_flag,in_stock,feed_eligible,in_store,feed_description,feed_google_category,feed_product_type,is_prescription,rx_required,featured,bestseller,sort_rank,country_of_origin';
 
 function clean(p: ShopProduct): ShopProduct {
   return { ...p, category: shopCategory(p.category), price: p.price == null ? null : Number(p.price), mylopaws_price: p.mylopaws_price == null ? null : Number(p.mylopaws_price) };
@@ -36,6 +36,18 @@ export async function feedProducts(): Promise<ShopProduct[]> {
   } catch {
     return [];
   }
+}
+
+
+const priceEsc = (n: number) => n.toFixed(2);
+/** Merchant feed price tags, shared by the main feed and the local inventory feed so they can never disagree. */
+export function priceTags(p: ShopProduct): string[] {
+  const price = sell(p)!, list = mrp(p);
+  return list && list > price ? [`<g:price>${priceEsc(list)} INR</g:price>`, `<g:sale_price>${priceEsc(price)} INR</g:sale_price>`] : [`<g:price>${priceEsc(price)} INR</g:price>`];
+}
+/** The products in the main Google Merchant feed. The local inventory feed is a subset of exactly this list. */
+export async function merchantItems(): Promise<ShopProduct[]> {
+  return (await feedProducts()).filter((p) => !isRx(p) && sell(p) && imagesOf(p)[0] && productDescription(p));
 }
 
 
