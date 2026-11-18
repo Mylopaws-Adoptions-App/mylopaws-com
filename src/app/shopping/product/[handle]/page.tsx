@@ -6,7 +6,7 @@ import { ProductBuy } from '@/components/shop/ProductBuy';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { absUrl, allProducts, imagesOf, productDescription, inr, isRx, mrp, productPath, sell, shopLink, toCard, vetLink, CONCERNS } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
-import { SITE } from '@/lib/site';
+import { CONTACT, SITE } from '@/lib/site';
 
 export const revalidate = 900;
 type Params = { handle: string };
@@ -57,6 +57,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         ...(m && m > price ? { priceSpecification: { '@type': 'UnitPriceSpecification', priceType: 'https://schema.org/StrikethroughPrice', price: m.toFixed(2), priceCurrency: 'INR' } } : {}),
         availability: p.in_stock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', itemCondition: 'https://schema.org/NewCondition',
         seller: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+        ...(p.in_store === true ? { availableAtOrFrom: { '@type': 'Place', name: `${SITE.name}, HSR Layout`, address: { '@type': 'PostalAddress', streetAddress: CONTACT.address.street, addressLocality: CONTACT.address.locality, addressRegion: CONTACT.address.region, postalCode: CONTACT.address.postalCode, addressCountry: CONTACT.address.country } } } : {}),
       },
     } : {}),
   };
@@ -71,6 +72,13 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
             {p.brand && <p className="sp-brand">{p.brand}{p.pack_size ? ` · ${p.pack_size}` : ''}</p>}
             {about && <p className="lead-sm">{about}</p>}
             <ProductBuy handle={p.handle} title={p.title} brand={p.brand} category={p.category} pack={p.pack_size} price={price} mrp={m} img={images[0] ?? ''} rx={rx} variants={variants} />
+            {p.in_store === true && (
+              <div className="pickup">
+                <b>Pick up today at Mylopaws, HSR Layout</b>
+                <address>{CONTACT.address.street}, {CONTACT.address.locality} {CONTACT.address.postalCode}</address>
+                <a href={`https://www.google.com/maps/search/?api=1&query=${CONTACT.address.lat},${CONTACT.address.lng}`} rel="noopener" target="_blank">Open in Google Maps</a>
+              </div>
+            )}
             <ul className="trust">
               <li>Free delivery over ₹3,000 across Bangalore, otherwise ₹100</li>
               <li>Free pickup from our HSR Layout store</li>
