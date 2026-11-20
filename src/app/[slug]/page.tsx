@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -11,6 +13,7 @@ import { allPosts, postBySlug, CATEGORIES, fmtDate, type Post } from '@/lib/post
 import { SITE, bookLink } from '@/lib/site';
 import { breadcrumbSchema, meta, serviceSchema } from '@/lib/seo';
 
+const hasImage = (src?: string) => !!src && (src.startsWith('http') || fs.existsSync(path.join(process.cwd(), 'public', src)));
 const absUrl = (src: string) => (src.startsWith('http') ? src : `${SITE.url}${src}`);
 
 // Old WordPress pages and posts all lived at the site root: /<slug>/. One route serves them all.
@@ -29,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tr = travelBySlug(slug);
   if (tr) return meta({ title: tr.title, description: tr.description, path: `/${slug}/` });
   const p = postBySlug(slug);
-  if (p) return meta({ title: p.seoTitle, description: p.description, path: `/${slug}/`, type: 'article', published: p.date, modified: p.updated, image: p.image ? absUrl(p.image) : undefined, imageAlt: p.imageAlt, keywords: p.tags });
+  if (p) return meta({ title: p.seoTitle, description: p.description, path: `/${slug}/`, type: 'article', published: p.date, modified: p.updated, image: hasImage(p.image) ? absUrl(p.image!) : undefined, imageAlt: p.imageAlt, keywords: p.tags });
   return {};
 }
 
@@ -246,7 +249,7 @@ function PostPage({ p }: { p: Post }) {
     publisher: { '@id': `${SITE.url}/#org` },
     articleSection: cat.name,
     inLanguage: 'en-IN',
-    ...(p.image ? { image: absUrl(p.image) } : {}),
+    ...(hasImage(p.image) ? { image: absUrl(p.image!) } : {}),
     ...(p.tags?.length ? { keywords: p.tags.join(', ') } : {}),
   };
   // Shown and marked up only once a vet has signed the article off.
@@ -272,7 +275,7 @@ function PostPage({ p }: { p: Post }) {
       <section className="section tight">
         <div className="wrap post-layout">
           <div className="post-main">
-            {p.image && (
+            {hasImage(p.image) && (
               <figure className="post-hero-img">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={p.image} alt={p.imageAlt ?? ''} width={1600} height={900} loading="eager" fetchPriority="high" draggable={false} />

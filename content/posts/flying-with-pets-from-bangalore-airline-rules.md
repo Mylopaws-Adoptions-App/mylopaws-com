@@ -7,7 +7,7 @@ date: 2026-11-20
 updated: 2026-11-20
 category: travel
 order: 20
-image: "https://images.unsplash.com/photo-1696875135742-c3044510c9e2?w=1600&q=80&fm=jpg&fit=crop"
+image: "/images/blog/flying-with-pets-bangalore.webp"
 imageAlt: "Two black dogs sitting on an airport ramp in front of an aircraft"
 imageCredit: "Jeswin Thomas on Unsplash"
 imageCreditUrl: "https://unsplash.com/photos/two-black-dogs-sitting-in-front-of-an-airplane-5DzV0RnpUlA"
