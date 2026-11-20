@@ -77,7 +77,7 @@ export const TRAVEL: TravelService[] = [
       { q: 'Do you handle airline paperwork?', a: 'Airline and pet-relocation paperwork stays with you or your relocation agent. We make sure the ride fits around it.' },
       { q: 'How early should I book?', a: 'As soon as your flight is fixed, especially for early-morning or late-night flights.' },
     ],
-    posts: ['outstation-travel-pet-bangalore-checklist', 'pet-travel-bangalore-mistake-pet-parents-make'],
+    posts: ['flying-with-pets-from-bangalore-airline-rules', 'outstation-travel-pet-bangalore-checklist', 'pet-travel-bangalore-mistake-pet-parents-make'],
   },
   {
     slug: 'travel-vet-visits',
