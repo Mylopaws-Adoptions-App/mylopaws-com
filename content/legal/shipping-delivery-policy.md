@@ -2,7 +2,7 @@
 title: Shipping & Delivery Policy
 seoTitle: Shipping & Delivery Policy | Mylopaws
 description: Where and when Mylopaws delivers pet products and medicines in Bangalore, delivery fees, and free store pickup in HSR Layout.
-updated: 2026-11-16
+updated: 2026-11-27
 ---
 
 ## Where we deliver
@@ -11,9 +11,9 @@ We deliver within Bengaluru. We do not ship outside the city at present.
 
 ## When
 
-- We run one delivery round each evening, **Monday to Saturday, between 5 pm and 8 pm**.
-- Orders paid **before 1 pm** go out the same evening. Orders after 1 pm, or on Sunday, go out on the next delivery day.
-- Your expected delivery date is shown when you order and confirmed on WhatsApp.
+- We pack your order at our HSR Layout store and ship it with our courier partner, **Delhivery**.
+- Orders usually reach you in **1 to 3 days** anywhere in Bengaluru. Delhivery does not collect on Sundays, so Sunday orders ship on Monday.
+- Your expected delivery date is shown when you order, and we send the Delhivery tracking link on WhatsApp as soon as it ships.
 - We stock the most popular items. If something is not on our shelf, we source it for you, so it can take an extra day or two. We tell you on WhatsApp if your delivery date changes.
 
 ## Delivery fee
@@ -28,11 +28,11 @@ We deliver to Bengaluru pincodes (560xxx). If your pincode is outside Bengaluru,
 
 ## Order updates
 
-We update you on WhatsApp on the number you gave at checkout: order confirmed, out for delivery and delivered. You can also check your order on the [order page](/shopping/order/) with your order number and phone number.
+We update you on WhatsApp on the number you gave at checkout: order confirmed, shipped (with the Delhivery tracking link), out for delivery and delivered. You can also check your order on the [order page](/shopping/order/) with your order number and phone number.
 
 ## Delivery attempts
 
-Please be available at the address in the delivery window. If we cannot reach you, we will try once more the same evening or on the next delivery day. After that we will contact you to rearrange, and the delivery fee may apply again.
+Please keep your phone handy on the delivery day; the Delhivery delivery person may call you. If delivery fails, Delhivery usually tries again the next working day. If the parcel comes back to us, we will contact you to rearrange, and the delivery fee may apply again.
 
 ## Free store pickup
 

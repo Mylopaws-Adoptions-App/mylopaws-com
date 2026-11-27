@@ -83,7 +83,7 @@ const ROLES = [
   {
     title: 'Warehouse & Delivery Executive',
     type: 'Full-time · HSR Layout, Bengaluru',
-    summary: 'Keep our pet shop running: receive and organise stock, pack orders carefully, and deliver across Bangalore on our evening runs.',
+    summary: 'Keep our pet shop running: receive and organise stock, pack orders carefully and hand them to our courier partner for delivery across Bangalore.',
     you: ['Own a two-wheeler and a valid licence', 'Know Bangalore’s roads well', 'Careful with medicines, cold-chain and fragile items', 'Comfortable with WhatsApp and simple stock apps', 'Kannada, Hindi or English; more is a bonus'],
   },
   {

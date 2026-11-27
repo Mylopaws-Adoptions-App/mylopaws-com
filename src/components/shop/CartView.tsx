@@ -197,7 +197,7 @@ export function CartView() {
         <div className="co-card">
           <h3>Delivery</h3>
           <div className="seg" role="radiogroup" aria-label="Delivery or pickup">
-            <button type="button" role="radio" aria-checked={fulfil === 'delivery'} onClick={() => setFulfil('delivery')}><b>Deliver to me</b><small>{cfg ? `Next run ${cfg.next_run_label}, ${cfg.delivery.window}` : 'Bangalore evening run'}</small></button>
+            <button type="button" role="radio" aria-checked={fulfil === 'delivery'} onClick={() => setFulfil('delivery')}><b>Deliver to me</b><small>{cfg ? `Arrives ${cfg.next_run_label}, ${cfg.delivery.window}` : 'Arrives in 1–3 days by Delhivery'}</small></button>
             {(cfg?.delivery.pickup_enabled ?? true) && <button type="button" role="radio" aria-checked={fulfil === 'pickup'} onClick={() => { setFulfil('pickup'); track('pickup_selected'); }}><b>Free pickup</b><small>HSR Layout store</small></button>}
           </div>
           {fulfil === 'delivery' ? (

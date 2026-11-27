@@ -87,7 +87,7 @@ export function OrderView() {
         <h3>Order #{o.order_number}</h3>
         <ul className="order-items">{o.items.map((i, n) => <li key={n}><span>{i.qty} × {i.title}</span><b>{inr(i.price * i.qty)}</b></li>)}</ul>
         <div className="sum"><div><span>Delivery</span><b>{Number(o.delivery_fee) ? inr(o.delivery_fee) : 'Free'}</b></div><div className="tot"><span>Total paid</span><b>{inr(o.total)}</b></div></div>
-        <p className="muted small">{o.fulfilment === 'pickup' ? 'Collect from our HSR Layout store once we message you that it is ready.' : o.promised_date ? `Expected on our ${new Date(o.promised_date + 'T00:00:00Z').toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'short', timeZone: 'UTC' })} evening delivery run.` : 'We will message you the delivery date.'}</p>
+        <p className="muted small">{o.fulfilment === 'pickup' ? 'Collect from our HSR Layout store once we message you that it is ready.' : o.promised_date ? `Ships by Delhivery. Expected by ${new Date(o.promised_date + 'T00:00:00Z').toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'short', timeZone: 'UTC' })}; we WhatsApp you the tracking link when it ships.` : 'Ships by Delhivery in 1–3 days. We WhatsApp you the tracking link when it ships.'}</p>
         {o.rx_status === 'received' && <p className="muted small">Our team will check your prescription before packing.</p>}
         {o.tracking_url && <p><a href={o.tracking_url}>Track your delivery</a></p>}
       </div>

@@ -23,7 +23,7 @@ const FAQ = [
   { q: 'Do I need an account to order?', a: 'No. Check out as a guest with your name and mobile number. We send order updates on WhatsApp.' },
   { q: 'How do prescription medicines work?', a: 'Prescription-only products need a valid vet prescription. You upload a photo or PDF at checkout before paying, and our team checks it before packing. No prescription? Our vet, Dr Amrita, can consult on WhatsApp for ₹650.' },
   { q: 'Do you sell vaccines?', a: 'Vaccines are not sold online because they need cold-chain storage and a vet to administer them. Message us on WhatsApp and we will arrange the vaccination for your dog or cat.' },
-  { q: 'When will my order arrive?', a: 'We run one delivery across Bangalore each evening (5 to 8 pm, Monday to Saturday). Orders paid before 1 pm go out the same evening.' },
+  { q: 'When will my order arrive?', a: 'We pack your order at our HSR Layout store and ship it by Delhivery. It usually reaches you in 1 to 3 days anywhere in Bangalore, and we send the tracking link on WhatsApp as soon as it ships.' },
   { q: 'Are the products genuine?', a: 'Yes. We source from the brands and their authorised distributors, and check expiry before packing.' },
 ];
 
