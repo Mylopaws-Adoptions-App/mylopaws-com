@@ -4,7 +4,7 @@ import FEED_DESC from '@/data/feed-descriptions.json';
 import { shopCategory, sell, mrp, isRx, imagesOf, type Bundle, type ShopProduct } from './shop-core';
 export * from './shop-core';
 
-const COLS = 'handle,title,category,brand,pet_type,concerns,life_stage,pack_size,family,variant_label,gtin,benefits,how_to_use,short_desc,description,images,image_url,price,mylopaws_price,price_flag,in_stock,feed_eligible,in_store,feed_description,feed_google_category,feed_product_type,is_prescription,rx_required,featured,bestseller,sort_rank,country_of_origin';
+const COLS = 'handle,title,category,brand,pet_type,concerns,life_stage,pack_size,family,variant_label,gtin,benefits,how_to_use,short_desc,description,images,image_url,price,mylopaws_price,price_flag,in_stock,feed_eligible,in_store,feed_description,feed_google_category,feed_product_type,is_prescription,rx_required,featured,bestseller,sort_rank,country_of_origin,color';
 
 function clean(p: ShopProduct): ShopProduct {
   return { ...p, category: shopCategory(p.category), price: p.price == null ? null : Number(p.price), mylopaws_price: p.mylopaws_price == null ? null : Number(p.mylopaws_price) };

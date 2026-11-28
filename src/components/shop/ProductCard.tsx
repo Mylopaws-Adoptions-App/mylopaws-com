@@ -28,6 +28,9 @@ export function ProductCard({ p, list }: { p: Card; list?: string }) {
         {p.p ? (
           <>
             <div className="sp-price"><b>{inr(p.p)}</b>{save >= 3 && p.m && <s>{inr(p.m)}</s>}</div>
+            {p.sz ? (
+              <Link href={productPath(p.h)} className="btn btn-primary sp-add" onClick={() => logSearchClick(p.h, true)}>Choose size</Link>
+            ) : (
             <button
               type="button"
               className="btn btn-primary sp-add"
@@ -35,6 +38,7 @@ export function ProductCard({ p, list }: { p: Card; list?: string }) {
             >
               Add to cart
             </button>
+            )}
           </>
         ) : (
           <a className="btn btn-ghost sp-add" href={askLink(p.t)} onClick={() => whatsappClick('card', p.t)}>Ask on WhatsApp</a>

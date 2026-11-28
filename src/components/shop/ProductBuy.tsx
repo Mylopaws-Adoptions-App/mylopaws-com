@@ -12,6 +12,7 @@ export type BuyProps = {
   handle: string; title: string; brand: string | null; category: string | null; pack: string | null;
   price: number | null; mrp: number | null; img: string; rx: boolean;
   variants: { handle: string; label: string; price: number | null }[];
+  varLabel?: string;
 };
 
 export function ProductBuy(p: BuyProps) {
@@ -25,8 +26,8 @@ export function ProductBuy(p: BuyProps) {
   return (
     <div className="pb">
       {p.variants.length > 1 && (
-        <div className="pb-var" role="group" aria-label="Pack size">
-          <span className="pb-lab">Pack size</span>
+        <div className="pb-var" role="group" aria-label={p.varLabel ?? 'Pack size'}>
+          <span className="pb-lab">{p.varLabel ?? 'Pack size'}</span>
           <div className="chiprow wrapchips">
             {p.variants.map((v) => (
               <Link key={v.handle} href={productPath(v.handle)} className="chip" aria-pressed={v.handle === p.handle} replace scroll={false}>{v.label}{v.price ? <small>{inr(v.price)}</small> : null}</Link>

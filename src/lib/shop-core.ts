@@ -34,6 +34,7 @@ export type ShopProduct = {
   feed_description?: string | null;
   feed_google_category?: string | null;
   feed_product_type?: string | null;
+  color?: string | null;
 };
 /** Backwards compatible name used by the home page. */
 export type Product = ShopProduct;
@@ -67,11 +68,28 @@ export const imagesOf = (p: Pick<ShopProduct, 'images' | 'image_url'>): string[]
 export const absUrl = (u: string) => (/^https?:\/\//i.test(u) ? u : `https://mylopaws.com${u.startsWith('/') ? '' : '/'}${u}`);
 export const productPath = (handle: string) => `/shopping/product/${handle}/`;
 
+// ── clothing: one card per design, size chosen on the product page ──
+export const isClothing = (c: string | null | undefined) => c === 'Dog Clothing';
+const SIZES = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+export const sizeRank = (label: string | null | undefined) => { const i = SIZES.indexOf((label ?? '').toUpperCase()); return i < 0 ? 99 : i; };
+/** Title without the trailing " – S" size suffix (clothing cards show the design, not one size). */
+export const designTitle = (p: Pick<ShopProduct, 'title' | 'variant_label'>) => (p.variant_label ? p.title.replace(new RegExp(`\\s*[–-]\\s*${p.variant_label}$`), '') : p.title);
+/** Listing rows: clothing families collapse to their smallest size so the grid shows one card per design. */
+export function listable(items: ShopProduct[]): ShopProduct[] {
+  const best = new Map<string, ShopProduct>();
+  for (const p of items) if (isClothing(p.category) && p.family) {
+    const cur = best.get(p.family);
+    if (!cur || sizeRank(p.variant_label) < sizeRank(cur.variant_label)) best.set(p.family, p);
+  }
+  return items.filter((p) => !(isClothing(p.category) && p.family) || best.get(p.family) === p);
+}
+
 /** The slim shape sent to client components (keeps the page light). */
-export type Card = { h: string; t: string; b: string | null; c: string | null; pt: string | null; cn: string[]; pk: string | null; p: number | null; m: number | null; i: string; rx: boolean; best: boolean; f: boolean; r: number };
+export type Card = { h: string; t: string; b: string | null; c: string | null; pt: string | null; cn: string[]; pk: string | null; p: number | null; m: number | null; i: string; rx: boolean; best: boolean; f: boolean; r: number; sz?: boolean };
 export const toCard = (p: ShopProduct): Card => ({
-  h: p.handle, t: p.title, b: p.brand, c: p.category, pt: p.pet_type, cn: p.concerns ?? [], pk: p.pack_size,
+  h: p.handle, t: isClothing(p.category) ? designTitle(p) : p.title, b: p.brand, c: p.category, pt: p.pet_type, cn: p.concerns ?? [], pk: p.pack_size,
   p: sell(p), m: mrp(p), i: imagesOf(p)[0] ?? '', rx: isRx(p), best: !!p.bestseller, f: !!p.featured, r: p.sort_rank ?? 100,
+  ...(isClothing(p.category) && p.family ? { sz: true } : {}),
 });
 
 // ── taxonomy ─────────────────────────────────────────────────────

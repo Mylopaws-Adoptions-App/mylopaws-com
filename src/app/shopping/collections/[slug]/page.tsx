@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { CtaBand, JsonLd, PageHero } from '@/components/Blocks';
 import { ListView } from '@/components/shop/ProductBuy';
 import { ProductCard } from '@/components/shop/ProductCard';
-import { allProducts, collections, isRx, productPath, shopLink, toCard, CONCERNS } from '@/lib/shop';
+import { allProducts, collections, isRx, productPath, shopLink, toCard, listable, CONCERNS } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 
@@ -28,7 +28,7 @@ export default async function Collection({ params }: { params: Promise<Params> }
   if (!c) notFound();
   const items = all.filter(c.filter).sort((a, b) => Number(!!b.bestseller) - Number(!!a.bestseller) || (a.sort_rank ?? 100) - (b.sort_rank ?? 100) || a.title.localeCompare(b.title));
   const related = Object.keys(CONCERNS).filter((k) => k !== slug && all.some((p) => (p.concerns ?? []).includes(k))).slice(0, 8);
-  const cards = items.map(toCard);
+  const cards = listable(items).map(toCard);
   return (
     <>
       <PageHero sol="shopping" crumbs={[{ href: '/shopping/', label: 'Shopping' }, { label: c.h1 }]} eyebrow="Mylopaws Shopping" title={<>{c.h1}</>} lead={c.blurb} />

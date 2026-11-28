@@ -35,6 +35,8 @@ export async function GET() {
       `<g:google_product_category>${esc(p.feed_google_category || DEFAULT_CAT)}</g:google_product_category>`,
       `<g:product_type>${esc(p.feed_product_type || 'Pet Supplies')}</g:product_type>`,
       ...(p.family ? [`<g:item_group_id>${esc(p.family.slice(0, 50))}</g:item_group_id>`] : []),
+      ...(p.category === 'Dog Clothing' && p.variant_label ? [`<g:size>${esc(p.variant_label)}</g:size>`] : []),
+      ...(p.color ? [`<g:color>${esc(p.color)}</g:color>`] : []),
       ...(p.pack_size ? [`<g:product_detail><g:attribute_name>Pack size</g:attribute_name><g:attribute_value>${esc(p.pack_size)}</g:attribute_value></g:product_detail>`] : []),
       '</item>',
     ].join('\n');

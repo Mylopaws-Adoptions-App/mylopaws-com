@@ -7,7 +7,7 @@ import { BundleCard, type BundleView } from '@/components/shop/BundleCard';
 import { ListView } from '@/components/shop/ProductBuy';
 import { ProductCard } from '@/components/shop/ProductCard';
 import { ShopBrowser } from '@/components/shop/ShopBrowser';
-import { allProducts, bundles, brandList, collections, imagesOf, isRx, sell, mrp, shopLink, slugify, toCard, vaccineLink, vetLink, CONCERNS, HOME_CONCERNS } from '@/lib/shop';
+import { allProducts, bundles, brandList, collections, imagesOf, isRx, sell, mrp, shopLink, slugify, toCard, listable, isClothing, vaccineLink, vetLink, CONCERNS, HOME_CONCERNS } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 
 export const revalidate = 900; // catalogue refreshes from Supabase every 15 minutes
@@ -30,7 +30,8 @@ const FAQ = [
 export default async function ShoppingPage() {
   const [items, bs] = await Promise.all([allProducts(), bundles()]);
   const byHandle = new Map(items.map((p) => [p.handle, p]));
-  const cards = items.map(toCard);
+  const cards = listable(items).map(toCard);
+  const wear = listable(items).filter((p) => isClothing(p.category) && sell(p)).slice(0, 8);
   const picks = items.filter((p) => p.featured && sell(p)).slice(0, 8);
   const best = items.filter((p) => p.bestseller && sell(p) && !picks.includes(p)).slice(0, 8);
   const conCount = new Map<string, number>();
@@ -84,6 +85,12 @@ export default async function ShoppingPage() {
           </div>
         </div>
       </section>
+
+      {wear.length > 0 && (
+        <section className="section tight">
+          <div className="wrap"><h2>Winter wear for dogs</h2><p className="lead" style={{ marginBottom: 18 }}>Hoodies and a Santa coat for chilly evenings and Christmas photos. Sizes S to XL.</p><div className="sp-grid">{wear.map((p) => <ProductCard key={p.handle} p={toCard(p)} list="Winter wear" />)}</div></div>
+        </section>
+      )}
 
       {picks.length > 0 && (
         <section className="section tight alt">

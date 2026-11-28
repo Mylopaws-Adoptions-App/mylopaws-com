@@ -4,7 +4,7 @@ import { CtaBand, JsonLd, PageHero } from '@/components/Blocks';
 import { Gallery } from '@/components/shop/Gallery';
 import { ProductBuy } from '@/components/shop/ProductBuy';
 import { ProductCard } from '@/components/shop/ProductCard';
-import { absUrl, allProducts, imagesOf, productDescription, inr, isRx, mrp, productPath, sell, shopLink, toCard, vetLink, CONCERNS } from '@/lib/shop';
+import { absUrl, allProducts, imagesOf, productDescription, inr, isRx, mrp, productPath, sell, shopLink, toCard, isClothing, sizeRank, listable, vetLink, CONCERNS } from '@/lib/shop';
 import { breadcrumbSchema, meta } from '@/lib/seo';
 import { CONTACT, SITE } from '@/lib/site';
 
@@ -37,8 +37,9 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   const price = sell(p), m = mrp(p);
   const images = imagesOf(p);
   const family = p.family ? all.filter((x) => x.family === p.family) : [p];
-  const variants = family.map((x) => ({ handle: x.handle, label: x.variant_label ?? x.pack_size ?? 'Standard', price: sell(x) })).sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
-  const related = all.filter((x) => x.handle !== p.handle && x.family !== p.family && (x.concerns ?? []).some((c) => (p.concerns ?? []).includes(c)) && (x.pet_type === p.pet_type || x.pet_type === 'both' || p.pet_type === 'both')).slice(0, 4);
+  const variants = family.map((x) => ({ handle: x.handle, label: x.variant_label ?? x.pack_size ?? 'Standard', price: sell(x) })).sort((a, b) => (a.price ?? 0) - (b.price ?? 0) || sizeRank(a.label) - sizeRank(b.label));
+  const wear = isClothing(p.category);
+  const related = wear ? listable(all).filter((x) => isClothing(x.category) && x.family !== p.family).slice(0, 4) : all.filter((x) => x.handle !== p.handle && x.family !== p.family && (x.concerns ?? []).some((c) => (p.concerns ?? []).includes(c)) && (x.pet_type === p.pet_type || x.pet_type === 'both' || p.pet_type === 'both')).slice(0, 4);
   const concerns = (p.concerns ?? []).filter((c) => CONCERNS[c]);
   const about = productDescription(p);
   const url = `${SITE.url}${productPath(handle)}`;
@@ -71,7 +72,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           <div>
             {p.brand && <p className="sp-brand">{p.brand}{p.pack_size ? ` · ${p.pack_size}` : ''}</p>}
             {about && <p className="lead-sm">{about}</p>}
-            <ProductBuy handle={p.handle} title={p.title} brand={p.brand} category={p.category} pack={p.pack_size} price={price} mrp={m} img={images[0] ?? ''} rx={rx} variants={variants} />
+            <ProductBuy handle={p.handle} title={p.title} brand={p.brand} category={p.category} pack={p.pack_size} price={price} mrp={m} img={images[0] ?? ''} rx={rx} variants={variants} varLabel={wear ? 'Size' : 'Pack size'} />
             {p.in_store === true && (
               <div className="pickup">
                 <b>Pick up today at Mylopaws, HSR Layout</b>
