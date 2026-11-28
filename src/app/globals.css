@@ -668,7 +668,7 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .cart-badge { position: absolute; top: 2px; right: 0; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--mag); color: #fff; font-size: .68rem; font-weight: 800; line-height: 18px; text-align: center; }
 .cart-mobile { display: none; }
 @media (max-width: 920px) { .nav .cart-link { display: none; } .cart-mobile { display: block; margin-left: auto; margin-right: 6px; } }
-.cart-toast-wrap { position: fixed; left: 0; right: 0; bottom: 16px; z-index: 60; display: flex; justify-content: center; pointer-events: none; padding: 0 16px; }
+.cart-toast-wrap { position: fixed; left: 0; right: 0; bottom: 16px; z-index: 75; display: flex; justify-content: center; pointer-events: none; padding: 0 16px; }
 .cart-toast { pointer-events: auto; display: flex; align-items: center; gap: 14px; background: var(--mag-ink); color: #fff; padding: 12px 14px 12px 18px; border-radius: 14px; box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .5); max-width: 520px; width: 100%; animation: toast-in .25s var(--ease); }
 .cart-toast div { flex: 1; font-size: .9rem; line-height: 1.35; } .cart-toast small { display: block; color: var(--mint); font-weight: 600; }
 .cart-toast .btn { padding: 10px 16px; font-size: .85rem; background: var(--sun); color: var(--ink); } .cart-toast .btn:hover { background: #ffeb8c; color: var(--ink); }
@@ -700,7 +700,10 @@ a.card:hover .more .arrow { transform: translateX(4px); }
 .sp-foot { padding: 6px 12px 12px; display: grid; gap: 8px; }
 .sp-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; font-variant-numeric: tabular-nums; } .sp-price b { font-size: 1.1rem; color: var(--ink); } .sp-price s { color: var(--muted); font-size: .85rem; }
 .sp-add { width: 100%; padding: 11px 12px; font-size: .86rem; }
-@media (max-width: 560px) { .sp h3 { font-size: .82rem; } .sp-link { padding: 8px 8px 4px; } .sp-foot { padding: 4px 8px 10px; } .sp-add { padding: 10px 6px; font-size: .8rem; } }
+.sp-step { display: flex; align-items: center; justify-content: space-between; width: 100%; background: var(--mag); color: #fff; border-radius: var(--radius-sm); animation: toast-in .2s var(--ease); }
+.sp-step button { all: unset; cursor: pointer; width: 44px; line-height: 42px; text-align: center; font-size: 1.25rem; font-weight: 700; border-radius: var(--radius-sm); } .sp-step button:hover { background: rgba(255, 255, 255, .14); } .sp-step button:disabled { opacity: .4; cursor: default; } .sp-step button:focus-visible { outline: 2px solid var(--sun); outline-offset: -2px; }
+.sp-step span { font-size: .86rem; font-variant-numeric: tabular-nums; } .sp-step b { font-size: 1rem; }
+@media (max-width: 560px) { .sp h3 { font-size: .82rem; } .sp-link { padding: 8px 8px 4px; } .sp-foot { padding: 4px 8px 10px; } .sp-add { padding: 10px 6px; font-size: .8rem; } .sp-step button { width: 36px; line-height: 38px; } .sp-step span { font-size: .78rem; } }
 
 .trustrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; } .trustrow div { display: grid; gap: 2px; padding: 16px 18px; border-radius: 14px; background: var(--bg-soft); } .trustrow b { color: var(--ink); font-size: .92rem; } .trustrow span { color: var(--muted); font-size: .8rem; }
 @media (max-width: 900px) { .trustrow { grid-template-columns: repeat(2, 1fr); } }
